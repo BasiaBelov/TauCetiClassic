@@ -980,32 +980,18 @@ var/global/list/tourette_bad_words= list(
 		
 			
 		if(hallucination)
-			var/volume = 0
 			var/severity = 0
 			switch(hallucination)
-				if(10 to 20)
-					severity = 1
-					volume = 10
-				if(20 to 25)
-					severity = 2
-					volume = 20
-				if(25 to 30)
-					severity = 3
-					volume = 30
-				if(30 to 35)
-					severity = 4
-					volume = 40
-				if(35 to 40)
-					severity = 5
-					volume = 50
-				if(40 to 45)
-					severity = 6
-					volume = 60
-				if(45 to INFINITY)
-					severity = 7
-					volume = 70
-			overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/oxy, severity)
-			playsound_music('sound/ambience/loop_engine.ogg', VOL_EFFECTS_MASTER, TRUE, null, CHANNEL_AMBIENT_LOOP)
+				if(10 to 20)		severity = 1
+				if(20 to 25)		severity = 2
+				if(25 to 30)		severity = 3
+				if(30 to 35)		severity = 4
+				if(35 to 40)		severity = 5
+				if(40 to 45)		severity = 6
+				if(45 to INFINITY)	severity = 7
+			overlay_fullscreen("fear", /atom/movable/screen/fullscreen/oxy, severity)
+		else
+			clear_fullscreen("fear")
 
 	update_sight()
 
