@@ -39,7 +39,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 			if(0 to 15)
 				hal_screwyhud = pick(1, 2, 3, 3, 4, 4)
 				if(hal_screwyhud == 2 && prob(30))
-					to_chat(src, "<span class='userdanger'>[pick("FUCK!", "FOR FUCKS SAKE, END THIS!", "")] I LOST! [pick("NNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH!", "DAMN THIS GAME IS SO HARD!", "I CAN'T PLAY THIS GAME ANY MORE!")]</span>")
+					to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ХВАТИТ!", "ПОЖАЛУЙСТА, ПРЕКРАТИ!")] ГДЕ Я?! [pick("НААААААААААААААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
 					playsound_local(null, 'sound/hallucinations/fake_death.ogg', VOL_EFFECTS_MASTER)
 				spawn(rand(100,250))
 					hal_screwyhud = 0
@@ -90,7 +90,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 						if(client)
 							client.screen += halitem
 							if(prob(70))
-								to_chat(src, "<span class='warning'>[pick("W-WHAT?", "AGAIN?!", "H-HA, HA-HA!")] [pick("IT'S TIME FOR REVENGE!", "FINALLY! I'LL SHOW THEM ALL...", "I NEED TO FIND A WORTHY OPPONENT!")]</span>")
+								to_chat(src, "<span class='warning'>[pick("Ч-ЧТО?", "ОПЯТЬ?!", "Х-ХА... ХА-ХА!", "ОТКУДА?")] [pick("ВРЕМЯ МЕСТИ!", "НАКОНЕЦ-ТО... Я ИМ ПОКАЖУ!", "МНЕ НУЖЕН ДОСТОЙНЫЙ ПРОТИВНИК!", "БЕГИТЕ, Я КОНЧЕНЫЙ!", "РЕЗНЯ!")]</span>")
 								playsound_local(null, SCARY_SOUNDS, VOL_EFFECTS_MASTER, null, FALSE)
 						spawn(rand(100,250))
 							if(client)
@@ -117,7 +117,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 								//src << "C4"
 								halimage = image('icons/obj/assemblies.dmi',target,"plastic-explosive2",OBJ_LAYER+0.01)
 						if(prob(60))
-							to_chat(src, "<span class='userdanger'>[pick("O-OH NO!", "SH-SHIT!", "NOT NOW! PLEASE!", "I DON'T WANT TO DIE!")] [pick("I H-HAVE TO RUN!", "QUICKLY! TO THE SHELTER", "")]</span>")
+							to_chat(src, "<span class='userdanger'>[pick("О НЕТ!", "ТВАЮ МАТЬ!", "ТОЛЬКО НЕ СЕЙЧАС!", "Я НЕ ХОЧУ УМИРАТЬ!")] [pick("МНЕ НУЖНО ВЫБРАТЬСЯ ОТСЮДА!", "НАЙТИ УБЕЖИЩЕ!", "")]</span>")
 							playsound_local(null, DEMON_SOUNDS, VOL_EFFECTS_MASTER, null, FALSE)
 							if(ishuman(src))
 								var/mob/living/carbon/human/H = src
@@ -223,7 +223,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 							H.ear_deaf += 8
 							H.Weaken(5)
 							H.Stun(8)
-							to_chat(src, "<span class='userdanger'>[pick("", "Voices in my head...", "WHY?!")] [pick("They're coming back!", "Not again...", "WHAT YOU NEED?!", "I CAN'T TAKE IT ANYMORE!", "GAAAAAAAAAAAAAH!")]</span>")
+							to_chat(src, "<span class='userdanger'>[pick("О нет...", "Голоса в голове...", "Что за...", "Только не снова...")] [pick("ЧТО ТЕБЕ НУЖНО?!", "Я ТАК БОЛЬШЕ НЕ МОГУ!", "НАААААААААААХ!", "ОТСТАНЬ ОТ МЕНЯ!", "НЕ ТРОГАЙ МЕНЯ!", "ГДЕ ТЫ?!")]</span>")
 							H.emote("scream")
 					if(13) // MISC
 						var/list/hallsound = list('sound/effects/Heart Beat.ogg',
@@ -271,7 +271,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 				SetSleeping(40 SECONDS)
 				hal_crit = 1
 				hal_screwyhud = 1
-				to_chat(src, "<span class='userdanger'>[pick("FUCK!", "FOR FUCKS SAKE, END THIS!", "", "WHY-Y-Y?!", "NOT AGAIN")] I LOST! [pick("NNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH!", "DAMN THIS GAME IS SO HARD!", "I CAN'T PLAY THIS GAME ANY MORE!")]</span>")
+				to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ЗАЧЕ-Е-ЕМ?!", "ТОЛЬКО НЕ СНОВА", "ПОЖАЛУЙСТА, ПРЕКРАТИ!")] ГДЕ Я?! [pick("НАААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
 				playsound_local(null, 'sound/hallucinations/fake_death.ogg', VOL_EFFECTS_MASTER)
 				spawn(rand(50,100))
 					SetSleeping(0)
@@ -313,7 +313,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 	user.do_attack_animation(src)
 	user.SetNextMove(CLICK_CD_MELEE)
 	step_away(src,my_target,2)
-	my_target.visible_message("<span class='warning'><B>[my_target] flails around wildly.</B></span>", self_message = "<span class='warning'><B>[src] has been attacked by [my_target] </B></span>")
+	my_target.visible_message("<span class='warning'><B>[my_target] сильно размахивает руками.</B></span>", self_message = "<span class='warning'><B>[src] has been attacked by [my_target] </B></span>")
 
 	src.health -= P.force
 
@@ -326,7 +326,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 		step_away(src,my_target,2)
 		if(prob(30))
 			for(var/mob/O in oviewers(world.view , my_target))
-				to_chat(O, "<span class='warning'><B>[my_target] stumbles around.</B></span>")
+				to_chat(O, "<span class='warning'><B>[my_target] спотыкается обо что-то.</B></span>")
 
 /obj/effect/fake_attacker/atom_init()
 	. = ..()
