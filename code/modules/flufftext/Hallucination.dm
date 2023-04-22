@@ -90,7 +90,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 						if(client)
 							client.screen += halitem
 							if(prob(70))
-								to_chat(src, "<span class='warning'>[pick("Ч-ЧТО?", "ОПЯТЬ?!", "Х-ХА... ХА-ХА!", "ОТКУДА?")] [pick("ВРЕМЯ МЕСТИ!", "НАКОНЕЦ-ТО... Я ИМ ПОКАЖУ!", "МНЕ НУЖЕН ДОСТОЙНЫЙ ПРОТИВНИК!", "БЕГИТЕ, Я КОНЧЕНЫЙ!", "РЕЗНЯ!")]</span>")
+								to_chat(src, "<span class='userdanger'>[pick("Ч-ЧТО?", "ОПЯТЬ?!", "Х-ХА... ХА-ХА!", "ОТКУДА?")] [pick("ВРЕМЯ МЕСТИ!", "НАКОНЕЦ-ТО... Я ИМ ПОКАЖУ!", "МНЕ НУЖЕН ДОСТОЙНЫЙ ПРОТИВНИК!", "БЕГИТЕ, Я КОНЧЕНЫЙ!", "РЕЗНЯ!")]</span>")
 								playsound_local(null, SCARY_SOUNDS, VOL_EFFECTS_MASTER, null, FALSE)
 						spawn(rand(100,250))
 							if(client)
