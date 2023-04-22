@@ -8,14 +8,14 @@
 	. += 			"<table width='100%' cellpadding='5' cellspacing='0'>"	//General table start
 	. += 				"<tr valign='top'>"
 	. += 					"<td colspan='2'>"
-	. += 						"<b>Name:</b> "
+	. += 						"<b>Имя:</b> "
 	. += 						"<a href='?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
-	. += 						"<br>(<a href='?_src_=prefs;preference=name;task=random'>Random Name</a>)"
-	. += 						"(<a href='?_src_=prefs;preference=name'>Always Random Name: [be_random_name ? "Yes" : "No"]</a>)"
-	. += 						"<b>Gender:</b> <a href='?_src_=prefs;preference=gender'><b>[gender == MALE ? "Male" : "Female"]</b></a>"
-	. += 						"<br><b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
-	. += 						"<br><b>Height:</b> <a href='?_src_=prefs;preference=height;task=input'>[height]</a>"
-	. += 						"<br><b>Randomized Character Slot:</b> <a href='?_src_=prefs;preference=randomslot'><b>[randomslot ? "Yes" : "No"]</b></a>"
+	. += 						"<br>(<a href='?_src_=prefs;preference=name;task=random'>Случайное имя</a>)"
+	. += 						"<br>(<a href='?_src_=prefs;preference=name'>Всегда случайное имя: [be_random_name ? "Да" : "Нет"]</a>)"
+	. += 						"<br><b>Пол:</b> <a href='?_src_=prefs;preference=gender'><b>[gender == MALE ? "Мужской" : "Женский"]</b></a>"
+	. += 						"<br><b>Возраст:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
+	. += 						"<br><b>Рост:</b> <a href='?_src_=prefs;preference=height;task=input'>[height]</a>"
+	. += 						"<br><b>Случайный слот персонажа:</b> <a href='?_src_=prefs;preference=randomslot'><b>[randomslot ? "Да" : "Нет"]</b></a>"
 	. += 						"<hr>"
 	. += 					"</td>"
 	. += 				"</tr>"
@@ -24,12 +24,12 @@
 	. += 				"<tr>"
 	. += 					"<td>"
 	. += 						"<center>"
-	. += 						"<b>Character setup</b>"
+	. += 						"<b>Настройка персонажа</b>"
 	. += 						"<br>"
-	. += 						"[submenu_type=="body"?"<b>Body</b>":"<a href=\"byond://?src=\ref[user];preference=body\">Body</a>"] - "
-	. += 						"[submenu_type=="organs"?"<b>Organs</b>":"<a href=\"byond://?src=\ref[user];preference=organs\">Organs</a>"] - "
-	. += 						"[submenu_type=="appearance"?"<b>Appearance</b>":"<a href=\"byond://?src=\ref[user];preference=appearance\">Appearance</a>"] - "
-	. += 						"[submenu_type=="gear"?"<b>Gear</b>":"<a href=\"byond://?src=\ref[user];preference=gear\">Gear</a>"]"
+	. += 						"[submenu_type=="body"?"<b>Тело</b>":"<a href=\"byond://?src=\ref[user];preference=body\">Тело</a>"] - "
+	. += 						"[submenu_type=="organs"?"<b>Органы</b>":"<a href=\"byond://?src=\ref[user];preference=organs\">Органы</a>"] - "
+	. += 						"[submenu_type=="appearance"?"<b>Внешность</b>":"<a href=\"byond://?src=\ref[user];preference=appearance\">Внешность</a>"] - "
+	. += 						"[submenu_type=="gear"?"<b>Одежда</b>":"<a href=\"byond://?src=\ref[user];preference=gear\">Одежда</a>"]"
 	. += 						"</center>"
 	. += 						"<br>"
 	. += 						"<table border width='100%' background='opacity7.png' bordercolor='5A6E7D' cellspacing='0'>"	//Submenu table start
@@ -39,17 +39,17 @@
 	switch(submenu_type)	//Submenu
 		//Body
 		if("body")
-			. += "Body: <a href='?_src_=prefs;preference=all;task=random'>&reg;</a>"
-			. += "<br>Species: <a href='byond://?src=\ref[user];preference=species;task=input'>[species]</a>"
-			. += "<br>Secondary Language: <a href='byond://?src=\ref[user];preference=language;task=input'>[language]</a>"
+			. += "Тело: <a href='?_src_=prefs;preference=all;task=random'>&reg;</a>"
+			. += "<br>Раса: <a href='byond://?src=\ref[user];preference=species;task=input'>[species]</a>"
+			. += "<br>Второй язык: <a href='byond://?src=\ref[user];preference=language;task=input'>[language]</a>"
 			if(!specie_obj.flags[NO_BLOOD])
-				. += "<br>Blood Type: <a href='byond://?src=\ref[user];preference=b_type;task=input'>[b_type]</a>"
+				. += "<br>Тип крови: <a href='byond://?src=\ref[user];preference=b_type;task=input'>[b_type]</a>"
 			if(specie_obj.flags[HAS_SKIN_TONE])
-				. += "<br>Skin Tone: <a href='?_src_=prefs;preference=s_tone;task=input'>[-s_tone + 35]/220</a>"
+				. += "<br>Цвет кожи: <a href='?_src_=prefs;preference=s_tone;task=input'>[-s_tone + 35]/220</a>"
 
 		//Organs
 		if("organs")
-			. += "Limbs & Internal Organs: <a href='byond://?src=\ref[user];preference=organs;task=input'>Adjust</a>"
+			. += "Конечности и внутренние органы: <a href='byond://?src=\ref[user];preference=organs;task=input'>Настроить</a>"
 
 			//(display limbs below)
 			var/ind = 0
@@ -59,78 +59,78 @@
 				var/organ_name = parse_zone(name)
 				switch(name)
 					if(BP_L_ARM)
-						organ_name = "left arm"
+						organ_name = "Левая рука"
 					if(BP_R_ARM)
-						organ_name = "right arm"
+						organ_name = "Правая рука"
 					if(BP_L_LEG)
-						organ_name = "left leg"
+						organ_name = "Левая нога"
 					if(BP_R_LEG)
-						organ_name = "right leg"
+						organ_name = "Правая нога"
 					if(O_HEART)
-						organ_name = "heart"
+						organ_name = "Сердце"
 					if(O_EYES)
-						organ_name = "eyes"
+						organ_name = "Глаза"
 
 				if(status == "cyborg")
 					++ind
-					. += "<li>Mechanical [organ_name] prothesis</li>"
+					. += "<li>Механический протез - [organ_name]</li>"
 				else if(status == "amputated")
 					++ind
-					. += "<li>Amputated [organ_name]</li>"
+					. += "<li>Ампутировано - [organ_name]</li>"
 				else if(status == "mechanical")
 					++ind
-					. += "<li>Mechanical [organ_name]</li>"
+					. += "<li>Механика - [organ_name]</li>"
 				else if(status == "assisted")
 					++ind
 					switch(organ_name)
 						if("heart")
-							. += "<li>Pacemaker-assisted [organ_name]</li>"
+							. += "<li>[organ_name]  с кардиостимулятором</li>"
 						if("eyes")
-							. += "<li>Retinal overlayed [organ_name]</li>"
+							. += "<li>[organ_name] с наложением сетчатки</li>"
 						else
-							. += "<li>Mechanically assisted [organ_name]</li>"
+							. += "<li>[organ_name] с механической поддержкой</li>"
 			if(species == IPC)
-				. += "<br>Head: <a href='byond://?src=\ref[user];preference=ipc_head;task=input'>[ipc_head]</a>"
+				. += "<br>Голова: <a href='byond://?src=\ref[user];preference=ipc_head;task=input'>[ipc_head]</a>"
 
 			if(!ind)
 				. += "<br>\[...\]"
 		//Appearance
 		if("appearance")
 			if(species == IPC)
-				. += "<b>IPC screen</b>"
+				. += "<b>Экран СПУ</b>"
 			else
-				. += "<b>Hair</b>"
+				. += "<b>Волосы</b>"
 			. += "<br>"
 			if(specie_obj.flags[HAS_HAIR_COLOR])
-				. += "<a href='?_src_=prefs;preference=hair;task=input'>Change Color</a> [color_square(r_hair, g_hair, b_hair)]"
-				. += " Style: <a class='white' href='?_src_=prefs;preference=h_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=h_style_right;task=input'>></a> <a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a><br>"
+				. += "<a href='?_src_=prefs;preference=hair;task=input'>Цвет</a> [color_square(r_hair, g_hair, b_hair)]"
+				. += " Причёска: <a class='white' href='?_src_=prefs;preference=h_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=h_style_right;task=input'>></a> <a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a><br>"
 				. += "<b>Gradient</b>"
-				. += "<br><a href='?_src_=prefs;preference=grad_color;task=input'>Change Color</a> [color_square(r_grad, g_grad, b_grad)] "
-				. += " Style: <a class='white' href='?_src_=prefs;preference=grad_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=grad_style_right;task=input'>></a> <a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a><br>"
+				. += "<br><a href='?_src_=prefs;preference=grad_color;task=input'>Цвет</a> [color_square(r_grad, g_grad, b_grad)] "
+				. += " Стиль: <a class='white' href='?_src_=prefs;preference=grad_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=grad_style_right;task=input'>></a> <a href='?_src_=prefs;preference=grad_style;task=input'>[grad_style]</a><br>"
 			else
-				. += " Style: <a class='white' href='?_src_=prefs;preference=h_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=h_style_right;task=input'>></a> <a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a><br>"
-			. += "<b>Facial</b>"
-			. += "<br><a href='?_src_=prefs;preference=facial;task=input'>Change Color</a> [color_square(r_facial, g_facial, b_facial)]"
-			. += " Style: <a class='white' href='?_src_=prefs;preference=f_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=f_style_right;task=input'>></a> <a href='?_src_=prefs;preference=f_style;task=input'>[f_style]</a><br>"
-			. += "<b>Eyes</b>"
-			. += "<br><a href='?_src_=prefs;preference=eyes;task=input'>Change Color</a> [color_square(r_eyes, g_eyes, b_eyes)]<br>"
+				. += " Стиль: <a class='white' href='?_src_=prefs;preference=h_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=h_style_right;task=input'>></a> <a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a><br>"
+			. += "<b>Борода</b>"
+			. += "<br><a href='?_src_=prefs;preference=facial;task=input'>Цвет</a> [color_square(r_facial, g_facial, b_facial)]"
+			. += " Стиль: <a class='white' href='?_src_=prefs;preference=f_style_left;task=input'><</a> <a class='white' href='?_src_=prefs;preference=f_style_right;task=input'>></a> <a href='?_src_=prefs;preference=f_style;task=input'>[f_style]</a><br>"
+			. += "<b>Глаза</b>"
+			. += "<br><a href='?_src_=prefs;preference=eyes;task=input'>Цвет</a> [color_square(r_eyes, g_eyes, b_eyes)]<br>"
 
 			if(specie_obj.flags[HAS_SKIN_COLOR])
-				. += "<b>Body Color</b>"
-				. += "<br><a href='?_src_=prefs;preference=skin;task=input'>Change Color</a> [color_square(r_skin, g_skin, b_skin)]"
+				. += "<b>Цвет тела</b>"
+				. += "<br><a href='?_src_=prefs;preference=skin;task=input'>Цвет</a> [color_square(r_skin, g_skin, b_skin)]"
 
 		//Gear
 		if("gear")
-			. += "<b>Gear:</b><br>"
+			. += "<b>Одежда:</b><br>"
 			if(specie_obj.flags[HAS_UNDERWEAR])
 				if(gender == MALE)
-					. += "Underwear: <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_m[underwear]]</a><br>"
+					. += "Нижнее белье: <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_m[underwear]]</a><br>"
 				else
-					. += "Underwear: <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_f[underwear]]</a><br>"
-				. += "Undershirt: <a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt_t[undershirt]]</a><br>"
-				. += "Socks: <a href='?_src_=prefs;preference=socks;task=input'>[socks_t[socks]]</a><br>"
-			. += "Backpack Type: <a href ='?_src_=prefs;preference=bag;task=input'>[backbaglist[backbag]]</a><br>"
-			. += "Using skirt uniform: <a href ='?_src_=prefs;preference=use_skirt;task=input'>[use_skirt ? "Yes" : "No"]</a>"
+					. += "Нижнее белье: <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_f[underwear]]</a><br>"
+				. += "Майка: <a href='?_src_=prefs;preference=undershirt;task=input'>[undershirt_t[undershirt]]</a><br>"
+				. += "Носки: <a href='?_src_=prefs;preference=socks;task=input'>[socks_t[socks]]</a><br>"
+			. += "Тип сумки: <a href ='?_src_=prefs;preference=bag;task=input'>[backbaglist[backbag]]</a><br>"
+			. += "Юбочная униформа: <a href ='?_src_=prefs;preference=use_skirt;task=input'>[use_skirt ? "Да" : "Нет"]</a>"
 
 	. += 								"</td>"
 	. += 							"</tr>"
@@ -147,30 +147,30 @@
 	. += 					"<td>"
 
 	//Backstory
-	. += 						"<b>Background information:</b>"
-	. += 						"<br>Nanotrasen Relation: <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a>"
-	. += 						"<br>Home system: <a href='byond://?src=\ref[user];preference=home_system;task=input'>[home_system]</a>"
-	. += 						"<br>Citizenship: <a href='byond://?src=\ref[user];preference=citizenship;task=input'>[citizenship]</a>"
-	. += 						"<br>Faction: <a href='byond://?src=\ref[user];preference=faction;task=input'>[faction]</a>"
-	. += 						"<br>Religion: <a href='byond://?src=\ref[user];preference=religion;task=input'>[religion]</a>"
+	. += 						"<b>Основная информация:</b>"
+	. += 						"<br>Отношение с НаноТрейзен: <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a>"
+	. += 						"<br>Родная система: <a href='byond://?src=\ref[user];preference=home_system;task=input'>[home_system]</a>"
+	. += 						"<br>Гражданство: <a href='byond://?src=\ref[user];preference=citizenship;task=input'>[citizenship]</a>"
+	. += 						"<br>Фракция: <a href='byond://?src=\ref[user];preference=faction;task=input'>[faction]</a>"
+	. += 						"<br>Религия: <a href='byond://?src=\ref[user];preference=religion;task=input'>[religion]</a>"
 	if(species == VOX)
-		. += 						"<br>Rank: <a href='byond://?src=\ref[user];preference=vox_rank;task=input'>[vox_rank]</a>"
+		. += 						"<br>Ранг: <a href='byond://?src=\ref[user];preference=vox_rank;task=input'>[vox_rank]</a>"
 	. += 						"<br>"
 
 	if(jobban_isbanned(user, "Records"))
-		. += 					"<br><b>You are banned from using character records.</b><br>"
+		. += 					"<br><b>Вам запрещено использовать записи персонажей.</b><br>"
 	else
-		. += 					"<br><b>Records:</b>"
-		. += 					"<br>Medical Records:"
+		. += 					"<br><b>Записи:</b>"
+		. += 					"<br>Медицинские записи:"
 		. += 					" <a href=\"byond://?src=\ref[user];preference=records;task=med_record\">[length(med_record)>0?"[copytext_char(med_record, 1, 3)]...":"\[...\]"]</a>"
-		. += 					"<br>Security Records:"
+		. += 					"<br>Записи безопасности:"
 		. += 					" <a href=\"byond://?src=\ref[user];preference=records;task=sec_record\">[length(sec_record)>0?"[copytext_char(sec_record, 1, 3)]...":"\[...\]"]</a>"
-		. += 					"<br>Employment Records:"
+		. += 					"<br>Записи о занятости:"
 		. += 					" <a href=\"byond://?src=\ref[user];preference=records;task=gen_record\">[length(gen_record)>0?"[copytext_char(gen_record, 1, 3)]...":"\[...\]"]</a>"
 
 	. += 						"<br><br>"
 
-	. += 						"<b>Flavor:</b>"
+	. += 						"<b>Внешность:</b>"
 	. += 						" <a href='byond://?src=\ref[user];preference=flavor_text;task=input'>[length(flavor_text)>0?"[copytext_char(flavor_text, 1, 3)]...":"\[...\]"]</a>"
 	. += 					"</td>"
 	. += 				"</tr>"
@@ -188,19 +188,19 @@
 		if("records")
 			switch(href_list["task"])
 				if("med_record")
-					var/medmsg = sanitize(input(usr,"Set your medical notes here.","Medical Records",input_default(med_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
+					var/medmsg = sanitize(input(usr,"Введите свои медицинские записи.","Медицинские записи",input_default(med_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
 
 					if(medmsg != null)
 						med_record = medmsg
 
 				if("sec_record")
-					var/secmsg = sanitize(input(usr,"Set your security notes here.","Security Records",input_default(sec_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
+					var/secmsg = sanitize(input(usr,"Введите свои примечания безопасности.","Записи безопасности",input_default(sec_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
 
 					if(secmsg != null)
 						sec_record = secmsg
 
 				if("gen_record")
-					var/genmsg = sanitize(input(usr,"Set your employment notes here.","Employment Records",input_default(gen_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
+					var/genmsg = sanitize(input(usr,"Введите свои заметки о трудоустройстве.","Записи о занятости",input_default(gen_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = FALSE)
 
 					if(genmsg != null)
 						gen_record = genmsg
@@ -256,19 +256,19 @@
 		if("input")
 			switch(href_list["preference"])
 				if("name")
-					var/new_name = sanitize_name(input(user, "Choose your character's name:", "Character Name", real_name) as text|null)
+					var/new_name = sanitize_name(input(user, "Введите имя персонажа:", "Имя персонажа", real_name) as text|null)
 					if(new_name)
 						real_name = new_name
 					else
-						to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+						to_chat(user, "<font color='red'>Ошибка. Ваше имя должно содержать не менее 2-х и не более [MAX_NAME_LEN] символов. Он может содержать только символы A-Z, a-z, -, ' и .</font>")
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([specie_obj.min_age]-[specie_obj.max_age])", "Character Age", age) as num|null
+					var/new_age = input(user, "Введите возраст персонажа:\n([specie_obj.min_age]-[specie_obj.max_age])", "Возраст персонажа", age) as num|null
 					if(new_age)
 						age = max(min( round(text2num(new_age)), specie_obj.max_age), specie_obj.min_age)
 
 				if("height")
-					var/new_height = input(user, "Choose your character's height:", "Character Height", height) as null|anything in heights_list
+					var/new_height = input(user, "Выберите рост персонажа:", "Рост персонажа", height) as null|anything in heights_list
 					if(new_height)
 						height = new_height
 
@@ -283,11 +283,11 @@
 								new_species += S
 								whitelisted = 1
 						if(!whitelisted)
-							tgui_alert(user, "You cannot change your species as you need to be whitelisted. If you wish to be whitelisted check our forum.")
+							tgui_alert(user, "Вы не можете изменить расу, так как вы должны быть внесены в белый список. Если вы хотите попасть в белый список, проверьте наш форум.")
 					else //Not using the whitelist? Aliens for everyone!
 						new_species = whitelisted_species
 
-					species = input("Please select a species", "Character Generation", prev_species) in new_species
+					species = input("Выберите расу", "Выбор", prev_species) in new_species
 
 					if(prev_species != species)
 						f_style = random_facial_hair_style(gender, species)
@@ -308,19 +308,19 @@
 						if(!(lang.flags & RESTRICTED) && (S.name in lang.allowed_speak))
 							new_languages += lang.name
 
-					language = input("Please select a secondary language", "Character Generation", language) in new_languages
+					language = input("Выберите второй язык персонажа", "Выбор", language) in new_languages
 
 				if("b_type")
 					if(specie_obj.flags[NO_BLOOD])
 						return
-					var/new_b_type = input(user, "Choose your character's blood-type:", "Character Blood-type", b_type) as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
+					var/new_b_type = input(user, "Выберите тип крови персонажа:", "Тип крови", b_type) as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
 					if(new_b_type)
 						b_type = new_b_type
 
 				if("hair")
 					if(!specie_obj.flags[HAS_HAIR_COLOR])
 						return
-					var/new_hair = input(user, "Choose your character's hair colour:", "Character Hair Colour", rgb(r_hair, g_hair, b_hair)) as color|null
+					var/new_hair = input(user, "Выберите цвет волос персонажа:", "Цвет волос персонажа", rgb(r_hair, g_hair, b_hair)) as color|null
 					if(new_hair)
 						r_hair = hex2num(copytext(new_hair, 2, 4))
 						g_hair = hex2num(copytext(new_hair, 4, 6))
@@ -328,7 +328,7 @@
 
 				if("h_style")
 					var/list/valid_hairstyles = get_valid_styles_from_cache(hairs_cache)
-					var/new_h_style = input(user, "Choose your character's hair style:", "Character Hair Style", h_style) as null|anything in valid_hairstyles
+					var/new_h_style = input(user, "Выберите причёску:", "Причёска персонажа", h_style) as null|anything in valid_hairstyles
 					if(new_h_style)
 						h_style = new_h_style
 
@@ -343,7 +343,7 @@
 				if("grad_color")
 					if(!specie_obj.flags[HAS_HAIR_COLOR])
 						return
-					var/new_grad = input(user, "Choose your character's secondary hair color:", "Character Gradient Color", rgb(r_grad, g_grad, b_grad)) as color|null
+					var/new_grad = input(user, "Выберите второй цвет причёски:", "Цвет градиента", rgb(r_grad, g_grad, b_grad)) as color|null
 					if(new_grad)
 						r_grad = hex2num(copytext(new_grad, 2, 4))
 						g_grad = hex2num(copytext(new_grad, 4, 6))
@@ -351,7 +351,7 @@
 
 				if("grad_style")
 					var/list/valid_gradients = hair_gradients
-					var/new_grad_style = input(user, "Choose a color pattern for your hair:", "Character Gradient Style", grad_style) as null|anything in valid_gradients
+					var/new_grad_style = input(user, "Выберите стиль градиента:", "Градиент причёски", grad_style) as null|anything in valid_gradients
 					if(new_grad_style)
 						grad_style = new_grad_style
 
@@ -366,7 +366,7 @@
 					grad_style = valid_gradients[grad_style_num]
 
 				if("facial")
-					var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character facial-hair colour", rgb(r_facial, g_facial, b_facial)) as color|null
+					var/new_facial = input(user, "Выберите цвет бороды:", "Цвет бороды", rgb(r_facial, g_facial, b_facial)) as color|null
 					if(new_facial)
 						r_facial = hex2num(copytext(new_facial, 2, 4))
 						g_facial = hex2num(copytext(new_facial, 4, 6))
@@ -374,7 +374,7 @@
 
 				if("f_style")
 					var/list/valid_facialhairstyles = get_valid_styles_from_cache(facial_hairs_cache)
-					var/new_f_style = input(user, "Choose your character's facial-hair style:", "Character facial-hair style", f_style) as null|anything in valid_facialhairstyles
+					var/new_f_style = input(user, "Выберите бороду:", "Борода персонажа", f_style) as null|anything in valid_facialhairstyles
 					if(new_f_style)
 						f_style = new_f_style
 
@@ -395,7 +395,7 @@
 					else
 						underwear_options = underwear_f
 
-					var/new_underwear = input(user, "Choose your character's underwear:", "Character Preference", underwear_options[underwear]) as null|anything in underwear_options
+					var/new_underwear = input(user, "Выберите нижнее бельё:", "Предпочтения персонажа", underwear_options[underwear]) as null|anything in underwear_options
 					if(new_underwear)
 						underwear = underwear_options.Find(new_underwear)
 
@@ -403,18 +403,18 @@
 					var/list/undershirt_options
 					undershirt_options = undershirt_t
 
-					var/new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference", undershirt_options[undershirt]) as null|anything in undershirt_options
+					var/new_undershirt = input(user, "Выберите майку:", "Предпочтения персонажа", undershirt_options[undershirt]) as null|anything in undershirt_options
 					if (new_undershirt)
 						undershirt = undershirt_options.Find(new_undershirt)
 				if("socks")
 					var/list/socks_options
 					socks_options = socks_t
-					var/new_socks = input(user, "Choose your character's socks:", "Character Preference", socks_options[socks]) as null|anything in socks_options
+					var/new_socks = input(user, "Выберите носки:", "Предпочтения персонажа", socks_options[socks]) as null|anything in socks_options
 					if(new_socks)
 						socks = socks_options.Find(new_socks)
 
 				if("eyes")
-					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", rgb(r_eyes, g_eyes, b_eyes)) as color|null
+					var/new_eyes = input(user, "Выберите цвет глаз:", "Предпочтения персонажа", rgb(r_eyes, g_eyes, b_eyes)) as color|null
 					if(new_eyes)
 						r_eyes = hex2num(copytext(new_eyes, 2, 4))
 						g_eyes = hex2num(copytext(new_eyes, 4, 6))
@@ -423,21 +423,21 @@
 				if("s_tone")
 					if(!specie_obj.flags[HAS_SKIN_TONE])
 						return
-					var/new_s_tone = input(user, "Choose your character's skin-tone:\n(Light 1 - 220 Dark)", "Character Preference", 35 - s_tone ) as num|null
+					var/new_s_tone = input(user, "Выберите цвет кожи:\n(Light 1 - 220 Dark)", "Предпочтения персонажа", 35 - s_tone ) as num|null
 					if(new_s_tone)
 						s_tone = 35 - max(min( round(new_s_tone), 220),1)
 
 				if("skin")
 					if(!specie_obj.flags[HAS_SKIN_COLOR])
 						return
-					var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(r_skin, g_skin, b_skin)) as color|null
+					var/new_skin = input(user, "Выберите цвет кожи: ", "Предпочтения персонажа", rgb(r_skin, g_skin, b_skin)) as color|null
 					if(new_skin)
 						r_skin = hex2num(copytext(new_skin, 2, 4))
 						g_skin = hex2num(copytext(new_skin, 4, 6))
 						b_skin = hex2num(copytext(new_skin, 6, 8))
 
 				if("bag")
-					var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbaglist[backbag]) as null|anything in backbaglist
+					var/new_backbag = input(user, "Выберите тип сумки:", "Предпочтения персонажа", backbaglist[backbag]) as null|anything in backbaglist
 					if(new_backbag)
 						backbag = backbaglist.Find(new_backbag)
 
@@ -445,130 +445,130 @@
 					use_skirt = !use_skirt
 
 				if("nt_relation")
-					var/new_relation = input(user, "Choose your relation to NT. Note that this represents what others can find out about your character by researching your background, not what your character actually thinks.", "Nanotrasen Relation", nanotrasen_relation) as null|anything in list("Loyal", "Supportive", "Neutral", "Skeptical", "Opposed")
+					var/new_relation = input(user, "Выберите отношение к НаноТрейзен. Обратите внимание, что это отражает то, что другие могут узнать о вашем персонаже, изучив ваше прошлое, а не то, что ваш персонаж думает на самом деле.", "Отношение НаноТрейзен", nanotrasen_relation) as null|anything in list("Лояльный", "Поддерживающий", "Нейтральный", "Скептически настроенный", "Настроенный против")
 					if(new_relation)
 						nanotrasen_relation = new_relation
 
 				if("home_system")
-					var/choice = input(user, "Please choose a home system.", "Home System", home_system) as null|anything in home_system_choices + list("None","Other") + home_system
+					var/choice = input(user, "Выберите родную систему персонажа.", "Родная система", home_system) as null|anything in home_system_choices + list("Нет","Другое") + home_system
 					if(!choice)
 						return
 					if(choice == "Other")
-						var/raw_choice = sanitize_name(input(user, "Please enter a home system.", "Home System", home_system) as text|null)
+						var/raw_choice = sanitize_name(input(user, "Введите родную систему персонажа.", "Родная система", home_system) as text|null)
 						if(raw_choice)
 							home_system = raw_choice
 						else
-							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+							to_chat(user, "<font color='red'>Ошибка. Название должно содержать не менее 2-х и не более [MAX_NAME_LEN] символов. Он может содержать только символы A-Z, a-z, -, ' и .</font>")
 						return
 					home_system = choice
 
 				if("citizenship")
-					var/choice = input(user, "Please choose your current citizenship.", "Citizenship", citizenship) as null|anything in citizenship_choices + list("None","Other") + citizenship
+					var/choice = input(user, "Выберите текущее гражданство персонажа.", "Гражданство", citizenship) as null|anything in citizenship_choices + list("Нет","Другое") + citizenship
 					if(!choice)
 						return
 					if(choice == "Other")
-						var/raw_choice = sanitize_name(input(user, "Please enter your current citizenship.", "Citizenship", citizenship) as text|null)
+						var/raw_choice = sanitize_name(input(user, "Введите текущее гражданство персонажа.", "Гражданство", citizenship) as text|null)
 						if(raw_choice)
 							citizenship = raw_choice
 						else
-							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+							to_chat(user, "<font color='red'>Ошибка. Название должно содержать не менее 2-х и не более [MAX_NAME_LEN] символов. Он может содержать только символы A-Z, a-z, -, ' и .</font>")
 						return
 					citizenship = choice
 
 				if("faction")
-					var/choice = input(user, "Please choose a faction to work for.", "Faction", faction) as null|anything in faction_choices + list("None","Other") + faction
+					var/choice = input(user, "Выберите фракцию, на котороую работает персонаж.", "Фракция", faction) as null|anything in faction_choices + list("Нет","Другое") + faction
 					if(!choice)
 						return
 					if(choice == "Other")
-						var/raw_choice = sanitize_name(input(user, "Please enter a faction.", "Faction", faction) as text|null)
+						var/raw_choice = sanitize_name(input(user, "Введите фракцию.", "Фракция", faction) as text|null)
 						if(raw_choice)
 							faction = raw_choice
 						else
-							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+							to_chat(user, "<font color='red'>Ошибка. Название должно содержать не менее 2-х и не более [MAX_NAME_LEN] символов. Он может содержать только символы A-Z, a-z, -, ' и .</font>")
 						return
 					faction = choice
 
 				if("religion")
-					var/choice = input(user, "Please choose a religion.", "Religion", religion) as null|anything in religion_choices + list("None","Other") + religion
+					var/choice = input(user, "Выберите религию персонажа.", "Религия", religion) as null|anything in religion_choices + list("Нет","Другое") + religion
 					if(!choice)
 						return
 					if(choice == "Other")
-						var/raw_choice = sanitize_name(input(user, "Please enter a religion.", "Religion", religion) as text|null)
+						var/raw_choice = sanitize_name(input(user, "Введите религию.", "Религия", religion) as text|null)
 						if(raw_choice)
 							religion = raw_choice
 						else
-							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+							to_chat(user, "<font color='red'>Ошибка. Название должно содержать не менее 2-х и не более [MAX_NAME_LEN] символов. Он может содержать только символы A-Z, a-z, -, ' и .</font>")
 						return
 					religion = choice
 
 				if("vox_rank")
-					var/choice = input(user, "Please choose a vox rank.", "Rank", vox_rank) as null|anything in rank_choices
+					var/choice = input(user, "Выберите ранг своего вокса.", "Ранг", vox_rank) as null|anything in rank_choices
 					if(!choice)
 						return
 					vox_rank = choice
 
 				if("flavor_text")
-					var/msg = sanitize(input(usr,"Set the flavor text in your 'examine' verb.","Flavor Text", input_default(flavor_text)) as message)
+					var/msg = sanitize(input(usr,"Введите внешность. Она будет показывается, когда игрок 'посмотрит' на вашего персонажа.","Внешность", input_default(flavor_text)) as message)
 
 					if(msg != null)
 						flavor_text = msg
 
 				if("organs")
-					var/menu_type = input(user, "Menu") as null|anything in list("Limbs", "Organs")
+					var/menu_type = input(user, "Menu") as null|anything in list("Конечности", "Органы")
 					if(!menu_type) return
 
 					switch(menu_type)
-						if("Limbs")
-							var/limb_name = input(user, "Which limb do you want to change?") as null|anything in list("Left Leg","Right Leg","Left Arm","Right Arm")
+						if("Конечности")
+							var/limb_name = input(user, "Какую конечность вы хотите изменить?") as null|anything in list("Левая нога", "Правая нога", "Левая рука", "Правая рука")
 							if(!limb_name) return
 
 							var/limb = null
 							switch(limb_name)
-								if("Left Leg")
+								if("Левая нога")
 									limb = BP_L_LEG
-								if("Right Leg")
+								if("Правая нога")
 									limb = BP_R_LEG
-								if("Left Arm")
+								if("Левая рука")
 									limb = BP_L_ARM
-								if("Right Arm")
+								if("Правая рука")
 									limb = BP_R_ARM
 
-							var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in list("Normal","Amputated","Prothesis")
+							var/new_state = input(user, "В каком состоянии вы хотите видеть конечность?") as null|anything in list("Обычная","Ампутированная","Протез")
 							if(!new_state) return
 
 							switch(new_state)
-								if("Normal")
+								if("Обычная")
 									organ_data[limb] = null
-								if("Amputated")
+								if("Ампутированная")
 									organ_data[limb] = "amputated"
-								if("Prothesis")
+								if("Протез")
 									organ_data[limb] = "cyborg"
 
-						if("Organs")
-							var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes")
+						if("Органы")
+							var/organ_name = input(user, "Какой орган вы хотите изменить?") as null|anything in list("Сердце", "Глаза")
 							if(!organ_name) return
 
 							var/organ = null
 							switch(organ_name)
-								if("Heart")
+								if("Сердце")
 									organ = O_HEART
-								if("Eyes")
+								if("Глаза")
 									organ = O_EYES
 
-							var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
+							var/new_state = input(user, "В каком состоянии вы хотите видеть орган?") as null|anything in list("Обычный", "Вспомогательный", "Механический")
 							if(!new_state) return
 
 							switch(new_state)
-								if("Normal")
+								if("Обычный")
 									organ_data[organ] = null
-								if("Assisted")
+								if("Вспомогательный")
 									organ_data[organ] = "assisted"
-								if("Mechanical")
+								if("Механический")
 									organ_data[organ] = "mechanical"
 				// Choosing a head for an IPC
 				if("ipc_head")
-					var/list/ipc_heads = list("Default", "Alien", "Double", "Pillar", "Human")
-					ipc_head = input("Please select a head type", "Character Generation", null) in ipc_heads
+					var/list/ipc_heads = list("Обычная", "Пришелец", "Двойная", "Столб", "Человек")
+					ipc_head = input("Выберите тип головы", "Тип головы", null) in ipc_heads
 					h_style = random_hair_style(gender, species, ipc_head)
 
 		else
@@ -604,7 +604,7 @@
 	var/hash = "[species][gender][species == IPC ? ipc_head : ""]"
 	return styles_cache[hash] || list()
 
-/proc/get_valid_styles_from_cache(styles_cache, species, gender, ipc_head = "Default")
+/proc/get_valid_styles_from_cache(styles_cache, species, gender, ipc_head = "Обычная")
 	var/hash = "[species][gender][species == IPC ? ipc_head : ""]"
 	return styles_cache[hash] || list()
 

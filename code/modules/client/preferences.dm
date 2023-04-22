@@ -106,15 +106,15 @@ var/global/list/preferences_datums = list()
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
 	var/species = HUMAN
-	var/language = "None"				//Secondary language
+	var/language = "Нет"				//Secondary language
 
 	//Some faction information.
-	var/home_system = "None"            //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
-	var/nanotrasen_relation = "Neutral"
-	var/vox_rank = "Larva"              //Vox ranks
+	var/home_system = "Нет"            //System of birth.
+	var/citizenship = "Нет"            //Current home system.
+	var/faction = "Нет"                //Antag faction/general associated faction.
+	var/religion = "Нет"               //Religious association.
+	var/nanotrasen_relation = "Нейтральный"
+	var/vox_rank = "Личинка"              //Vox ranks
 
 	//Job preferences 2.0 - indexed by job title , no key or value implies never
 	var/list/job_preferences = list()
@@ -198,21 +198,21 @@ var/global/list/preferences_datums = list()
 	if(path)
 		dat += "<div class='main_menu'>"
 		dat += "Slot: <b>[real_name]</b> - "
-		dat += "[menu_type=="load_slot"?"<b>Load slot</b>":"<a href=\"byond://?src=\ref[user];preference=load_slot\">Load slot</a>"] - "
-		dat += "<a href=\"byond://?src=\ref[user];preference=save\">Save slot</a> - "
-		dat += "<a href=\"byond://?src=\ref[user];preference=reload\">Reload slot</a><br>"
-		dat += "[menu_type=="general"?"<b>General</b>":"<a href=\"byond://?src=\ref[user];preference=general\">General</a>"] - "
-		dat += "[menu_type=="occupation"?"<b>Occupation</b>":"<a href=\"byond://?src=\ref[user];preference=occupation\">Occupation</a>"] - "
-		dat += "[menu_type=="roles"?"<b>Roles</b>":"<a href=\"byond://?src=\ref[user];preference=roles\">Roles</a>"] - "
-		dat += "[menu_type=="glob"?"<b>Global</b>":"<a href=\"byond://?src=\ref[user];preference=glob\">Global</a>"] - "
-		dat += "[menu_type=="loadout"?"<b>Loadout</b>":"<a href=\"byond://?src=\ref[user];preference=loadout\">Loadout</a>"] - "
-		dat += "[menu_type=="quirks"?"<b>Quirks</b>":"<a href=\"byond://?src=\ref[user];preference=quirks\">Quirks</a>"] - "
-		dat += "[menu_type=="fluff"?"<b>Fluff</b>":"<a href=\"byond://?src=\ref[user];preference=fluff\">Fluff</a>"] - "
-		dat += "[menu_type=="custom_keybindings"?"<b>Custom Keybindings</b>":"<a href=\"byond://?src=\ref[user];preference=custom_keybindings\">Custom Keybindings</a>"]"
-		dat += "<br><a href='?src=\ref[user];preference=close\'><b><font color='#FF4444'>Close</font></b></a>"
+		dat += "[menu_type=="load_slot"?"<b>Загрузить</b>":"<a href=\"byond://?src=\ref[user];preference=load_slot\">Загрузить</a>"] - "
+		dat += "<a href=\"byond://?src=\ref[user];preference=save\">Сохранить</a> - "
+		dat += "<a href=\"byond://?src=\ref[user];preference=reload\">Сбросить</a><br>"
+		dat += "[menu_type=="general"?"<b>Общие</b>":"<a href=\"byond://?src=\ref[user];preference=general\">Общие</a>"] - "
+		dat += "[menu_type=="occupation"?"<b>Занятость</b>":"<a href=\"byond://?src=\ref[user];preference=occupation\">Занятость</a>"] - "
+		dat += "[menu_type=="roles"?"<b>Роли</b>":"<a href=\"byond://?src=\ref[user];preference=roles\">Роли</a>"] - "
+		dat += "[menu_type=="glob"?"<b>Настройки</b>":"<a href=\"byond://?src=\ref[user];preference=glob\">Настройки</a>"] - "
+		dat += "[menu_type=="loadout"?"<b>Снаряжение</b>":"<a href=\"byond://?src=\ref[user];preference=loadout\">Снаряжение</a>"] - "
+		dat += "[menu_type=="quirks"?"<b>Особенности</b>":"<a href=\"byond://?src=\ref[user];preference=quirks\">Особенности</a>"] - "
+		dat += "[menu_type=="fluff"?"<b>Флаф</b>":"<a href=\"byond://?src=\ref[user];preference=fluff\">Флаф</a>"] - "
+		dat += "[menu_type=="custom_keybindings"?"<b>Назначения клавишь</b>":"<a href=\"byond://?src=\ref[user];preference=custom_keybindings\">Назначения клавишь</a>"]"
+		dat += "<br><a href='?src=\ref[user];preference=close\'><b><font color='#FF4444'>Закрыть</font></b></a>"
 		dat += "</div>"
 	else
-		dat += "Please create an account to save your preferences."
+		dat += "Создайте аккаунт, чтобы сохранять ваши настройки."
 
 	dat += "</center><hr width='535'>"
 	switch(menu_type)
@@ -361,19 +361,19 @@ var/global/list/preferences_datums = list()
 	if(species == IPC)
 		qdel(character.bodyparts_by_name[BP_HEAD])
 		switch(ipc_head)
-			if("Default")
+			if("Обычная")
 				var/obj/item/organ/external/head/robot/ipc/H = new(null)
 				H.insert_organ(character)
-			if("Alien")
+			if("Пришелец")
 				var/obj/item/organ/external/head/robot/ipc/alien/H = new(null)
 				H.insert_organ(character)
-			if("Double")
+			if("Двойная")
 				var/obj/item/organ/external/head/robot/ipc/double/H = new(null)
 				H.insert_organ(character)
-			if("Pillar")
+			if("Столб")
 				var/obj/item/organ/external/head/robot/ipc/pillar/H = new(null)
 				H.insert_organ(character)
-			if("Human")
+			if("Человек")
 				var/obj/item/organ/external/head/robot/ipc/human/H = new(null)
 				H.insert_organ(character)
 

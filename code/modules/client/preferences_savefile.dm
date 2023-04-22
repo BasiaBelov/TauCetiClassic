@@ -246,8 +246,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(current_version < 40)
 		if(ignore_question && ignore_question.len)
-			if("Lavra" in ignore_question)
-				ignore_question -= "Lavra"
+			if("Личинка" in ignore_question)
+				ignore_question -= "Личинка"
 				ignore_question |= IGNORE_LARVA
 				S["ignore_question"] << ignore_question
 
@@ -597,7 +597,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		species = HUMAN
 	var/datum/species/species_obj = all_species[species]
 
-	if(isnull(language)) language = "None"
+	if(isnull(language)) language = "Нет"
 	if(isnull(nanotrasen_relation)) nanotrasen_relation = initial(nanotrasen_relation)
 	if(!real_name) real_name = random_name(gender)
 	if(!gear) gear = list()
@@ -639,15 +639,15 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(!player_alt_titles) player_alt_titles = new()
 	if(!organ_data) src.organ_data = list()
-	if(!ipc_head) src.ipc_head = "Default"
+	if(!ipc_head) src.ipc_head = "Обычная"
 	if(!be_role) src.be_role = list()
 	if(!ignore_question) src.ignore_question = list()
 
-	if(!home_system) home_system = "None"
-	if(!citizenship) citizenship = "None"
-	if(!faction)     faction =     "None"
-	if(!religion)    religion =    "None"
-	if(!vox_rank)    vox_rank =    "Larva"
+	if(!home_system) home_system = "Нет"
+	if(!citizenship) citizenship = "Нет"
+	if(!faction)     faction =     "Нет"
+	if(!religion)    religion =    "Нет"
+	if(!vox_rank)    vox_rank =    "Лявра"
 
 /datum/preferences/proc/random_character()
 	if(!path)

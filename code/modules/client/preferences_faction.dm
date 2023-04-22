@@ -1,63 +1,63 @@
 var/global/list/citizenship_choices = list(
-	"Mars",
-	"Venus",
-	"Earth",
-	"Bimna",
-	"Luthien",
-	"New Gibson",
-	"Reed",
-	"Argelius",
-	"Ahdomai",
-	"Moghes",
-	"Qerrbalak"
+	"Марс",
+	"Венера",
+	"Земля",
+	"Бимна",
+	"Лютиен",
+	"Нью Гибсон",
+	"Рид",
+	"Аргелиус",
+	"Ахдомай",
+	"Могес",
+	"Кербалак"
 	)
 
 var/global/list/home_system_choices = list(
-	"Sol",
-	"Tau Ceti",
-	"Epsilon Eridani",
-	"S'randarr"
+	"Сол",
+	"Тау Кита",
+	"Эпсилон Эридана",
+	"С'рандарр"
 	)
 
 var/global/list/faction_choices = list(
-	"Aether Atmospherics",
-	"BioTech Solutions",
-	"Einstein Engines",
-	"Free Trade Union",
-	"Gilthari Exports",
-	"Grayson Manufactories Ltd.",
-	"Hadii",
-	"Hesphaistos Industries",
-	"Kaytam",
-	"NanoTrasen",
-	"Nazkiin",
-	"Positronic Union",
-	"Skrellian Empire",
-	"Sol Central",
-	"Vey Med",
-	"Ward-Takahashi GMB",
-	"Xion",
-	"Zeng-Hu Pharmaceuticals"
+	"Эфир Атмосферикс",
+	"БиоТех Солюшнс",
+	"Двигатели Эйнштейна",
+	"Свободный профсоюз",
+	"Гилтари Экспорт",
+	"Грейсон Мануфакториз Лтд.",
+	"Хадий",
+	"Гесфест Индастриз",
+	"Кайтам",
+	"НаноТрейзен",
+	"Назкиин",
+	"Позитронный Союз",
+	"Скреллианская Империя",
+	"Солнце Централ",
+	"Вей Мед",
+	"Уорд-Такахаши ГМБ",
+	"Сион",
+	"Зэн-Ху Фармасьютикалз"
 	)
 
 var/global/list/religion_choices = list(
-	"Acolism",
-	"Agnostic",
-	"Buddhist",
-	"Deist",
-	"Hinduism",
-	"Islamic",
-	"Order of Great Lady",
-	"Space-Christianity",
-	"Technologism",
-	"Unitarianism"
+	"Аколизм",
+	"Агностик",
+	"Буддизм",
+	"Деизм",
+	"Индуизм",
+	"Ислам",
+	"Орден Великой Леди",
+	"Космос-христианство",
+	"Технологизм",
+	"Унитаризм"
 	)
 var/global/list/rank_choices = list(
-	"Leader",
-	"Reaver",
-	"Raider",
-	"Drone",
-	"Servitor",
-	"Scavenger",
-	"Larva"
+	"Лидер",
+	"Разбойник",
+	"Рейдер",
+	"Дрон",
+	"Служитель",
+	"Мусорщик",
+	"Личинка"
 	)

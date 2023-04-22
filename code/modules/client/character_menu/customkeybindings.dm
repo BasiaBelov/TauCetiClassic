@@ -16,15 +16,15 @@
 	for (var/name in global.keybindings_by_name)
 		var/datum/keybinding/kb = global.keybindings_by_name[name]
 		kb_categories[kb.category] += list(kb)
-	. += "<tr><td>Hotkeys Mode: <a href='?_src_=prefs;preference=hotkeys'>[hotkeys ? "Focus on Game" : "Focus on Chat"]</a></td></tr>"
+	. += "<tr><td>Режим горячих клавиш: <a href='?_src_=prefs;preference=hotkeys'>[hotkeys ? "Фокус на игру" : "Вокус на чат"]</a></td></tr>"
 	. += "<center>"
 	for (var/category in kb_categories)
 		. += "<h3>[category]</h3>"
 		. += "<table width='100%'>"
 		for (var/i in kb_categories[category])
 			var/datum/keybinding/kb = i
-			if(!length(user_binds[kb.name]) || (user_binds[kb.name][1] == "None" && length(user_binds[kb.name]) == 1))
-				. += "<tr><td width='40%'>[kb.full_name]</td><td width='15%'><a class='white fluid' href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=["None"]'>None</a></td>"
+			if(!length(user_binds[kb.name]) || (user_binds[kb.name][1] == "Нет" && length(user_binds[kb.name]) == 1))
+				. += "<tr><td width='40%'>[kb.full_name]</td><td width='15%'><a class='white fluid' href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=["Нет"]'>Нет</a></td>"
 				var/list/default_keys = kb.hotkey_keys
 				var/class
 				if(compare_list(user_binds[kb.name], default_keys))
@@ -32,7 +32,7 @@
 				else
 					class = "class='white fluid' href ='?_src_=prefs;preference=keybinding_reset;keybinding=[kb.name];old_keys=[jointext(user_binds[kb.name], ",")]"
 
-				. += {"<td width='15%'></td><td width='15%'></td><td width='15%'><a [class]'>Reset</a></td>"}
+				. += {"<td width='15%'></td><td width='15%'></td><td width='15%'><a [class]'>Сброс</a></td>"}
 				. += "</tr>"
 			else
 				var/bound_key = user_binds[kb.name][1]
@@ -43,24 +43,24 @@
 					normal_name = _kbMap_reverse[bound_key] ? _kbMap_reverse[bound_key] : bound_key
 					. += "<td width='15%'><a class='white fluid' href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[normal_name]</a></td>"
 				if(length(user_binds[kb.name]) < MAX_KEYS_PER_KEYBIND)
-					. += "<td width='15%'><a class='white fluid' href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name]'>None</a></td>"
+					. += "<td width='15%'><a class='white fluid' href ='?_src_=prefs;preference=keybindings_capture;keybinding=[kb.name]'>Нет</a></td>"
 				for(var/j in 1 to MAX_KEYS_PER_KEYBIND - (length(user_binds[kb.name]) + 1))
 					. += "<td width='15%'></td>"
 				var/list/default_keys = kb.hotkey_keys
-				. += {"<td width='15%'><a [compare_list(user_binds[kb.name], default_keys) ? "class='disabled fluid'" : "class='white fluid' href ='?_src_=prefs;preference=keybinding_reset;keybinding=[kb.name];old_keys=[jointext(user_binds[kb.name], ",")]"]'>Reset</a></td>"}
+				. += {"<td width='15%'><a [compare_list(user_binds[kb.name], default_keys) ? "class='disabled fluid'" : "class='white fluid' href ='?_src_=prefs;preference=keybinding_reset;keybinding=[kb.name];old_keys=[jointext(user_binds[kb.name], ",")]"]'>Сброс</a></td>"}
 				. += "</tr>"
 		. += "</table>"
 
 	. += "<br><br>"
-	. += "<a class='white' href ='?_src_=prefs;preference=keybindings_reset'>Reset to default</a>"
+	. += "<a class='white' href ='?_src_=prefs;preference=keybindings_reset'>Сбросить всё</a>"
 	. += "</center>"
 
 /datum/preferences/proc/CaptureKeybinding(mob/user, datum/keybinding/kb, old_key)
 	var/HTML = {"
 	<div class='Section fill'id='focus' style="outline: 0; text-align:center;" tabindex=0>
-		Keybinding: [kb.full_name]<br>[kb.description]
+		Действие: [kb.full_name]<br>[kb.description]
 		<br><br>
-		<b>Press any key to change<br>Press ESC to clear</b>
+		<b>Нажмите на клавишу<br>ESC чтобы очистить</b>
 	</div>
 	<script>
 	var deedDone = false;
@@ -86,7 +86,7 @@
 	</script>
 	"}
 	winshow(user, "capturekeypress", TRUE)
-	var/datum/browser/popup = new(user, "capturekeypress", "<div align='center'>Keybindings</div>", 350, 300)
+	var/datum/browser/popup = new(user, "capturekeypress", "<div align='center'>Клавиши</div>", 350, 300)
 	popup.set_content(HTML)
 	popup.open(FALSE)
 
