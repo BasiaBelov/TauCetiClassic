@@ -39,7 +39,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 			if(0 to 15)
 				hal_screwyhud = pick(1, 2, 3, 3, 4, 4)
 				if(hal_screwyhud == 2 && prob(30))
-					to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ХВАТИТ!", "ПОЖАЛУЙСТА, ПРЕКРАТИ!")] ГДЕ Я?! [pick("НААААААААААААААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
+					to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ХВАТИТ!", "ПОЖАЛУЙСТА, ПРЕКРАТИ!", "ГДЕ Я?!")] [pick("НААААААААААААААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
 					playsound_local(null, 'sound/hallucinations/fake_death.ogg', VOL_EFFECTS_MASTER)
 				spawn(rand(100,250))
 					hal_screwyhud = 0
@@ -271,7 +271,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 				SetSleeping(40 SECONDS)
 				hal_crit = 1
 				hal_screwyhud = 1
-				to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ЗАЧЕ-Е-ЕМ?!", "ТОЛЬКО НЕ СНОВА", "ПОЖАЛУЙСТА, ПРЕКРАТИ!")] ГДЕ Я?! [pick("НАААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
+				to_chat(src, "<span class='userdanger'>[pick("БЛЯТЬ!", "РАДИ, БЛЯТЬ, ВСЕГО СВЯТОГО, ХВАТИТ!", "ЗАЧЕ-Е-ЕМ?!", "ТОЛЬКО НЕ СНОВА", "ПОЖАЛУЙСТА, ПРЕКРАТИ!", "ГДЕ Я?!")] [pick("НАААААААААААААААААААААХ!", "ЧЁРТ, ЭТА ИГРА СЛИШКОМ СЛОЖНАЯ!", "Я НЕ МОГУ В ЭТО БОЛЬШЕ ИГРАТЬ!", "КАК ВЫЙТИ?!")]</span>")
 				playsound_local(null, 'sound/hallucinations/fake_death.ogg', VOL_EFFECTS_MASTER)
 				spawn(rand(50,100))
 					SetSleeping(0)
