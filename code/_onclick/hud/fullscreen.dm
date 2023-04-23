@@ -90,6 +90,11 @@
 /atom/movable/screen/fullscreen/proc/remove_screen_part(client/C)
 	return
 
+/atom/movable/screen/fullscreen/fear
+	icon_state = "fear"
+	layer = SCREEN_CRIT_LAYER
+	plane = FULLSCREEN_PLANE
+
 /atom/movable/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
 	layer = SCREEN_DAMAGE_LAYER

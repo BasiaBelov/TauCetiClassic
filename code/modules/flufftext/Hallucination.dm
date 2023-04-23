@@ -43,6 +43,8 @@ Gunshots/explosions/opening doors/less rare audio (done)
 					playsound_local(null, 'sound/hallucinations/fake_death.ogg', VOL_EFFECTS_MASTER)
 				spawn(rand(100,250))
 					hal_screwyhud = 0
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
         //STRANGE ITEMS
 
@@ -96,6 +98,8 @@ Gunshots/explosions/opening doors/less rare audio (done)
 							if(client)
 								client.screen -= halitem
 							halitem = null
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
         // FLASHES OF DANGER, TURFS
 
@@ -128,6 +132,8 @@ Gunshots/explosions/opening doors/less rare audio (done)
 						spawn(rand(10,50)) //Only seen for a brief moment.
 							if(client) client.images -= halimage
 							halimage = null
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
         // STRANGE AUDIO
 
@@ -237,6 +243,8 @@ Gunshots/explosions/opening doors/less rare audio (done)
 						                          'sound/hallucinations/fake_battle_3.ogg',
 						                          'sound/hallucinations/fake_announcement.ogg')
 						playsound_local(target, pick(hallsound), VOL_EFFECTS_MASTER, null, FALSE)
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
         // FLASHES OF DANGER, MOBS
 
@@ -260,10 +268,14 @@ Gunshots/explosions/opening doors/less rare audio (done)
 						spawn(rand(50,80)) // Only seen for a brief moment.
 							if(client) client.images -= halbody
 							halbody = null
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
 			if(71 to 73)
 				if(!HAS_TRAIT(src, TRAIT_STRONGMIND))
 					fake_attack(src)
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
         // FAKE DEATH
 
@@ -277,8 +289,12 @@ Gunshots/explosions/opening doors/less rare audio (done)
 					SetSleeping(0)
 					hal_crit = 0
 					hal_screwyhud = 0
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 
 			if(76 to 100)
+				overlay_fullscreen("fear", /atom/movable/screen/fullscreen/fear)
+				clear_fullscreen("fear")
 				continue
 
 	handling_hal = 0

@@ -989,9 +989,9 @@ var/global/list/tourette_bad_words= list(
 				if(120 to 150)		severity = 5
 				if(150 to 180)		severity = 6
 				if(180 to INFINITY)	severity = 7
-			overlay_fullscreen("fear", /atom/movable/screen/fullscreen/oxy, severity)
+			overlay_fullscreen("hallucination", /atom/movable/screen/fullscreen/oxy, severity)
 		else
-			clear_fullscreen("fear")
+			clear_fullscreen("hallucination")
 
 	update_sight()
 
