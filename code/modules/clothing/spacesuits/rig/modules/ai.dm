@@ -247,28 +247,34 @@
 
 /datum/rig_aivoice/wheatley
 	name = "Wheatley"
-	welcome_message = "Oi, just say hi already! That's too aggressive... Hello, friend!"
-	damage_message = "Hello? Anyone in there?"
-	destroyed_message = "Hellooooo-ooo-o..."
+	welcome_message = list(
+		"Ох, просто поздоровайся уже! Это было слишком агрессивно... Привет, друг!",
+		"Хм. Может, по-испански? По-испански... Hola, amigo! Abre la puerta! Donde esta... Хм... Нет...",
+		)
+	damage_message = list(
+		"Э-эй! Есть кто-нибудь?",
+		"ХА! Я знал, что здесь есть живые.",
+		)
+	destroyed_message = "Э-э-э-э-эй..."
 
 	health_warnings = list(
-		"AHHH!!! Oh God. You look te-- ummm... good. Looking good, actually.",
-		"Are you okay? Are you - Don't answer that. I'm absolutely sure you're fine.",
-		"Oh. You MIGHT want to call out to somebody...",
-		"Do you still understand what I'm saying? At all? If \"yes\" - please seek help. If \"no\" please seek help immediately!",
-		"You are basically dying. But don't be alarmed, alright? Although, if you do feel alarm, try to hold onto that feeling because that is the proper reaction to being told that you are dying.",
+		"А! О, мой бог. Ты выглядишь ужа... хорошо. Хорошо выглядишь.",
+		"Ты в порядке? У тебя все... Не отвечай. Я уверен, что ты в норме.",
+		"Ох. ВОЗМОЖНО, тебе нужно позвать кого-нибудь на помощь...",
+		"Ты понимаешь, что я говорю? Понимаешь смысл? Ответь. Просто скажи: 'Да-а'.",
+		"Ты умираешь. Не стоит тревожиться. Хотя если возникнет чувство тревоги, не нужно с ним бороться. Это нормальная реакция на сообщение, что у тебя большие проблемы.",
 		)
 
 	breach_warnings = list(
-		"You, no, I, no, WE are taking some damage.",
-		"OOOF, I don't want to be bossy to you or anything, but you might want to cease the damage dealt to us.",
-		"GAAAH!!! It's not like you're at risk of losing me, or me losing you, but you might want to patch us up.",
+		"А насколько больно бу... А-а-а-а!",
+		"УУУФ! Обдумай все! Я не хочу на тебя давить, но будет лучше, если ты починишь нас.",
+		"АААЙ! Мы оба умрем! Понятно? Я не хотел это говорить, но ты из меня это вытянула. Понятно? Умрем. Dos Muerte.",
 		)
 
 	energy_warnings = list(
-		"Oi, listen, you might want to consider the following fun fact: the charge bar, responsible for the charge says it's at 50%.",
-		"Alright, listen, for I am going to tell you something. The suit. Yes, it. It is running low on charge. Look at the meter. AT THE METER YOU DON'T GET TO SEE.",
-		"Wha-a-a-at's going o-o-o-on? Oh, right, you seem to be in a litte bit of non-haste when considering the fact that the SUIT IS ALMOST OUT OF POWER.",
+		"Так, слушай. Нам надо подзарядиться, понимаешь? Чтобы батарея была полной.",
+		"Так, еще раз, просто... ПОСМОТРИ НА ИНДИКАТОР БАТАРЕИ!",
+		"А-ах... Что, что произошло? Ладно. Не хотел говорить тебе, но придется. У нас тут серьезные неприятности. БАТАРЕЯ СЕЛА!",
 		)
 
 /datum/rig_aivoice/jester
