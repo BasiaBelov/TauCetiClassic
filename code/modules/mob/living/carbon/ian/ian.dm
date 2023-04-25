@@ -83,13 +83,13 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 				if(!do_after(src, 15, target = A))
 					return
 
-				var/message = "<span class='notice'>[src] licks [A].</span>"
+				var/message = "<span class='notice'>[src] облизывает [A].</span>"
 				if(isfloorturf(A))
 					var/turf/simulated/S = A
 					S.make_wet_floor(soap_eaten ? LUBE_FLOOR : WATER_FLOOR)
 				else if(isliving(A))
-					var/expression = pick("amused","annoyed","confused","resentful","happy","excited")
-					message = "<span class='notice'>[src] licks [A], \he looks [expression]!</span>"
+					var/expression = pick("удивлённо", "раздраженно", "сбитым с толку", "обиженно", "счастливым", "взволнованно")
+					message = "<span class='notice'>[src] облизывает [A], он выглядит [expression]!</span>"
 					if(iscarbon(A))
 						var/mob/living/carbon/C = A
 						var/list/items = C.get_equipped_items()
@@ -100,10 +100,10 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 					else if(ismouse(A))
 						var/mob/living/simple_animal/mouse/M = A
 						if(M.stat == DEAD)
-							message = "<span class='notice'>[src] looks [expression] while eating [A].</span>"
+							message = "<span class='notice'>[src] выглядит [expression] пока ест [A].</span>"
 							M.gib()
 						else
-							message = "<span class='notice'>[src] licks [A], then ate \him. In last moments of life, [A] was [expression]!</span>"
+							message = "<span class='notice'>[src] облизывает [A], когда ест это. В последние мгновения жизни, [A] был [expression]!</span>"
 							M.health = 0
 							M.loc = src
 							addtimer(CALLBACK(src, .proc/ate_mouse), rand(250, 1200))
@@ -111,8 +111,8 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 						adjustBruteLoss(-1)
 						adjustFireLoss(-1)
 				else if(istype(A, /obj/item/weapon/reagent_containers/food/snacks/soap))
-					var/expression = pick("amused","annoyed","confused")
-					message = "<span class='notice'>[src] ate [A] and looks [expression]!</span>"
+					var/expression = pick("удивлённо","раздраженно","сбитым с толку")
+					message = "<span class='notice'>[src] съел [A] и выглядит [expression]!</span>"
 					qdel(A)
 					soap_eaten += 200
 				else if(isitem(A))
@@ -127,14 +127,14 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 			if(IAN_SNIFF)
 				if(A == src) //Resets current smell in memory.
 					nose_memory = null
-					to_chat(src, "<span class='notice'>Dropped current smell.</span>")
+					to_chat(src, "<span class='notice'>Потерял запах.</span>")
 					return
 
 				if(isturf(A)) //Visualize smells in X range around us.
 					if(nose_last_sniff > world.time)
-						to_chat(src, "<span class='warning'>Nose is on cooldown.</span>")
+						to_chat(src, "<span class='warning'>Нос должен отдохнуть.</span>")
 					else
-						visible_message("<span class='notice'>[src] sniffs around.</span>")
+						visible_message("<span class='notice'>[src] принюхивается.</span>")
 						sniff_around()
 					return
 
@@ -145,12 +145,12 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 				if(ishuman(A)) //If human - just add his smell to database as known or compare it with nose_smell.
 					var/mob/living/carbon/human/H = A
 					if(!istype(H.dna, /datum/dna))
-						to_chat(src, "<span class='warning'>This humanoid has no smell at all!</span>")
+						to_chat(src, "<span class='warning'>У этого гуманоида вообще нет запаха!</span>")
 					else
 						smell = md5(H.dna.uni_identity)
 						nose_database[smell] = H.real_name
 						if(nose_memory == smell)
-							to_chat(src, "<span class='warning'>Memorized smell matches this humanoid!</span>")
+							to_chat(src, "<span class='warning'>Этот запах напоминает этого гуманоида!</span>")
 				else
 					var/found_match = FALSE
 
@@ -158,38 +158,38 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 						if(nose_memory)
 							if(nose_memory in A.blood_DNA)
 								if(A.blood_DNA.len > 1)
-									to_chat(src, "<span class='warning'>I found memorized smell among others here!</span>")
+									to_chat(src, "<span class='warning'>Я нашёл знакомый запах среди всего этого!</span>")
 								else
-									to_chat(src, "<span class='warning'>I found memorized smell here!</span>")
+									to_chat(src, "<span class='warning'>Я нашёл знакомый запах!</span>")
 								found_match = TRUE
 						else
 							if(A.blood_DNA.len > 1)
-								to_chat(src, "<span class='warning'>There is more than one smell, nose picked up one randomly.</span>")
+								to_chat(src, "<span class='warning'>Запахов больше одного, нос уловил его случайно.</span>")
 							smell = pick(A.blood_DNA)
 
 					if(A.fingerprints && A.fingerprints.len)
 						if(nose_memory)
 							if(!found_match && (nose_memory in A.fingerprints))
 								if(A.fingerprints.len > 1)
-									to_chat(src, "<span class='warning'>I found memorized smell among others here!</span>")
+									to_chat(src, "<span class='warning'>Я нашёл знакомый запах среди всего этого!</span>")
 								else
-									to_chat(src, "<span class='warning'>I found memorized smell here!</span>")
+									to_chat(src, "<span class='warning'>Я нашёл знакомый запах!</span>")
 						else if(!smell)
 							if(A.fingerprints.len > 1)
-								to_chat(src, "<span class='warning'>There is more than one smell, nose picked up one randomly.</span>")
+								to_chat(src, "<span class='warning'>Запахов больше одного, нос уловил его случайно.</span>")
 							smell = pick(A.fingerprints)
 
 				if(smell && !nose_memory)
 					nose_memory = smell
 					if(!(smell in nose_database))
 						nose_database[smell] = "Unknown"
-						to_chat(src, "<span class='warning'>My nose picked up an unknown smell.</span>")
+						to_chat(src, "<span class='warning'>Мой нос поймал незнакомый запах.</span>")
 					else if(nose_database[smell] == "Unknown")
-						to_chat(src, "<span class='warning'>I don't know this smell yet, but smells familiar.</span>")
+						to_chat(src, "<span class='warning'>Я не знаю что это за запах, но пахнет знакомо...</span>")
 					else
-						to_chat(src, "<span class='warning'>This smell belongs to [nose_database[smell]].</span>")
+						to_chat(src, "<span class='warning'>Этот запах принадлежит [nose_database[smell]].</span>")
 
-				visible_message("<span class='notice'>[src] sniffs [A].</span>")
+				visible_message("<span class='notice'>[src] принюхивается [A].</span>")
 
 /*
 	TONGUE
@@ -310,7 +310,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 
 /mob/living/carbon/ian/SelfMove(turf/n, direct)
 	if(restrained())
-		to_chat(src, "<span class='red'>I feel something on my neck and cannot move!</span>")
+		to_chat(src, "<span class='red'>Я чувствую что-то на своей шее и не могу пошевелиться!</span>")
 		return FALSE
 
 	return ..()
