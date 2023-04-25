@@ -1,14 +1,14 @@
 /datum/emote/human/laugh
 	key = "laugh"
 
-	message_1p = "You laugh."
-	message_3p = "laughs."
+	message_1p = "Вы смеётесь."
+	message_3p = "смеётся."
 
-	message_impaired_production = "laughs silently."
-	message_impaired_reception = "You see someone opening and closing their mouth, smiling."
+	message_impaired_production = "беззвучно смеется."
+	message_impaired_reception = "Вы видите, как кто-то открывает и закрывает рот, улыбаясь."
 
-	message_miming = "acts out a laugh."
-	message_muzzled = "giggles sligthly."
+	message_miming = "изображает смех."
+	message_muzzled = "слегка хихикает."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -39,14 +39,14 @@
 /datum/emote/human/giggle
 	key = "giggle"
 
-	message_1p = "You giggle."
-	message_3p = "giggles."
+	message_1p = "Вы хихикаете."
+	message_3p = "хихикает."
 
-	message_impaired_production = "smiles slightly and giggles silently."
-	message_impaired_reception = "You see someone opening and closing their mouth slightly, smiling."
+	message_impaired_production = "слегка улыбается и беззвучно хихикает."
+	message_impaired_reception = "Вы видите, как кто-то слегка открывает и закрывает рот, улыбаясь."
 
-	message_miming = "appears to giggle."
-	message_muzzled = "giggles slightly."
+	message_miming = "кажется, хихикает."
+	message_muzzled = "слегка хихикает."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -58,14 +58,14 @@
 /datum/emote/human/grunt
 	key = "grunt"
 
-	message_1p = "You grunt."
-	message_3p = "grunts."
+	message_1p = "Вы кряхтите"
+	message_3p = "кряхтит."
 
-	message_impaired_production = "writhes and sighs slightly."
-	message_impaired_reception = "You see someone clench their teeth."
+	message_impaired_production = "корчится и слегка вздыхает."
+	message_impaired_reception = "Вы видите, как кто-то стискивает зубы."
 
-	message_miming = "appears to grunt!"
-	message_muzzled = "grunts silently!"
+	message_miming = "кажется, кряхтит."
+	message_muzzled = "беззвучно кряхтит!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -87,14 +87,14 @@
 /datum/emote/human/groan
 	key = "groan"
 
-	message_1p = "You groan."
-	message_3p = "groans."
+	message_1p = "Вы стонете."
+	message_3p = "стонет."
 
-	message_impaired_production = "writhes and sighs slightly."
-	message_impaired_reception = "You see someone opening their mouth slightly."
+	message_impaired_production = "корчится и слегка вздыхает."
+	message_impaired_reception = "Вы видите, как кто-то слегка приоткрывает рот."
 
-	message_miming = "appears to be in pain!"
-	message_muzzled = "makes a weak noise."
+	message_miming = "похоже, больно."
+	message_muzzled = "издает слабый звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -119,14 +119,14 @@
 /datum/emote/human/scream
 	key = "scream"
 
-	message_1p = "You scream!"
-	message_3p = "screams!"
+	message_1p = "Вы кричите."
+	message_3p = "кричит."
 
-	message_impaired_production = "twists their face into an agonised expression!"
-	message_impaired_reception = "You see someone opening their mouth like a fish gasping for air!"
+	message_impaired_production = "сильно щурится и широко открывает рот."
+	message_impaired_reception = "Вы видите, как кто-то открывает рот и сильно дышит."
 
-	message_miming = "acts out a scream!"
-	message_muzzled = "makes a loud noise!"
+	message_miming = "кажется, кричит."
+	message_muzzled = "издаёт громкий шум!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -148,14 +148,14 @@
 /datum/emote/human/cough
 	key = "cough"
 
-	message_1p = "You cough."
-	message_3p = "coughs."
+	message_1p = "Вы кашляете."
+	message_3p = "кашляет."
 
-	message_impaired_production = "spasms violently!"
-	message_impaired_reception = "You see someone moving their face forward as they open and close their mouth!"
+	message_impaired_production = "сильно судорожит."
+	message_impaired_reception = "Вы видите, как кто-то двигает лицом вперед, когда открывает и закрывает рот!"
 
-	message_miming = "acts out a cough."
-	message_muzzled = "appears to cough."
+	message_miming = "разыгрывает кашель."
+	message_muzzled = "кажется, кашляет."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -171,14 +171,14 @@
 /datum/emote/human/hiccup
 	key = "hiccup"
 
-	message_1p = "You hiccup."
-	message_3p = "hiccups."
+	message_1p = "Вы икаете."
+	message_3p = "икает."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "You see someone spasm suddenly while opening their mouth."
+	message_impaired_production = "издаёт тихий звук."
+	message_impaired_reception = "Вы видите, как у кого-то внезапно начинается судорога при открытии рта."
 
-	message_miming = "hiccups."
-	message_muzzled = "makes a weak noise."
+	message_miming = "икает."
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -193,14 +193,14 @@
 /datum/emote/human/choke
 	key = "choke"
 
-	message_1p = "You choke."
-	message_3p = "chokes."
+	message_1p = "Вы задыхаетесь."
+	message_3p = "задыхается."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "You see someone clutching their throat desperately!"
+	message_impaired_production = "издаёт тихий звук."
+	message_impaired_reception = "Вы видите, как кто-то отчаянно хватается за горло."
 
-	message_miming = "chokes."
-	message_muzzled = "makes a weak noise."
+	message_miming = "задыхается."
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -216,14 +216,14 @@
 /datum/emote/human/snore
 	key = "snore"
 
-	message_1p = "You snore."
-	message_3p = "snores."
+	message_1p = "Вы храпите."
+	message_3p = "храпит."
 
-	message_impaired_production = "makes a noise."
-	message_impaired_reception = "You see someone opening their mouth wide to take a breath."
+	message_impaired_production = "издаёт тихий звук."
+	message_impaired_reception = "Вы видите, как кто-то широко открывает рот, чтобы сделать вдох."
 
-	message_miming = "snores."
-	message_muzzled = "makes a noise."
+	message_miming = "храпит."
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -237,14 +237,14 @@
 /datum/emote/human/sniff
 	key = "sniff"
 
-	message_1p = "You sniff."
-	message_3p = "sniffs."
+	message_1p = "Вы принюхиваетесь."
+	message_3p = "принюхивается."
 
-	message_impaired_production = "sniffs."
-	message_impaired_reception = "You see someone sniffing."
+	message_impaired_production = "принюхивается."
+	message_impaired_reception = "Вы видите, как кто-то принюхивается."
 
-	message_miming = "whimpers."
-	message_muzzled = "makes a weak noise."
+	message_miming = "принюхивается."
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -256,14 +256,14 @@
 /datum/emote/human/sneeze
 	key = "sneeze"
 
-	message_1p = "You sneeze."
-	message_3p = "sneezes."
+	message_1p = "Вы чихаете."
+	message_3p = "чихает."
 
-	message_impaired_production = "makes a strange noise."
-	message_impaired_reception = "You see someone sneezing."
+	message_impaired_production = "издаёт громкий звук."
+	message_impaired_reception = "Вы видите, как кто-то чихает."
 
-	message_miming = "sneezes."
-	message_muzzled = "makes a strange noise."
+	message_miming = "чихает."
+	message_muzzled = "издаёт громкий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -276,14 +276,14 @@
 /datum/emote/human/gasp
 	key = "gasp"
 
-	message_1p = "You gasp!"
-	message_3p = "gasps!"
+	message_1p = "Ты задыхаешься!"
+	message_3p = "задыхается!"
 
-	message_impaired_production = "sucks in air violently!"
-	message_impaired_reception = "You see someone sucking in air violently!"
+	message_impaired_production = "пытается дышать!"
+	message_impaired_reception = "Вы видите, как кто-то пытается дышать!"
 
-	message_miming = "appears to be gasping!"
-	message_muzzled = "makes a weak noise."
+	message_miming = "кажется, задыхается!"
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -299,14 +299,14 @@
 /datum/emote/human/sigh
 	key = "sigh"
 
-	message_1p = "You sigh."
-	message_3p = "sighs."
+	message_1p = "Вы вздыхаете."
+	message_3p = "вздыхает."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "You see someone opening their mouth."
+	message_impaired_production = "издаёт тихий звук."
+	message_impaired_reception = "Вы видите, что кто-то открывает рот."
 
-	message_miming = "sighs."
-	message_muzzled = "makes a weak noise."
+	message_miming = "вздыхает."
+	message_muzzled = "издаёт тихий звук."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -319,14 +319,14 @@
 /datum/emote/human/mumble
 	key = "mumble"
 
-	message_1p = "You mumble."
-	message_3p = "mumbles."
+	message_1p = "Вы бормочите."
+	message_3p = "бормочит."
 
-	message_impaired_production = "makes a weak noise."
-	message_impaired_reception = "You see someone opening and closing their mouth."
+	message_impaired_production = "издаёт тихий звук."
+	message_impaired_reception = "Вы видите, как кто-то открывает и закрывает рот."
 
-	message_miming = "sighs."
-	message_muzzled = "makes an annoyed face!"
+	message_miming = "вздыхает."
+	message_muzzled = "делает раздраженное лицо."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -339,14 +339,14 @@
 /datum/emote/human/hmm_think
 	key = "hmm"
 
-	message_1p = "You mumble thoughtfully."
-	message_3p = "mumbles thoughtfully..."
+	message_1p = "Хмм..."
+	message_3p = "задумчиво мычит..."
 
-	message_impaired_production = "mumbles thougtfully..."
-	message_impaired_reception = "You see someone scratching their chin thougtfully..."
+	message_impaired_production = "задумчиво мычит..."
+	message_impaired_reception = "Вы видите, как кто-то задумчиво чешет подбородок..."
 
-	message_miming = "acts out a philosophical thinking..."
-	message_muzzled = "mumble silently and thoughtfully..."
+	message_miming = "разыгрывает мышление..."
+	message_muzzled = "задумчиво и тихо мычит..."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -363,14 +363,14 @@
 /datum/emote/human/hmm_question
 	key = "hmm?"
 
-	message_1p = "You mumble and curle your eyebrows questioningly..?"
-	message_3p = "mumbles questioningly..?"
+	message_1p = "Хмм..?"
+	message_3p = "вопросительно мычит..."
 
-	message_impaired_production = "mumbles questioningly..?"
-	message_impaired_reception = "You see someone curling their eyebrows questioningly..?"
+	message_impaired_production = "вопросительно мычит..."
+	message_impaired_reception = "Вы видите, как кто-то вопросительно приподнимает брови..."
 
-	message_miming = "curls their eyebrows questioningly..?"
-	message_muzzled = "mumbles silently and questioningly..?"
+	message_miming = "вопросительно приподнимает брови..."
+	message_muzzled = "тихо и вопросительно бормочет..."
 
 	message_type = SHOWMSG_AUDIO
 
@@ -387,14 +387,14 @@
 /datum/emote/human/hmm_excited
 	key = "hmm!"
 
-	message_1p = "You mumble excitedly!"
-	message_3p = "mumbles excitedly."
+	message_1p = "Хмм!"
+	message_3p = "возбуждённо мычит!"
 
-	message_impaired_production = "mumbles excitedly!"
-	message_impaired_reception = "You see someone curling their eyebrows excitedly!"
+	message_impaired_production = "возбуждённо мычит!"
+	message_impaired_reception = "Вы видите, как кто-то взволнованно приподымает брови!"
 
-	message_miming = "curls their eyebrows excitedly!"
-	message_muzzled = "mumbles silently and excitedly!"
+	message_miming = "взволнованно приподымает брови!"
+	message_muzzled = "возбуждённо и тихо мычит!"
 
 	message_type = SHOWMSG_AUDIO
 
@@ -411,14 +411,14 @@
 /datum/emote/human/woo
 	key = "woo"
 
-	message_1p = "You woo excitedly!"
-	message_3p = "woos excitedly!"
+	message_1p = "Вуууу!"
+	message_3p = "восторжено кричит!"
 
-	message_impaired_production = "woos excitedly!"
-	message_impaired_reception = "You see someone excitedly wooing!"
+	message_impaired_production = "восторжено кричит!"
+	message_impaired_reception = "Вы видете, как кто-то восторжено кричит!"
 
-	message_miming = "acts out gestures, excitedly!"
-	message_muzzled = "looks excited."
+	message_miming = "изображает восторг!"
+	message_muzzled = "выглядит восторженно."
 
 	message_type = SHOWMSG_AUDIO
 
