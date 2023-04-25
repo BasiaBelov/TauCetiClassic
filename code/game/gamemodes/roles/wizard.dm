@@ -17,7 +17,7 @@
 
 /datum/role/wizard/Greet(greeting, custom)
 	. = ..()
-	to_chat(antag.current, "<B>The Space Wizards Federation has given you the following tasks:</B>")
+	to_chat(antag.current, "<B>Федерация Космических Волшебников поставила перед вами следующие задачи:</B>")
 
 /datum/role/wizard/RemoveFromRole(datum/mind/M, msg_admins)
 	. = ..()
@@ -28,7 +28,7 @@
 	var/wizard_name_second = pick(wizard_second)
 	var/randomname = "[wizard_name_first] [wizard_name_second]"
 
-	var/newname = sanitize_safe(input(wizard_mob, "You are the Space Wizard. Would you like to change your name to something else?", "Name change", randomname) as null|text, MAX_NAME_LEN)
+	var/newname = sanitize_safe(input(wizard_mob, "Вы - Космический волшебник. Хотели бы вы сменить свое имя на что-нибудь другое?", "Сменить имя", randomname) as null|text, MAX_NAME_LEN)
 
 	if(!newname)
 		newname = randomname
@@ -66,9 +66,9 @@
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/teleportation_scroll(wizard_mob), SLOT_R_STORE)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/spellbook(wizard_mob), SLOT_R_HAND)
 
-	to_chat(wizard_mob, "<span class='info'>You will find a list of available spells in your spell book. Choose your magic arsenal carefully.</span>")
-	to_chat(wizard_mob, "<span class='info'>In your pockets you will find a teleport scroll. Use it as needed.</span>")
-	wizard_mob.mind.store_memory("<B>Remember:</B> do not forget to prepare your spells.")
+	to_chat(wizard_mob, "<span class='info'>Список доступных заклинаний можно найти в своей книге. Тщательно выбирайте свои магические способности.</span>")
+	to_chat(wizard_mob, "<span class='info'>В своих карманах вы найдете свиток телепортации. Используйте его по мере необходимости.</span>")
+	wizard_mob.mind.store_memory("<B>Запомните:</B> не забудьте выбрать заклинания. На станции их нельзя будет выбрать или поменять.")
 	wizard_mob.update_icons()
 
 /datum/role/wizard/OnPostSetup(laterole)
@@ -116,7 +116,7 @@
 /datum/role/wizard/GetScoreboard()
 	. = ..()
 	if(antag.current && antag.current.spell_list?.len)
-		. += "<br><b>[antag.name] used the following spells: </b>"
+		. += "<br><b>[antag.name] - Список заклинаний: </b>"
 		var/i = 1
 		for(var/obj/effect/proc_holder/spell/S in antag.current.spell_list)
 			var/icon/spellicon = icon('icons/hud/actions.dmi', S.action_icon_state)
@@ -158,7 +158,7 @@
 /datum/role/wizard_apprentice/GetScoreboard()
 	. = ..()
 	if(antag.current && antag.current.spell_list?.len)
-		. += "<br><b>[antag.name] used the following spells: </b>"
+		. += "<br><b>[antag.name] - Список заклинаний: </b>"
 		var/i = 1
 		for(var/obj/effect/proc_holder/spell/S in antag.current.spell_list)
 			var/icon/spellicon = icon('icons/hud/actions.dmi', S.action_icon_state)

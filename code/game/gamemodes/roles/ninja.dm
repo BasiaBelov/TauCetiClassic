@@ -83,8 +83,8 @@
 /datum/role/ninja/Greet(greeting, custom)
 	. = ..()
 	var/directive = generate_ninja_directive("heel") //Only hired by antags, not NT
-	to_chat(antag.current, "<span class = 'info'><B>You are <font color='red'>Ninja</font>!</B></span>")
-	to_chat(antag.current, "You are an elite mercenary assassin of the Spider Clan, [antag.current.real_name]. You have a variety of abilities at your disposal, thanks to your nano-enhanced cyber armor")
-	to_chat(antag.current, "Your current directive is: <span class = 'red'><B>[directive]</B></span>")
-	to_chat(antag.current, "<span class = 'info'>Try your best to adhere to this.</span>")
-	antag.store_memory("<B>Directive:</B> <span class='red'>[directive]</span><br>")
+	to_chat(antag.current, "<span class = 'info'><B>Вы - <font color='red'>Ниндзя</font>!</B></span>")
+	to_chat(antag.current, "Вы элитный наемный убийца клана Пауков, [antag.current.real_name]. В вашем распоряжении множество способностей, благодаря вашей наноусиленной кибернетической броне.")
+	to_chat(antag.current, "Ваша текущая директива такова: <span class = 'red'><B>[directive]</B></span>")
+	to_chat(antag.current, "<span class = 'info'>Старайтесь изо всех сил придерживаться этого.</span>")
+	antag.store_memory("<B>Директива:</B> <span class='red'>[directive]</span><br>")

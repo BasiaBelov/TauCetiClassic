@@ -58,5 +58,5 @@ var/global/list/target_objectives = list()
 	return TRUE
 
 /datum/objective/target/proc/format_explanation()
-	return "Somebody didn't override the format explanation text here. Objective type is [type]. Target is [target.name], have fun."
+	return "Кто-то не переопределил здесь текст пояснения к формату. Тип объекта - [type]. Целью является [target.name ]. Веселитесь."
 

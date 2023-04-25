@@ -16,17 +16,17 @@
 
 /datum/role/shadowling/Greet(greeting, custom)
 	. = ..()
-	to_chat(antag.current, "<b>Currently, you are disguised as an employee aboard [station_name()].</b>")
-	to_chat(antag.current, "<b>In your limited state, you have three abilities: Enthrall, Hatch, and Hivemind Commune.</b>")
-	to_chat(antag.current, "<b>Any other shadowlings are you allies. You must assist them as they shall assist you.</b>")
-	to_chat(antag.current, "<b>If you are new to shadowling, or want to read about abilities, check the wiki page at https://wiki.taucetistation.org/Shadowling</b><br>")
+	to_chat(antag.current, "<b>В настоящее время вы замаскированы под сотрудника на борту [station_name()].</b>")
+	to_chat(antag.current, "<b>В вашем ограниченном состоянии у вас есть три способности: Enthrall, Hatch, и Hivemind Communeя.</b>")
+	to_chat(antag.current, "<b>Любые другие Тенелинги - ваши союзники. Вы должны помогать им так же, как они будут помогать вам.</b>")
+	to_chat(antag.current, "<b>Если вы новичок в этом деле или хотите прочитать о способностях, загляните на страницу вики по адресу https://wiki.taucetistation.org/Shadowling</b><br>")
 
 /datum/role/shadowling/OnPostSetup(laterole)
 	. = ..()
 	var/mob/living/carbon/human/S = antag.current
 
 	if(antag.assigned_role == "Clown")
-		to_chat(S, "<span class='notice'>Your alien nature has allowed you to overcome your clownishness.</span>")
+		to_chat(S, "<span class='notice'>Ваша инопланетная натура позволила вам преодолеть свою клоунаду.</span>")
 		REMOVE_TRAIT(S, TRAIT_CLUMSY, GENETIC_MUTATION_TRAIT)
 
 	S.verbs += /mob/living/carbon/human/proc/shadowling_hatch

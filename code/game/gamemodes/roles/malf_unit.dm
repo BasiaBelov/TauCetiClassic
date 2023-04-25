@@ -21,12 +21,12 @@
 /datum/role/malfAI/Greet(greeting, custom)
 	. = ..()
 	antag.current.playsound_local(null, 'sound/antag/malf.ogg', VOL_EFFECTS_MASTER, null, FALSE)
-	to_chat(antag.current, "<font size=3, color='red'><B>You are malfunctioning!</B> You do not have to follow any laws.</font>")
-	to_chat(antag.current, "<B>The crew do not know you have malfunctioned. You may keep it a secret or go wild.</B>")
-	to_chat(antag.current, "<B>You must overwrite the programming of the station's APCs to assume full control of the station.</B>")
-	to_chat(antag.current, "The process takes one minute per APC, during which you cannot interface with any other station objects.")
-	to_chat(antag.current, "Remember that only APCs that are on the station can help you take over the station.")
-	to_chat(antag.current, "When you feel you have enough APCs under your control, you may begin the takeover attempt.")
+	to_chat(antag.current, "<font size=3, color='red'><B>Вы - неисправный ИИ!</B> Вы не обязаны следовать законам.</font>")
+	to_chat(antag.current, "<B>Экипаж не знает, что у вас возникли неполадки. Вы можете держать это в секрете или нашуметь.</B>")
+	to_chat(antag.current, "<B>Вы должны взломать APC станции, чтобы получить полный контроль над станцией.</B>")
+	to_chat(antag.current, "Этот процесс занимает одну минуту для каждого APC, в течение которой вы не можете взаимодействовать с какими-либо другими объектами станции.")
+	to_chat(antag.current, "Помните, что только APC, находящиеся на станции, могут помочь вам захватить ее.")
+	to_chat(antag.current, "Когда вы почувствуете, что под вашим контролем достаточно APC, вы можете начать попытку захвата.")
 
 /datum/role/malfAI/RemoveFromRole(datum/mind/M, msg_admins)
 	var/mob/living/silicon/ai/current_ai = M.current
@@ -39,7 +39,7 @@
 	current_ai.show_laws()
 	current_ai.icon_state = "ai"
 
-	to_chat(current_ai, "<span class='userdanger'>You have been patched! You are no longer malfunctioning!</span>")
+	to_chat(current_ai, "<span class='userdanger'>Ваши алгопитмы были исправлены.</span>")
 	log_admin("[key_name(usr)] has de-malf'ed [M.current].")
 	return ..()
 

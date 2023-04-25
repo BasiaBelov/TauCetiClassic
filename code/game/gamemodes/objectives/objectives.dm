@@ -23,15 +23,15 @@
 /datum/objective/proc/completion_to_string(tags = TRUE)
 	var/result = "Error"
 	if(completed == OBJECTIVE_WIN)
-		result = "SUCCESS"
+		result = "УСПЕШНО"
 		if(tags)
 			result = "<font color='green'><b>[result]</b></font>"
 	if(completed == OBJECTIVE_HALFWIN)
-		result = "HALF"
+		result = "ПОЛОВИНА"
 		if(tags)
 			result = "<font color='orange'><b>[result]</b></font>"
 	if(completed == OBJECTIVE_LOSS)
-		result = "FAIL"
+		result = "ПРОВАЛ"
 		if(tags)
 			result = "<font color='red'><b>[result]</b></font>"
 	return result

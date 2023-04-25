@@ -29,7 +29,7 @@
 			)
 			var/equipped = H.equip_in_one_of_slots(O, slots)
 			if(!equipped)
-				to_chat(H, "Unfortunately, you could not bring your [O] to this shift. You will need to find one.")
+				to_chat(H, "К сожалению, вы не смогли привезти [O] с собой. Вам нужно будет найти это.")
 				qdel(O)
 
 /datum/role/cop/undercover/Greet()

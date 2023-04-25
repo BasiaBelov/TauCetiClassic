@@ -1,5 +1,5 @@
 /datum/objective/target/dehead/format_explanation()
-	return "Put the head of [target.current.real_name] in biogel can and steal it."
+	return "Положите головку [target.current.real_name] в банку с биогелем и украдите ее."
 
 /datum/objective/target/dehead/check_completion()
 	if(!target)//If it's a free objective.

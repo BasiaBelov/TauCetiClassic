@@ -12,8 +12,8 @@
 	if(!..())
 		return FALSE
 
-	to_chat(antag.current, "<span class='info'><B>You are an <font color='red'>[name]</font> of [faction.name]!</B></span>")
-	to_chat(antag.current, "<span class='info'>With the help of your teammate, kidnap and experiment on station crew members!</span>")
+	to_chat(antag.current, "<span class='info'><B>Вы - <font color='red'>[name]</font> of [faction.name]!</B></span>")
+	to_chat(antag.current, "<span class='info'>С помощью своего товарища по команде похищайте членов экипажа станции и проводите эксперименты на них!</span>")
 
 	return TRUE
 
@@ -59,7 +59,7 @@
 	if(!..())
 		return FALSE
 
-	to_chat(antag.current, "<span class='info'>Use your stealth technology and equipment to incapacitate humans for your scientist to retrieve.</span>")
+	to_chat(antag.current, "<span class='info'>Используйте свои технологии скрытности, чтобы ловить людей и отправлять их вашему ученому.</span>")
 
 	return TRUE
 
@@ -90,7 +90,7 @@
 	if(!..())
 		return FALSE
 
-	to_chat(antag.current, "<span class='info'>Use your tool and ship consoles to support the agent and retrieve human specimens.</span>")
+	to_chat(antag.current, "<span class='info'>Используйте свой инструмент и консоли для поддержки агента и поимки людей.</span>")
 
 	return TRUE
 
@@ -125,7 +125,7 @@
 	if(!..())
 		return FALSE
 
-	to_chat(antag.current, "<span class='info'>Help your team. Do the operations for them, look for test subjects, or what is the assistant doing there?</span>")
+	to_chat(antag.current, "<span class='info'>Помогите своей команде. Выполняйте за них операции, ищите подопытных или что там делает ассистент?</span>")
 
 	return TRUE
 

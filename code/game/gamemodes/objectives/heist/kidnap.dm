@@ -1,5 +1,5 @@
 /datum/objective/target/kidnap/format_explanation()
-	return "The Shoal has a need for [target.current.real_name], the [target.assigned_role]. Take them alive."
+	return "Нам нужно украсть [target.current.real_name], the [target.assigned_role]. Живым."
 
 /datum/objective/target/kidnap/find_target()
 	var/list/jobs = list("Roboticist" , "Medical Doctor" , "Chemist" , "Station Engineer")

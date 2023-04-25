@@ -27,13 +27,13 @@
 	if(!antag.current)
 		return
 
-	to_chat(antag.current, "<span class='alert'>You feel tired and bloated.</span>")
+	to_chat(antag.current, "<span class='alert'>Вы чувствуете усталость и раздутость.</span>")
 
 /datum/role/blob_overmind/proc/stage2()
 	if(!antag.current)
 		return
 
-	to_chat(antag.current, "<span class='alert'>You feel like you are about to burst.</span>")
+	to_chat(antag.current, "<span class='alert'>Вы чувствуете, что вот-вот лопнете.</span>")
 
 /datum/role/blob_overmind/proc/stage3()
 	if(!antag.current)
@@ -67,10 +67,10 @@
 	if(isovermind(antag.current))
 		return FALSE
 
-	to_chat(antag.current, "<span class='warning'>Your body is ready to give spawn to a new blob core which will eat this station.</span>")
-	to_chat(antag.current, "<span class='warning'>Find a good location to spawn the core and then take control and overwhelm the station!</span>")
-	to_chat(antag.current, "<span class='warning'>When you have found a location, wait until you spawn; this will happen automatically and you cannot speed up the process.</span>")
-	to_chat(antag.current, "<span class='warning'>If you go outside of the station level, or in space, then you will die; make sure your location has lots of ground to cover.</span>")
+	to_chat(antag.current, "<span class='warning'>Ваше тело готово породить новое ядро Блоба, которое съест эту станцию.</span>")
+	to_chat(antag.current, "<span class='warning'>Найдите хорошее место для создания ядра, а затем возьмите станцию под свой контроль и сокрушите её!</span>")
+	to_chat(antag.current, "<span class='warning'>Когда вы найдете местоположение, подождите, пока вы не появитесь; это произойдет автоматически, и вы не сможете ускорить процесс.</span>")
+	to_chat(antag.current, "<span class='warning'>Если вы выйдете за пределы станции, то вы умрете; убедитесь, что в вашем местоположении достаточно места роста.</span>")
 
 	return TRUE
 

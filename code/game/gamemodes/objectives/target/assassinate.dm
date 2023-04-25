@@ -1,5 +1,5 @@
 /datum/objective/target/assassinate/format_explanation()
-	return "Assassinate [target.current.real_name], the [target.assigned_role]."
+	return "Избавьтесь от [target.current.real_name], the [target.assigned_role]."
 
 /datum/objective/target/assassinate/check_completion()
 	var/mob/M = target.current

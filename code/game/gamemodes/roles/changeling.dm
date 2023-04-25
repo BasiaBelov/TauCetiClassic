@@ -76,10 +76,10 @@
 		return FALSE
 
 	antag.current.playsound_local(null, 'sound/antag/ling_aler.ogg', VOL_EFFECTS_MASTER, null, FALSE)
-	to_chat(antag.current, "<span class='danger'>Use say \":g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you absorb them.</span>")
+	to_chat(antag.current, "<span class='danger'>Используйте при разговоре \":g \" для общения с другими генокрадами на станции. Помните: вы получаете всю их поглощенную ДНК, если поглощаете их самих.</span>")
 
 	if(antag.current.mind && antag.current.mind.assigned_role == "Clown")
-		to_chat(antag.current, "You have evolved beyond your clownish nature, allowing you to wield weapons without harming yourself.")
+		to_chat(antag.current, "Вы эволюционировали за пределы своей шутовской натуры, что позволяет вам владеть оружием, не причиняя себе вреда.")
 		REMOVE_TRAIT(antag.current, TRAIT_CLUMSY, GENETIC_MUTATION_TRAIT)
 
 	return TRUE
@@ -134,20 +134,20 @@
 
 /datum/role/changeling/GetScoreboard()
 	. = ..()
-	. += "<br><b>Changeling ID:</b> [changelingID]"
-	. += "<br><b>Genomes Absorbed:</b> [absorbedcount]"
-	. += "<br><b>Stored Essences:</b><br>"
+	. += "<br><b>ID Генокрада:</b> [changelingID]"
+	. += "<br><b>Геномов поглощено:</b> [absorbedcount]"
+	. += "<br><b>Сохраненные эссенции:</b><br>"
 	for(var/mob/living/parasite/essence/E in essences)
 		. += printplayerwithicon(E?.mind)
 		. += "<br>"
 	if(purchasedpowers.len)
-		. += "<br><b>[changelingID] used the following abilities: </b>"
+		. += "<br><b>[changelingID] использовал этим обилки: </b>"
 		var/i = 0
 		for(var/obj/effect/proc_holder/changeling/C in purchasedpowers)
 			if(C.genomecost >= 1)
 				. += "<br><b>#[++i]</b>: [C.name]"
 	else
-		. += "<br>Changeling was too autistic and did't buy anything."
+		. += "<br>Генокрад был слишком аутичным и ничего не покупал."
 
 /datum/role/changeling/extraPanelButtons()
 	var/dat = ..()
@@ -181,13 +181,13 @@
 	var/mob/living/carbon/human/changeling = antag.current
 
 	if(absorbedamount == round(OVEREATING_AMOUNT / 2))
-		to_chat(changeling, "<span class='warning'>Absorbing that many made us realise that we are halfway to becoming a threat to all - even ourselves. We should be more careful with absorbings.</span>")
+		to_chat(changeling, "<span class='warning'>Поглощение многих заставило нас осознать, что мы на полпути к тому, чтобы стать угрозой для всех — даже для самих себя. Мы должны быть более осторожными с поглощениями.</span>")
 
 	else if(absorbedamount == OVEREATING_AMOUNT - 1)
-		to_chat(changeling, "<span class='warning'>We feel like we're near the edge to transforming to something way more brutal and inhuman - <B>and there will be no way back</B>.</span>")
+		to_chat(changeling, "<span class='warning'>Мы чувствуем, что близки к тому, чтобы превратиться во что-то более жестокое и бесчеловечное. <B>Пути назад не будет</B>.</span>")
 
 	else if(absorbedamount == OVEREATING_AMOUNT)
-		to_chat(changeling, "<span class='danger'>We feel our flesh mutate, ripping all our belongings from our body. Additional limbs burst out of our chest along with deadly claws - we've become <B>The Abomination</B>. The end approaches.</span>")
+		to_chat(changeling, "<span class='danger'>Мы чувствуем, как наша плоть мутирует. Дополнительные конечности вырвались из нашей груди вместе со смертоносными когтями. Мы стали <B>Ужасом</B>. Конец приближается.</span>")
 		for(var/obj/item/I in changeling) //drops all items
 			changeling.drop_from_inventory(I)
 		changeling.Stun(10)
@@ -203,7 +203,7 @@
 	notify_ghosts("\A [changelingID], changeling as a new abomination, at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, header = "Abomination")
 	for(var/mob/M in player_list)
 		if(!isnewplayer(M))
-			to_chat(M, "<font size='7' color='red'><b>A terrible roar is coming from somewhere around the station.</b></font>")
+			to_chat(M, "<font size='7' color='red'><b>Страшный рев доносится откуда-то из глубин станции.</b></font>")
 			M.playsound_local(null, 'sound/antag/abomination_start.ogg', VOL_EFFECTS_VOICE_ANNOUNCEMENT, vary = FALSE, frequency = null, ignore_environment = TRUE)
 
 #undef OVEREATING_AMOUNT

@@ -1,5 +1,5 @@
 /datum/objective/custom
-	explanation_text = "Just be yourself"
+	explanation_text = "Просто будь собой."
 	completed = OBJECTIVE_WIN
 
 //if user passed - means that this will be called as an explicit custom objective and will require user input

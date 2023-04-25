@@ -21,7 +21,7 @@
 	AddComponent(/datum/component/gamemode/syndicate, TC_num, "nuclear")
 
 /datum/role/operative/proc/NukeNameAssign(datum/mind/synd_mind)
-	var/choose_name = sanitize_safe(input(synd_mind.current, "You are a Gorlex Maradeurs agent! What is your name?", "Choose a name") as text, MAX_NAME_LEN)
+	var/choose_name = sanitize_safe(input(synd_mind.current, "Вы агент Марадёров Горлекса! Какое ваше имя?", "Ввести имя") as text, MAX_NAME_LEN)
 
 	if(!choose_name)
 		return
@@ -63,9 +63,9 @@
 				break
 		if (code)
 			antag.store_memory("<B>Syndicate Nuclear Bomb Code</B>: [code]", 0)
-			to_chat(antag.current, "The nuclear authorization code is: <B>[code]</B>")
+			to_chat(antag.current, "Код от ядерной бомбы: <B>[code]</B>")
 		else
-			to_chat(usr, "<span class='warning'>No valid nuke found!</span>")
+			to_chat(usr, "<span class='warning'>У вас нет бомбы!</span>")
 
 /datum/role/operative/leader
 	name = NUKE_OP_LEADER
@@ -83,9 +83,9 @@
 	var/datum/faction/nuclear/N = faction
 	if (istype(N) && N.nuke_code)
 		antag.store_memory("<B>Syndicate Nuclear Bomb Code</B>: [N.nuke_code]", 0)
-		to_chat(antag.current, "The nuclear authorization code is: <B>[N.nuke_code]</B>")
+		to_chat(antag.current, "Код от ядерной бомбы: <B>[N.nuke_code]</B>")
 		var/obj/item/weapon/paper/P = new
-		P.info = "The nuclear authorization code is: <b>[N.nuke_code]</b>"
+		P.info = "Код от ядерной бомбы: <b>[N.nuke_code]</b>"
 		P.name = "nuclear bomb code"
 		P.update_icon()
 		var/mob/living/carbon/human/H = antag.current

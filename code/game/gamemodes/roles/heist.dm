@@ -13,12 +13,12 @@
 /datum/role/vox_raider/Greet(greeting, custom)
 	. = ..()
 
-	to_chat(antag.current, "<span class='notice'><B>You are a Vox Raider, fresh from the Shoal!</b></span>")
-	to_chat(antag.current, "<span class='notice'>The Vox are a race of cunning, sharp-eyed nomadic raiders and traders endemic to [system_name()] and much of the unexplored galaxy. You and the crew have come to the Exodus for plunder, trade or both.</span>")
-	to_chat(antag.current, "<span class='notice'>Vox are cowardly and will flee from larger groups, but corner one or find them en masse and they are vicious.</span>")
-	to_chat(antag.current, "<span class='notice'>Use :V to voxtalk, :H to talk on your encrypted channel, and don't forget to turn on your nitrogen internals!</span>")
+	to_chat(antag.current, "<span class='notice'><B>Ты Вокс-рейдер!</b></span>")
+	to_chat(antag.current, "<span class='notice'>Воксы - раса хитрых, остроклювых кочевых налетчиков и торговцев, эндемичных для [system_name()] и большей части неисследованной галактики. Вы и ваша команда прибыли на эту станцию с целью грабежа, торговли или и того, и другого.</span>")
+	to_chat(antag.current, "<span class='notice'>Воксы трусливы и слабы против толпы, так что работайте быстро и максимально скрытно, если вы хотите добиться своих целей путём грабежа.</span>")
+	to_chat(antag.current, "<span class='notice'>Используйте :V для разговоров на вашем языке и :H для разговоров по вашему зашифрованному каналу, и не забудьте включить азотные дыхательный комплекты!</span>")
 	if(config && config.wikiurl)
-		to_chat(antag.current, "<span class='warning'>IF YOU HAVE NOT PLAYED A VOX BEFORE, REVIEW THIS THREAD: [config.wikiurl]/Vox_Raider</span>")
+		to_chat(antag.current, "<span class='warning'>ЕСЛИ ВЫ РАНЬШЕ НЕ ИГРАЛИ ЗА ВОКСОВ, ПРОСМОТРИТЕ ЭТУ СТАТЬЮ: [config.wikiurl]/Vox_Raider</span>")
 
 	var/wikilink = ""
 

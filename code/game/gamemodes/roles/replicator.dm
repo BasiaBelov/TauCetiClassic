@@ -13,10 +13,10 @@
 
 /datum/role/replicator/Greet(greeting, custom)
 	. = ..()
-	to_chat(antag.current, {"<span class='notice'><b>You are a replicator. A part of a Swarm. You must consume materials and create infrastructure required for a Bluespace Catapult,
-	which will utilize a rift so that you will spread on through the galaxy. Multiply and prosper!</b></span>"})
-	to_chat(antag.current, "<span class='bold notice'>The Swarm has awarded you with a gift. Examine yourself for possible environmental adaptations.</span>")
-	to_chat(antag.current, "<span class='warning'>Remember. This reality is not meant for you, you are slowly <b>dying</b>. Consuming materials repairs you, allowing to stay in this fleeting world a little longer...</span>")
+	to_chat(antag.current, {"<span class='notice'><b>Вы - репликатор. Часть Роя. Вы должны потреблять материалы и создавать инфраструктуру, необходимую для Блюспейс катапульты,
+которая создаст разлом, чтобы вы могли распространиться по галактике. Размножайтесь и процветайте!</b></span>"})
+	to_chat(antag.current, "<span class='bold notice'>Рой наградил тебя подарком. Проверьте себя на предмет возможной адаптации к окружающей среде.</span>")
+	to_chat(antag.current, "<span class='warning'>Помнить. Эта реальность предназначена не для вас, вы медленно <b>умираете</b>. Разборка материалов восстанавливает вас, позволяя подольше побыть в этом мимолетном мире...</span>")
 
 /datum/role/replicator/StatPanel()
 	if(!antag)

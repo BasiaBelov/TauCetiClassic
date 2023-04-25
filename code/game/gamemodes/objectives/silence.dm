@@ -1,5 +1,5 @@
 /datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+	explanation_text = "Не позволяйте никому сбежать со станции. Разрешайте вызывать шаттл только тогда, когда все будут мертвы и ваша история останется единой."
 
 /datum/objective/silence/check_completion()
 	if(SSshuttle.location<2)

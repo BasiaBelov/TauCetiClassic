@@ -34,36 +34,36 @@ ADD_TO_POIFS_LIST(/obj/item/stack/sheet/mineral/uranium)
 	var/target_name
 
 	var/static/possible_items[] = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/laser/selfcharging/captain,
-		"a hand teleporter" = /obj/item/weapon/hand_tele,
-		"a captain's jetpack" = /obj/item/weapon/tank/jetpack/oxygen,
-		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
-		"a functional AI" = /obj/item/device/aicard,
-		"the station blueprints" = /obj/item/blueprints,
-		"a nasa voidsuit" = /obj/item/clothing/suit/space/nasavoid,
-		"28 moles of phoron (full tank)" = /obj/item/weapon/tank,
-		"a sample of slime extract" = /obj/item/slime_extract,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-		"a research director's jumpsuit" = /obj/item/clothing/under/rank/research_director,
-		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
-		"a chief medical officer's jumpsuit" = /obj/item/clothing/under/rank/chief_medical_officer,
-		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
-		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
-		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray/cmo,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"the golden fire extinguisher" = /obj/item/weapon/reagent_containers/spray/extinguisher/golden,
+		"старый лазерный пистолет капитана (captain's antique laser gun)" = /obj/item/weapon/gun/energy/laser/selfcharging/captain,
+		"ручной телепортер (hand teleporter)" = /obj/item/weapon/hand_tele,
+		"капитанский джетпак (captain's jetpack)" = /obj/item/weapon/tank/jetpack/oxygen,
+		"капитанскую униформу (captain's jumpsuit)" = /obj/item/clothing/under/rank/captain,
+		"работающий ИИ" = /obj/item/device/aicard,
+		"чертежи станции (station blueprints)" = /obj/item/blueprints,
+		"космический костюм НАС (nasa voidsuit)" = /obj/item/clothing/suit/space/nasavoid,
+		"28 молей форона (полный бак) (28 moles of phoron)" = /obj/item/weapon/tank,
+		"образец экстракта слайма (slime extract)" = /obj/item/slime_extract,
+		"кусочек мяса корги (corgi meat)" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+		"униформу директора научного отдела (research director's jumpsuit)" = /obj/item/clothing/under/rank/research_director,
+		"униформу главного инженера (chief engineer's jumpsuit)" = /obj/item/clothing/under/rank/chief_engineer,
+		"униформу главного врача (chief medical officer's jumpsuit)" = /obj/item/clothing/under/rank/chief_medical_officer,
+		"униформу главы службы безопасности (head of security's jumpsuit)" = /obj/item/clothing/under/rank/head_of_security,
+		"униформу главы персонала (head of personnel's jumpsuit)" = /obj/item/clothing/under/rank/head_of_personnel,
+		"гипоспрей (hypospray)" = /obj/item/weapon/reagent_containers/hypospray/cmo,
+		"пинпойтер капитана (captain's pinpointer)" = /obj/item/weapon/pinpointer,
+		"абляционный бронежилет (ablative armor vest)" = /obj/item/clothing/suit/armor/laserproof,
+		"золотой огнетушитель (golden fire extinguisher)" = /obj/item/weapon/reagent_containers/spray/extinguisher/golden,
 	)
 
 	var/static/possible_items_special[] = list(
 		/*"nuclear authentication disk" = /obj/item/weapon/disk/nuclear,*///Broken with the change to nuke disk making it respawn on z level change.
-		"nuclear gun" = /obj/item/weapon/gun/energy/gun/nuclear,
-		"diamond drill" = /obj/item/weapon/pickaxe/drill/diamond_drill,
-		"bag of holding" = /obj/item/weapon/storage/backpack/holding,
-		"hyper-capacity cell" = /obj/item/weapon/stock_parts/cell/hyper,
-		"10 diamonds" = /obj/item/stack/sheet/mineral/diamond,
-		"50 gold bars" = /obj/item/stack/sheet/mineral/gold,
-		"25 refined uranium bars" = /obj/item/stack/sheet/mineral/uranium,
+		"ядерную пушку (nuclear gun)" = /obj/item/weapon/gun/energy/gun/nuclear,
+		"алмазную дрель (diamond drill)" = /obj/item/weapon/pickaxe/drill/diamond_drill,
+		"сумку для хранения (bag of holding)" = /obj/item/weapon/storage/backpack/holding,
+		"аккумулятор повышенной емкости (hyper-capacity cell)" = /obj/item/weapon/stock_parts/cell/hyper,
+		"10 алмазов (diamonds)" = /obj/item/stack/sheet/mineral/diamond,
+		"50 золотых слитков (gold bars)" = /obj/item/stack/sheet/mineral/gold,
+		"25 очищенного урана (refined uranium bars)" = /obj/item/stack/sheet/mineral/uranium,
 	)
 
 /datum/objective/steal/proc/set_target(item_name)
@@ -71,7 +71,7 @@ ADD_TO_POIFS_LIST(/obj/item/stack/sheet/mineral/uranium)
 	steal_target = possible_items[target_name]
 	if (!steal_target )
 		steal_target = possible_items_special[target_name]
-	explanation_text = "Steal [target_name]."
+	explanation_text = "Украдите [target_name]."
 	return steal_target
 
 
@@ -96,7 +96,7 @@ ADD_TO_POIFS_LIST(/obj/item/stack/sheet/mineral/uranium)
 			return FALSE
 		target_name = custom_name
 		steal_target = custom_target
-		explanation_text = "Steal [target_name]."
+		explanation_text = "Украдите [target_name]."
 	else
 		set_target(new_target)
 	auto_target = FALSE
@@ -107,16 +107,16 @@ ADD_TO_POIFS_LIST(/obj/item/stack/sheet/mineral/uranium)
 	if(!isliving(owner.current))	return OBJECTIVE_LOSS
 	var/list/all_items = owner.current.GetAllContents()
 	switch (target_name)
-		if("28 moles of phoron (full tank)","10 diamonds","50 gold bars","25 refined uranium bars")
+		if("28 молей форона (полный бак) (28 moles of phoron)" ,"10 алмазов (diamonds)","50 золотых слитков (gold bars)","25 очищенного урана (refined uranium bars)")
 			var/target_amount = text2num(target_name)//Non-numbers are ignored.
 			var/found_amount = 0.0//Always starts as zero.
 
 			for(var/obj/item/I in all_items) //Check for phoron tanks
 				if(istype(I, steal_target))
-					found_amount += (target_name == "28 moles of phoron (full tank)" ? (I:air_contents:gas["phoron"]) : (I:amount))
+					found_amount += (target_name == "28 молей форона (полный бак) (28 moles of phoron)" ? (I:air_contents:gas["phoron"]) : (I:amount))
 			return found_amount>=target_amount
 
-		if("50 coins (in bag)")
+		if("50 монет (в сумке)")
 			var/obj/item/weapon/moneybag/B = locate() in all_items
 
 			if(B)
@@ -126,7 +126,7 @@ ADD_TO_POIFS_LIST(/obj/item/stack/sheet/mineral/uranium)
 					found_amount++
 				return found_amount>=target
 
-		if("a functional AI")
+		if("работающий ИИ")
 			for(var/obj/item/device/aicard/C in all_items) //Check for ai card
 				for(var/mob/living/silicon/ai/M in C)
 					if(isAI(M) && M.stat != DEAD) //See if any AI's are alive inside that card.

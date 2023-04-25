@@ -9,4 +9,4 @@
 
 /datum/role/zombie/Greet(greeting, custom)
 	. = ..()
-	to_chat(antag.current, "You are reanimated, mindless, decaying corpses with a hunger for human brains. Avoid plants.")
+	to_chat(antag.current, "Вы - оживший, безмозглый, разлагающиеся труп, жаждущий человеческих мозгов. Избегайте растений.")

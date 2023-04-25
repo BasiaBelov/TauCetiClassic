@@ -7,9 +7,9 @@
 
 /datum/role/borer/Greet(greeting, custom)
 	. = ..()
-	to_chat(antag.current, "Use your Infest power to crawl into the ear of a host and fuse with their brain.")
-	to_chat(antag.current, "You can only take control temporarily, and at risk of hurting your host, so be clever and careful; your host is encouraged to help you however they can.")
-	to_chat(antag.current, "Talk to your fellow borers with ;")
+	to_chat(antag.current, "Используйте Infest, чтобы заползти в ухо человека и слиться с его мозгом.")
+	to_chat(antag.current, "Вы можете взять управление на себя только временно и рискуете причинить вред своему хозяину, поэтому будьте умны и осторожны; вашему хозяину рекомендуется помогать вам, чем он может.")
+	to_chat(antag.current, "Говорите с другими вашими братьями спомощью ;")
 
 /datum/role/borer/forgeObjectives()
 	if(!..())
