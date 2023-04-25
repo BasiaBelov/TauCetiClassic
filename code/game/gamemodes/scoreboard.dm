@@ -133,7 +133,7 @@
 
 /datum/controller/subsystem/ticker/proc/scorestats(completions)
 	var/dat = completions
-	dat += {"<h2>Round Statistics and Score</h2><div class='Section'>"}
+	dat += {"<h2>Статистика раунда</h2><div class='Section'>"}
 
 	for(var/datum/faction/F in SSticker.mode.factions)
 		var/stat = F.get_scorestat()
@@ -142,7 +142,7 @@
 			dat += "<hr>"
 
 	if(global.deconverted_roles.len)
-		dat += "<B>Deconverted roles:</B><BR>"
+		dat += "<B>Деконвертировано ролей:</B><BR>"
 		dat += "<ul>"
 		for(var/name in global.deconverted_roles)
 			dat += "<li>"
@@ -151,61 +151,61 @@
 		dat += "</ul>"
 
 	var/totalfunds = station_account.money
-	dat += {"<B><U>GENERAL STATS</U></B><BR>
-	<U>THE GOOD:</U><BR>
-	<B>Useful Crates Shipped:</B> [SSStatistics.score.stuffshipped] ([SSStatistics.score.stuffshipped * 75] Points)<BR>
-	<B>Hydroponics Harvests:</B> [SSStatistics.score.stuffharvested] ([SSStatistics.score.stuffharvested] Points)<BR>
-	<B>Ore Mined:</B> [SSStatistics.score.oremined] ([SSStatistics.score.oremined] Points)<BR>
-	<B>Refreshments Prepared:</B> [SSStatistics.score.meals] ([SSStatistics.score.meals * 5] Points)<BR>
-	<B>Research Completed:</B> [SSStatistics.score.researchdone] ([SSStatistics.score.researchdone * 30] Points)<BR>"}
-	dat += "<B>Shuttle Escapees:</B> [SSStatistics.score.crew_escaped] ([SSStatistics.score.crew_escaped * 25] Points)<BR>"
-	dat += {"<B>Random Events Endured:</B> [SSStatistics.score.eventsendured] ([SSStatistics.score.eventsendured * 50] Points)<BR>
-	<B>Whole Station Powered:</B> [SSStatistics.score.powerbonus ? "Yes" : "No"] ([SSStatistics.score.powerbonus * 2500] Points)<BR>
-	<B>Ultra-Clean Station:</B> [SSStatistics.score.mess ? "No" : "Yes"] ([SSStatistics.score.messbonus * 3000] Points)<BR><BR>
-	<U>THE BAD:</U><BR>
-	<B>Roles successful:</B> [SSStatistics.score.roleswon] (-[SSStatistics.score.roleswon * 250] Points)<BR>
-	<B>Dead Bodies on Station:</B> [SSStatistics.score.crew_dead] (-[SSStatistics.score.crew_dead * 250] Points)<BR>
-	<B>Uncleaned Messes:</B> [SSStatistics.score.mess] (-[SSStatistics.score.mess] Points)<BR>
-	<B>Station Power Issues:</B> [SSStatistics.score.powerloss] (-[SSStatistics.score.powerloss * 30] Points)<BR>
-	<B>Rampant Diseases:</B> [SSStatistics.score.disease] (-[SSStatistics.score.disease * 30] Points)<BR>
-	<B>AI Destroyed:</B> [SSStatistics.score.deadaipenalty ? "Yes" : "No"] (-[SSStatistics.score.deadaipenalty * 250] Points)<BR><BR>
-	<U>THE WEIRD</U><BR>
-	<B>Final Station Budget:</B> $[num2text(totalfunds,50)]<BR>"}
+	dat += {"<B><U>ОБЩАЯ СТАТИСТИКА</U></B><BR>
+	<U>ДОБРО:</U><BR>
+	<B>Отправленные полезные ящики:</B> [SSStatistics.score.stuffshipped] ([SSStatistics.score.stuffshipped * 75] очков)<BR>
+	<B>Урожай на гидропонике:</B> [SSStatistics.score.stuffharvested] ([SSStatistics.score.stuffharvested] очков)<BR>
+	<B>Руды выкопано:</B> [SSStatistics.score.oremined] ([SSStatistics.score.oremined] очков)<BR>
+	<B>Приготовленные еды:</B> [SSStatistics.score.meals] ([SSStatistics.score.meals * 5] очков)<BR>
+	<B>Изучения:</B> [SSStatistics.score.researchdone] ([SSStatistics.score.researchdone * 30] очков)<BR>"}
+	dat += "<B>Спасшиеся на шаттле:</B> [SSStatistics.score.crew_escaped] ([SSStatistics.score.crew_escaped * 25] очков)<BR>"
+	dat += {"<B>Пережитые события:</B> [SSStatistics.score.eventsendured] ([SSStatistics.score.eventsendured * 50] очков)<BR>
+	<B>Работает вся станция:</B> [SSStatistics.score.powerbonus ? "Да" : "Нет"] ([SSStatistics.score.powerbonus * 2500] очков)<BR>
+	<B>Ультрачистая станция:</B> [SSStatistics.score.mess ? "Нет" : "Да"] ([SSStatistics.score.messbonus * 3000] очков)<BR><BR>
+	<U>ЗЛО:</U><BR>
+	<B>Роли успешны:</B> [SSStatistics.score.roleswon] (-[SSStatistics.score.roleswon * 250] очков)<BR>
+	<B>Мертвые тела на станции:</B> [SSStatistics.score.crew_dead] (-[SSStatistics.score.crew_dead * 250] очков)<BR>
+	<B>Неубранный беспорядок:</B> [SSStatistics.score.mess] (-[SSStatistics.score.mess] очков)<BR>
+	<B>Проблемы с питанием станции:</B> [SSStatistics.score.powerloss] (-[SSStatistics.score.powerloss * 30] очков)<BR>
+	<B>Безудержные болезни:</B> [SSStatistics.score.disease] (-[SSStatistics.score.disease * 30] очков)<BR>
+	<B>ИИ уничтожен:</B> [SSStatistics.score.deadaipenalty ? "Да" : "Нет"] (-[SSStatistics.score.deadaipenalty * 250] очков)<BR><BR>
+	<U>НЕЙТРАЛЬНОЕ</U><BR>
+	<B>Окончательный бюджет станции:</B> $[num2text(totalfunds,50)]<BR>"}
 	var/profit = totalfunds - global.initial_station_money
 	if (profit > 0)
-		dat += "<B>Station Profit:</B> +[num2text(profit,50)]<BR>"
+		dat += "<B>Прибыль станции:</B> +[num2text(profit,50)]<BR>"
 	else if (profit < 0)
-		dat += "<B>Station Deficit:</B> [num2text(profit,50)]<BR>"
-	dat += {"<B>Food Eaten:</b> [SSStatistics.score.foodeaten]<BR>
-	<B>Times a Clown was Abused:</B> [SSStatistics.score.clownabuse]<BR><BR>"}
+		dat += "<B>Дефицит станции:</B> [num2text(profit,50)]<BR>"
+	dat += {"<B>Еды съедено:</b> [SSStatistics.score.foodeaten]<BR>
+	<B>Над клоуном издевались:</B> [SSStatistics.score.clownabuse] раз<BR><BR>"}
 	if (SSStatistics.score.crew_escaped)
-		dat += "<B>Most Richest Escapee:</B> [SSStatistics.score.richestname], [SSStatistics.score.richestjob]: [SSStatistics.score.richestcash] credits ([SSStatistics.score.richestkey])<BR>"
-		dat += "<B>Most Battered Escapee:</B> [SSStatistics.score.dmgestname], [SSStatistics.score.dmgestjob]: [SSStatistics.score.dmgestdamage] damage ([SSStatistics.score.dmgestkey])<BR>"
+		dat += "<B>Самый богатый:</B> [SSStatistics.score.richestname], [SSStatistics.score.richestjob]: [SSStatistics.score.richestcash] кредитов ([SSStatistics.score.richestkey])<BR>"
+		dat += "<B>Самый избитый:</B> [SSStatistics.score.dmgestname], [SSStatistics.score.dmgestjob]: [SSStatistics.score.dmgestdamage] урона ([SSStatistics.score.dmgestkey])<BR>"
 	else
-		dat += "The station wasn't evacuated or no one escaped!<BR>"
+		dat += "Станцию не эвакуировали или никто не сбежал!<BR>"
 	dat += {"<HR><BR>
-	<B><U>FINAL SCORE: [SSStatistics.score.crewscore]</U></B><BR>"}
-	SSStatistics.score.rating = "The Aristocrats!"
+	<B><U>ФИНАЛЬНЫЙ СЧЕТ: [SSStatistics.score.crewscore]</U></B><BR>"}
+	SSStatistics.score.rating = "Аристократы!"
 	switch(SSStatistics.score.crewscore)
-		if(-99999 to -50000) SSStatistics.score.rating = "Even the Singularity Deserves Better"
-		if(-49999 to -5000) SSStatistics.score.rating = "Singularity Fodder"
-		if(-4999 to -1000) SSStatistics.score.rating = "You're All Fired"
-		if(-999 to -500) SSStatistics.score.rating = "A Waste of Perfectly Good Oxygen"
-		if(-499 to -250) SSStatistics.score.rating = "A Wretched Heap of Scum and Incompetence"
-		if(-249 to -100) SSStatistics.score.rating = "Outclassed by Lab Monkeys"
-		if(-99 to -21) SSStatistics.score.rating = "The Undesirables"
-		if(-20 to -1) SSStatistics.score.rating = "Not So Good"
-		if(0) SSStatistics.score.rating = "Nothing of Value"
-		if(1 to 20) SSStatistics.score.rating = "Ambivalently Average"
-		if(21 to 99) SSStatistics.score.rating = "Not Bad, but Not Good"
-		if(100 to 249) SSStatistics.score.rating = "Skillful Servants of Science"
-		if(250 to 499) SSStatistics.score.rating = "Best of a Good Bunch"
-		if(500 to 999) SSStatistics.score.rating = "Lean Mean Machine Thirteen"
-		if(1000 to 4999) SSStatistics.score.rating = "Promotions for Everyone"
-		if(5000 to 9999) SSStatistics.score.rating = "Ambassadors of Discovery"
-		if(10000 to 49999) SSStatistics.score.rating = "The Pride of Science Itself"
-		if(50000 to INFINITY) SSStatistics.score.rating = "NanoTrasen's Finest"
-	dat += "<B><U>RATING:</U></B> [SSStatistics.score.rating]"
+		if(-99999 to -50000) SSStatistics.score.rating = "Даже сингулярность заслуживает лучшего"
+		if(-49999 to -5000) SSStatistics.score.rating = "Корм для сингулярности"
+		if(-4999 to -1000) SSStatistics.score.rating = "Вы ВСЕ уволены"
+		if(-999 to -500) SSStatistics.score.rating = "Пустая трата хорошего кислорода"
+		if(-499 to -250) SSStatistics.score.rating = "Жалкая куча подонков"
+		if(-249 to -100) SSStatistics.score.rating = "Превзошли лабораторных обезьян"
+		if(-99 to -21) SSStatistics.score.rating = "Такое себе"
+		if(-20 to -1) SSStatistics.score.rating = "Не так хорошо"
+		if(0) SSStatistics.score.rating = "Ничего ценного"
+		if(1 to 20) SSStatistics.score.rating = "Амбивалентно средний"
+		if(21 to 99) SSStatistics.score.rating = "Не плохо, но и не хорошо"
+		if(100 to 249) SSStatistics.score.rating = "Искусные служители науки"
+		if(250 to 499) SSStatistics.score.rating = "Лучшее из хороших"
+		if(500 to 999) SSStatistics.score.rating = "Бережливая космическая станция тринадцать"
+		if(1000 to 4999) SSStatistics.score.rating = "Акции для всех"
+		if(5000 to 9999) SSStatistics.score.rating = "Амбассадоры открытий"
+		if(10000 to 49999) SSStatistics.score.rating = "Гордость самой науки"
+		if(50000 to INFINITY) SSStatistics.score.rating = "Лучший от Нанотрейзен"
+	dat += "<B><U>РЕЙТИНГ:</U></B> [SSStatistics.score.rating]"
 	dat += "</div>"
 
 	log_game(dat)
@@ -214,7 +214,7 @@
 
 /mob/proc/scorestats(completions)//omg why we count this for every player
 	// Show the score - might add "ranks" later
-	to_chat(src, "<b>The crew's final score is:</b>")
+	to_chat(src, "<b>Финальный счёт:</b>")
 	to_chat(src, "<b><font size='4'>[SSStatistics.score.crewscore]</font></b>")
 
 	for(var/i in 1 to end_icons.len)
