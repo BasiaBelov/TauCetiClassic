@@ -259,10 +259,10 @@
 	var/icon/logo = get_logo_icon()
 	switch(greeting)
 		if (GREET_CUSTOM)
-			to_chat(antag.current, "[bicon(logo, css = "style='position:relative; top:10;'")] <B>You are \a [name][faction ? ", a member of the [faction.GetFactionHeader()]":"."]</B>")
+			to_chat(antag.current, "[bicon(logo, css = "style='position:relative; top:10;'")] <B>Вы [name][faction ? ", член [faction.GetFactionHeader()]":"."]</B>")
 			to_chat(antag.current, "[custom]")
 		else
-			to_chat(antag.current, "[bicon(logo, css = "style='position:relative; top:10;'")] <B>You are \a [name][faction ? ", a member of the [faction.GetFactionHeader()]":"."]</B>")
+			to_chat(antag.current, "[bicon(logo, css = "style='position:relative; top:10;'")] <B>Вы [name][faction ? ", член [faction.GetFactionHeader()]":"."]</B>")
 
 	return TRUE
 
@@ -304,16 +304,16 @@
 		text += "<img src='logo_[tempstate].png' style='position:relative; top:10px;'/>" // change to base64?
 
 	var/icon/logo = get_logo_icon()
-	text += "[bicon(logo, css = "style='position: relative;top:10px;'")]<b>[mind.key]</b> was <b>[mind.name]</b> ("
+	text += "[bicon(logo, css = "style='position: relative;top:10px;'")]<b>[mind.key]</b> был <b>[mind.name]</b> ("
 	if(M)
 		if(M.stat == DEAD)
-			text += "died"
+			text += "мёртв"
 		else
-			text += "survived"
+			text += "выжил"
 		if(M.real_name != mind.name)
 			text += " as <b>[M.real_name]</b>"
 	else
-		text += "body destroyed"
+		text += "тело уничтожено"
 	text += ")"
 
 	return text
@@ -328,7 +328,7 @@
 		var/count = 1
 		text += "<ul>"
 		for(var/datum/objective/objective in objectives.GetObjectives())
-			text += "<B>Objective #[count]</B>: [objective.explanation_text] [objective.completion_to_string()]"
+			text += "<B>Цель #[count]</B>: [objective.explanation_text] [objective.completion_to_string()]"
 			feedback_add_details("[id]_objective","[objective.type]|[objective.completion_to_string(FALSE)]")
 			if(objective.completed == OBJECTIVE_LOSS) //If one objective fails, then you did not win.
 				win = FALSE
@@ -337,12 +337,12 @@
 			count++
 		if (!faction)
 			if(win)
-				text += "<br><font color='green'><B>\The [name] was successful!</B></font>"
-				feedback_add_details("[id]_success","SUCCESS")
+				text += "<br><font color='green'><B>\The [name] успешен!</B></font>"
+				feedback_add_details("[id]_success","УСПЕШНО")
 				SSStatistics.score.roleswon++
 			else
-				text += "<br><font color='red'><B>\The [name] has failed.</B></font>"
-				feedback_add_details("[id]_success","FAIL")
+				text += "<br><font color='red'><B>\The [name] провален...</B></font>"
+				feedback_add_details("[id]_success","ПРОВАЛ")
 		text += "</ul>"
 
 	return text
@@ -378,9 +378,9 @@
 		text += " - <a href='?src=\ref[M];role_edit=\ref[src];remove_role=1'>(remove)</a> - <a href='?src=\ref[M];greet_role=\ref[src]'>(greet)</a>[extraPanelButtons(M)]"
 
 	if(objectives.objectives.len)
-		text += "<br><ul><b>Personal objectives:</b><br>"
+		text += "<br><ul><b>Персональный цели:</b><br>"
 	else
-		text += "<br>No objectives available<br>"
+		text += "<br>Целей не было<br>"
 	text += objectives.GetObjectiveString(FALSE, admin_edit, M, src)
 	if(objectives.objectives.len)
 		text += "</ul>"
@@ -433,19 +433,19 @@
 		text += "[faction.GetFactionHeader()]<br>"
 		if(faction.objective_holder)
 			if(faction.objective_holder.objectives.len)
-				text += "<ul><b>Faction objectives:</b><br>"
+				text += "<ul><b>Цели фракции:</b><br>"
 				var/obj_count = 1
 				for(var/datum/objective/O in faction.objective_holder.objectives)
-					text += "<b>Objective #[obj_count++]</b>: [O.explanation_text]<br>"
+					text += "<b>Цель #[obj_count++]</b>: [O.explanation_text]<br>"
 				text += "</ul>"
 
 	if(objectives.objectives.len)
 		var/icon/logo = get_logo_icon()
 		text += "<b>[bicon(logo, css = "style='position:relative; top:10;'")] [name]</b>"
-		text += "<ul><b>[capitalize(name)] objectives:</b><br>"
+		text += "<ul><b>[capitalize(name)] цели:</b><br>"
 		var/obj_count = 1
 		for(var/datum/objective/O in objectives.objectives)
-			text += "<b>Objective #[obj_count++]</b>: [O.explanation_text]<br>"
+			text += "<b>Цель #[obj_count++]</b>: [O.explanation_text]<br>"
 		text += "</ul>"
 	to_chat(antag.current, text)
 

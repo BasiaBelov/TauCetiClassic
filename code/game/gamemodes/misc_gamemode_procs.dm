@@ -1,6 +1,6 @@
 /datum/game_mode/proc/send_intercept()
-	var/intercepttext = "<FONT size = 3><B>Cent. Com. Update</B> Requested status information:</FONT><HR>"
-	intercepttext += "<B> In case you have misplaced your copy, attached is a list of personnel whom reliable sources&trade; suspect may be affiliated with the Syndicate:</B><br>"
+	var/intercepttext = "<FONT size = 3><B>Cent. Com. Update</B> Запрошенная информация о статусе:</FONT><HR>"
+	intercepttext += "<B> На случай, если вы потеряли свой экземпляр, прилагается список персонала, который, по подозрению 'надежных источников и торговли', может быть связан с Синдикатом:</B><br>"
 
 	var/list/suspects = list()
 	for(var/mob/living/carbon/human/man in player_list)
@@ -41,10 +41,10 @@
 					var/datum/component/gamemode/syndicate/S = R.GetComponent(/datum/component/gamemode/syndicate)
 					if(S)
 						S.total_TC += extra
-				to_chat(man, "<span class='warning'>We have received notice that enemy intelligence suspects you to be linked with us. We have thus invested significant resources to increase your uplink's capacity.</span>")
+				to_chat(man, "<span class='warning'>Мы получили сообщение, что вас подозревают в работе с нами. Мы добавим вам на баланс чуть больше ресурсов для выполнения ваших целей.</span>")
 			else
 				// Give them a warning!
-				to_chat(man, "<span class='warning'>They are on to you!</span>")
+				to_chat(man, "<span class='warning'>Они вышли за вами!</span>")
 
 		// Some poor people who were just in the wrong place at the wrong time..
 		else if(prob(10))
@@ -52,7 +52,7 @@
 	for(var/mob/M in suspects)
 		switch(rand(1, 100))
 			if(1 to 50)
-				intercepttext += "Someone with the job of <b>[M.mind.assigned_role]</b> <br>"
+				intercepttext += "Кто-то с работой с <b>[M.mind.assigned_role]</b> <br>"
 			else
 				intercepttext += "<b>[M.name]</b>, the <b>[M.mind.assigned_role]</b> <br>"
 
