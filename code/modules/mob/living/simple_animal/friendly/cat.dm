@@ -1,21 +1,21 @@
 //Cat
 /mob/living/simple_animal/cat
 	name = "cat"
-	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
+	desc = "Прирученный питомец. Имеет склонность умилять экипаж."
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
-	speak = list("Meow!","Esp!","Purr!","HSSSSS")
-	speak_emote = list("purrs", "meows")
-	emote_hear = list("meows","mews")
-	emote_see = list("shakes its head", "shivers")
+	speak = list("Мяу!","Мурр","ХСССС!")
+	speak_emote = list("мурлычет", "мяукает")
+	emote_hear = list("мяукает")
+	emote_see = list("виляет хвостом", "облизывается")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
 	w_class = SIZE_SMALL
 	butcher_results = list(/obj/item/weapon/reagent_containers/food/snacks/meat = 2)
-	response_help  = "pets the"
-	response_disarm = "gently pushes aside the"
+	response_help  = "гладит"
+	response_disarm = "аккуратно отодвигает"
 	response_harm   = "kicks the"
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/mouse/movement_target
@@ -36,7 +36,7 @@
 			for(var/mob/living/simple_animal/mouse/M in view(1,src))
 				if(M.stat == CONSCIOUS)
 					M.splat()
-					me_emote(pick("<span class='warning'>splats the [M]!</span>","<span class='warning'>toys with the [M]</span>","worries the [M]"))
+					me_emote(pick("<span class='warning'>бьёт по [M]!</span>","<span class='warning'>играет с [M]</span>","пригает вокруг [M]"))
 					movement_target = null
 					stop_automated_movement = FALSE
 					break
@@ -45,7 +45,7 @@
 
 	for(var/mob/living/simple_animal/mouse/snack in oview(src, 3))
 		if(prob(15))
-			me_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+			me_emote(pick("шипит!","рычит!","разглядывает [snack]."))
 		break
 
 	if(stat == CONSCIOUS && !buckled)
@@ -140,11 +140,11 @@
 ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/cat/dusty, chief_animal_list)
 /mob/living/simple_animal/cat/dusty
 	name = "Dusty"
-	desc = "Its fur has the look and feel of velvet, and its tail quivers occasionally."
+	desc = "Его мех на вид и ощупь напоминает бархат."
 
 /mob/living/simple_animal/cat/Syndi
 	name = "SyndiCat"
-	desc = "It's a SyndiCat droid."
+	desc = "Это СиндиКот. Дроид."
 	icon_state = "Syndicat"
 	icon_living = "Syndicat"
 	icon_dead = "Syndicat_dead"
@@ -218,7 +218,7 @@ var/global/cat_number = 0
 	switch(M.a_intent)
 
 		if(INTENT_HELP)
-			M.visible_message("<span class='notice'>[M] pets \the [src].</span>")
+			M.visible_message("<span class='notice'>[M] гладит \the [src].</span>")
 
 		if(INTENT_PUSH)
 			M.visible_message("<span class='notice'>[M]'s hand passes through \the [src].</span>")
