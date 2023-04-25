@@ -524,7 +524,7 @@
 							if(holding_still)
 								holding_still = 0
 							if(last_pointed != src)
-								to_say = pick("Я уничтожу [last_pointed]...", "Убить...", "Убить [last_pointed]..." "Злодей...", "Есть...", "Да...")
+								to_say = pick("Я уничтожу [last_pointed]...", "Убить...", "Убить [last_pointed]...", "Злодей...", "Есть...", "Да...")
 								ATarget = last_pointed
 								last_pointed = null
 							else
