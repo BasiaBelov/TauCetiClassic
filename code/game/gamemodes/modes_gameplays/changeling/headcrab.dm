@@ -2,8 +2,8 @@
 
 /obj/effect/proc_holder/changeling/headcrab
 	name = "Last Resort"
-	desc = "We sacrifice our current body in a moment of need, placing us in control of a vessel."
-	helptext = "We will be placed in control of a small, fragile creature. We may attack a corpse like this to plant an egg which will slowly mature into a new form for us."
+	desc = "Мы жертвуем своим нынешним телом в трудную минуту, перенося контроль в новый сосуд."
+	helptext = "Мы будем управлять маленьким, хрупким существом. Мы можем использовать труп, чтобы отложить в нём новое яйцо, которое скоро созреет в наше новое тело."
 	chemical_cost = 20
 	genomecost = 1
 	req_human = 1
