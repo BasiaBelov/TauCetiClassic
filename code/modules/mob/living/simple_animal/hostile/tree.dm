@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/tree
 	name = "pine tree"
-	desc = "A pissed off tree-like alien. It seems annoyed with the festivities..."
+	desc = "Бешеная деревяшка. Странное существо..."
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	icon_living = "pine_1"
@@ -41,7 +41,7 @@
 /mob/living/simple_animal/hostile/tree/FindTarget()
 	. = ..()
 	if(.)
-		me_emote("growls at [.]")
+		me_emote("пычит на [.]")
 
 /mob/living/simple_animal/hostile/tree/AttackingTarget()
 	. =..()

@@ -7,14 +7,14 @@
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
 	name = "giant spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has deep red eyes."
+	desc = "Э джаент энэми спайдэр."
 	var/butcher_state = 8 // Icon state for dead spider icons
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	icon_move = "guard_move"
 	speak_emote = list("chitters")
-	emote_hear = list("chitters")
+	emote_hear = list("шипит")
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 10
@@ -43,7 +43,7 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
-	desc = "Furry and black, it makes you shudder to look at it. This one has brilliant green eyes."
+	desc = "Э джаент энэми спайдэр."
 	icon_state = "nurse"
 	icon_living = "nurse"
 	icon_dead = "nurse_dead"
@@ -59,7 +59,7 @@
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
-	desc = "Furry and black, it makes you shudder to look at it. This one has sparkling purple eyes."
+	desc = "Э джаент энэми спайдэр."
 	icon_state = "hunter"
 	icon_living = "hunter"
 	icon_dead = "hunter_dead"
@@ -125,7 +125,7 @@
 				var/obj/structure/spider/stickyweb/W = locate() in get_turf(src)
 				if(!W)
 					busy = SPINNING_WEB
-					visible_message("<span class='notice'>\the [src] begins to secrete a sticky substance.</span>")
+					visible_message("<span class='notice'>[src] начинает выделять липкое вещество.</span>")
 					stop_automated_movement = TRUE
 					spawn(40)
 						if(busy == SPINNING_WEB)
@@ -137,7 +137,7 @@
 					var/obj/structure/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						visible_message("<span class='notice'>\the [src] begins to lay a cluster of eggs.</span>")
+						visible_message("<span class='notice'>[src] начинает откладывать кучу яиц.</span>")
 						stop_automated_movement = TRUE
 						spawn(50)
 							if(busy == LAYING_EGGS)
@@ -165,7 +165,7 @@
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					visible_message("<span class='notice'>\the [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
+					visible_message("<span class='notice'>[src] начинает выделять липкое вещество вокруг [cocoon_target].</span>")
 					stop_automated_movement = TRUE
 					walk(src,0)
 					spawn(50)
@@ -180,7 +180,7 @@
 										continue
 									large_cocoon = 1
 									fed++
-									visible_message("<span class='warning'>\the [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+									visible_message("<span class='warning'>[src] втыкает хобот в \the [cocoon_target] и высасывает вязкое вещество.</span>")
 									M.loc = C
 									C.pixel_x = M.pixel_x
 									C.pixel_y = M.pixel_y

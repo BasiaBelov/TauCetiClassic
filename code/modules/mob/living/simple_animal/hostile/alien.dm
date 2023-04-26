@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/xenomorph
 	name = "alien hunter"
-	desc = "Hiss!"
+	desc = "Хссссссс!"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "alienh_running"
 	icon_living = "alienh_running"
@@ -97,5 +97,5 @@
 
 /mob/living/simple_animal/hostile/xenomorph/death()
 	..()
-	visible_message("[src] lets out a waning guttural screech, green blood bubbling from its maw...")
+	visible_message("[src] издает слабеющий визг. Из его пасти пузырится зеленая кровь...")
 	playsound(src, 'sound/voice/xenomorph/death_1.ogg', VOL_EFFECTS_MASTER)

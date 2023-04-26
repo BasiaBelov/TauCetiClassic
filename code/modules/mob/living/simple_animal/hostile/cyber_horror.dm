@@ -4,7 +4,7 @@
 	icon_state = "cyber_horror"
 	icon_dead = "cyber_horror_dead"
 	icon_gib = "cyber_horror_dead"
-	speak = list("H@!#$$P M@!$#", "GHAA!@@#", "KR@!!N", "K!@@##L!@@ %!@#E", "G@#!$ H@!#%, H!@%%@ @!E")
+	speak = list("П@$%@ТЕ @#Е", "А@#А%", "КР#%Н", "УБ#$@Т# $#@Я", "@О#@#$И, ПО%#%$@Е М%#")
 	speak_emote = list("emits", "groans")
 	speak_chance = 20
 	turns_per_move = 5

@@ -40,7 +40,7 @@
 /mob/living/simple_animal/hostile/mimic/FindTarget()
 	. = ..()
 	if(.)
-		me_emote("growls at [.]")
+		me_emote("рычит на [.]")
 
 
 
@@ -88,7 +88,7 @@
 
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
-		visible_message("<b>[src]</b> starts to move!")
+		visible_message("<b>[src]</b> начинает двигаться!")
 		attempt_open = 1
 
 /mob/living/simple_animal/hostile/mimic/crate/adjustBruteLoss(damage)
