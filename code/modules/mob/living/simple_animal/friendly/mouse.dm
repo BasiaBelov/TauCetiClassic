@@ -1,15 +1,15 @@
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
-	desc = "It's a small, disease-ridden rodent."
+	desc = "Это маленький, пораженный болезнями грызун."
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	icon_move = "mouse_gray_move"
-	speak = list("Squeek!","SQUEEK!","Squeek?")
+	speak = list("Пии!","ПИИ!","Пии?")
 	speak_emote = list("squeeks","squeeks","squiks")
-	emote_hear = list("squeeks","squeaks","squiks")
-	emote_see = list("runs in a circle", "shakes", "scritches at something")
+	emote_hear = list("пищит")
+	emote_see = list("бегает вокруг", "чешется")
 	pass_flags = PASSTABLE | PASSMOB
 	w_class = SIZE_MINUSCULE
 	speak_chance = 1
@@ -59,7 +59,7 @@
 			icon_state = "mouse_[body_color]"
 			wander = TRUE
 		else if(prob(5))
-			emote("snuffles")
+			emote("сопит")
 
 /mob/living/simple_animal/mouse/atom_init()
 	. = ..()
@@ -82,7 +82,7 @@
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	icon_move = "mouse_[body_color]_move"
-	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+	desc = "Это маленький грызун, которого часто можно увидеть прячущимся в техтоннелях и вентиляциях."
 
 /mob/living/simple_animal/mouse/proc/splat()
 	health = 0
@@ -113,12 +113,12 @@
 //copy paste from alien/larva, if that func is updated please update this one alsoghost
 /mob/living/simple_animal/mouse/verb/hide()
 	set name = "Hide"
-	set desc = "Allows to hide beneath tables or certain items. Toggled on or off."
+	set desc = "Позволяет скрываться под столами или предметами. Включается или выключается."
 	set category = "Mouse"
 
 	if (layer != TURF_LAYER+0.2)
 		layer = TURF_LAYER+0.2
-		to_chat(src, text("<span class='notice'>You are now hiding.</span>"))
+		to_chat(src, text("<span class='notice'>Теперь вы прячетесь.</span>"))
 		/*
 		for(var/mob/O in oviewers(src, null))
 			if ((O.client && !( O.blinded )))
@@ -126,7 +126,7 @@
 		*/
 	else
 		layer = MOB_LAYER
-		to_chat(src, text("<span class='notice'>You have stopped hiding.</span>"))
+		to_chat(src, text("<span class='notice'>Теперь вы не прячетесь.</span>"))
 		/*
 		for(var/mob/O in oviewers(src, null))
 			if ((O.client && !( O.blinded )))
@@ -157,14 +157,14 @@
 //	return 1
 
 /mob/living/simple_animal/mouse/start_pulling(atom/movable/AM)//Prevents mouse from pulling things
-	to_chat(src, "<span class='warning'>You are too small to pull anything.</span>")
+	to_chat(src, "<span class='warning'>Ты слишком мал, чтобы что-нибудь таскать.</span>")
 	return
 
 /mob/living/simple_animal/mouse/Crossed(atom/movable/AM)
 	if( ishuman(AM) )
 		if(stat == CONSCIOUS)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>[bicon(src)] Squeek!</span>")
+			to_chat(M, "<span class='notice'>[bicon(src)] Пии!</span>")
 			playsound(src, 'sound/effects/mousesqueek.ogg', VOL_EFFECTS_MASTER)
 	. = ..()
 
@@ -195,7 +195,7 @@
 ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/mouse/brown/Tom, chief_animal_list)
 /mob/living/simple_animal/mouse/brown/Tom
 	name = "Tom"
-	desc = "Jerry the cat is not amused."
+	desc = "Коту Джерри это не нравится."
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "splats"
@@ -209,7 +209,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/mouse/brown/Tom, chief_animal_list)
 	icon_living = "rat"
 	icon_dead = "rat_dead"
 	icon_move = "rat"
-	desc = "It's a big pest mouse."
+	desc = "Это большая вредная мышь."
 	maxHealth = 50
 	health = 50
 	changes_color = FALSE

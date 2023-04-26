@@ -61,10 +61,10 @@
 
 		if(prob(1))
 			var/list/rand_emote = list(
-				"scratches.",
-				"jumps!",
-				"rolls.",
-				"waves his tail.",
+				"чешется.",
+				"прыгает!",
+				"кувыркается.",
+				"виляет хвостом.",
 			)
 			me_emote(pick(rand_emote))
 	updatehealth()
@@ -81,13 +81,13 @@
 		if ((prob(5) && !paralysis))
 			drop_item()
 			spawn( 0 )
-				emote("cough")
+				emote("кашляет")
 				return
 	if (disabilities & TOURETTES || HAS_TRAIT(src, TRAIT_TOURETTE))
 		if (prob(10) && !paralysis)
 			Stun(10)
 			spawn( 0 )
-				emote("twitch")
+				emote("дрожит")
 				return
 	if (disabilities & NERVOUS || HAS_TRAIT(src, TRAIT_NERVOUS))
 		if (prob(10))
@@ -108,7 +108,7 @@
 		to_chat(src, "<span class='warning'>You suddenly feel very weak.</span>")
 		Stun(1)
 		Weaken(3)
-		emote("collapse")
+		emote("падает")
 
 	if (radiation)
 
@@ -127,7 +127,7 @@
 			Weaken(10)
 			if(!lying)
 				to_chat(src, "<span class='warning'>You feel weak.</span>")
-				emote("collapse")
+				emote("падает")
 
 		switch(radiation)
 			if(1 to 49)
@@ -144,7 +144,7 @@
 					Weaken(3)
 					if(!lying)
 						to_chat(src, "<span class='warning'>You feel weak.</span>")
-						emote("collapse")
+						emote("падает")
 
 			if(75 to 100)
 				radiation -= 3
@@ -153,7 +153,7 @@
 					to_chat(src, "<span class='warning'>You mutate!</span>")
 					randmutb(src)
 					domutcheck(src,null)
-					emote("gasp")
+					emote("задыхается")
 
 /mob/living/carbon/monkey/proc/handle_virus_updates()
 	if(status_flags & GODMODE)	return 0	//godmode
@@ -248,7 +248,7 @@
 		if( (getOxyLoss() > 25) || (config.health_threshold_crit > health) )
 			if( health <= 20 && prob(1) )
 				spawn(0)
-					emote("gasp")
+					emote("задыхается")
 			if(!reagents.has_reagent("inaprovaline"))
 				losebreath = max(losebreath + 1, 2)
 			Paralyse(3)
@@ -312,7 +312,7 @@
 /mob/living/carbon/monkey/proc/handle_random_events()
 	if (prob(1) && prob(2))
 		spawn(0)
-			emote("scratch")
+			emote("чешется")
 			return
 
 ///FIRE CODE

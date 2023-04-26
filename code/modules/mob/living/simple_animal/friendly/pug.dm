@@ -6,10 +6,10 @@
 	icon_state = "pug"
 	icon_living = "pug"
 	icon_dead = "pug_dead"
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
+	speak = list("Аууф!", "Гав!", "АУУУУ")
 	speak_emote = list("barks", "woofs")
-	emote_hear = list("barks", "woofs", "yaps","pants")
-	emote_see = list("shakes its head", "chases its tail","shivers")
+	emote_hear = list("лает", "воет", "тявкает")
+	emote_see = list("облизывается", "виляет хвостом")
 	speak_chance = 1
 	turns_per_move = 10
 	w_class = SIZE_NORMAL
@@ -31,7 +31,7 @@
 
 	if(stat == CONSCIOUS && !buckled)
 		if(prob(1))
-			emote("dance")
+			emote("танцует")
 
 /mob/living/simple_animal/pug/attackby(obj/item/O, mob/user)  //Marker -Agouri
 	if(istype(O, /obj/item/weapon/newspaper))

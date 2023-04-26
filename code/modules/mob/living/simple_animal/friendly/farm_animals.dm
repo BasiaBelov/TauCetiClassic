@@ -2,14 +2,14 @@
 //goat
 /mob/living/simple_animal/hostile/retaliate/goat
 	name = "goat"
-	desc = "Not known for their pleasant disposition."
+	desc = "Не славились своим приятным нравом."
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
-	speak = list("EHEHEHEHEH","eh?")
+	speak = list("БЕЕЕЕ","Бее?")
 	speak_emote = list("brays")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head", "stamps a foot", "glares around")
+	emote_hear = list("беекает")
+	emote_see = list("шатает головой", "топает ногой", "смотрит по сторонам")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -46,7 +46,7 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			visible_message("<span class='notice'>[src] calms down.</span>")
+			visible_message("<span class='notice'>[src] успокаивается.</span>")
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
@@ -67,7 +67,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
+	visible_message("<span class='warning'>[src] появляется зловещий блеск в его глазах.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0)
 	. = ..()
@@ -76,33 +76,33 @@
 			var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
 			qdel(SV)
 			if(prob(10))
-				say("Nom")
+				say("Ном")
 
 /mob/living/simple_animal/hostile/retaliate/goat/attackby(obj/item/O, mob/user)
 	if(stat == CONSCIOUS && istype(O, /obj/item/weapon/reagent_containers/glass))
 		user.SetNextMove(CLICK_CD_INTERACT)
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] доит [src], используя [O].</span>")
 		var/obj/item/weapon/reagent_containers/glass/G = O
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			to_chat(user, "<span class='warning'>The [O] is full.</span>")
+			to_chat(user, "<span class='warning'>[O] уже полон.</span>")
 		if(!transfered)
-			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
+			to_chat(user, "<span class='warning'>Вымя сухое. Нужно немного подождать...</span>")
 	else
 		..()
 
 //cow
 /mob/living/simple_animal/cow
 	name = "cow"
-	desc = "Known for their milk, just don't tip them over."
+	desc = "Известны своим молоком, только не роняйте их."
 	icon_state = "cow"
 	icon_living = "cow"
 	icon_dead = "cow_dead"
 	icon_gib = "cow_gib"
-	speak = list("moo?","moo","MOOOOOO")
+	speak = list("Муу?","Муу","МУУУУУУУУ")
 	speak_emote = list("moos","moos hauntingly")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head")
+	emote_hear = list("мычит")
+	emote_see = list("шатает головой")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -127,13 +127,13 @@
 /mob/living/simple_animal/cow/attackby(obj/item/O, mob/user)
 	if(stat == CONSCIOUS && istype(O, /obj/item/weapon/reagent_containers/glass))
 		user.SetNextMove(CLICK_CD_INTERACT)
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] доит [src], используя [O].</span>")
 		var/obj/item/weapon/reagent_containers/glass/G = O
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			to_chat(user, "<span class='warning'>The [O] is full.</span>")
+			to_chat(user, "<span class='warning'>[O] уже полон.</span>")
 		if(!transfered)
-			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
+			to_chat(user, "<span class='warning'>Вымя сухое. Нужно немного подождать...</span>")
 	else
 		..()
 
@@ -152,15 +152,15 @@
 
 /mob/living/simple_animal/chick
 	name = "chick"
-	desc = "Adorable! They make such a racket though."
+	desc = "Очаровательные! Однако они такие шумные."
 	icon_state = "chick"
 	icon_living = "chick"
 	icon_dead = "chick_dead"
 	icon_gib = "chick_gib"
-	speak = list("Cherp.","Cherp?","Chirrup.","Cheep!")
+	speak = list("Кококо.","Кококо?","Кококо...","КОКО!")
 	speak_emote = list("cheeps")
 	emote_hear = list("cheeps")
-	emote_see = list("pecks at the ground","flaps its tiny wings")
+	emote_see = list("клюет землю","хлопает своими крошечными крылышками")
 	speak_chance = 2
 	turns_per_move = 2
 	butcher_results = list(/obj/item/weapon/reagent_containers/food/snacks/meat = 1)
@@ -192,15 +192,15 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/chicken
 	name = "chicken"
-	desc = "Hopefully the eggs are good this season."
+	desc = "Надеюсь, яйца в этом сезоне будут вкусными."
 	icon_state = "chicken"
 	icon_living = "chicken"
 	icon_dead = "chicken_dead"
 	icon_move = "chicken_move"
-	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Bwaak bwak.")
+	speak = list("КОКО!","ПОООК ПОК ПОК!","Поак поак.")
 	speak_emote = list("clucks","croons")
-	emote_hear = list("clucks")
-	emote_see = list("pecks at the ground","flaps its wings viciously")
+	emote_hear = list("кудахчет")
+	emote_see = list("клюет землю","злобно хлопает крыльями")
 	speak_chance = 2
 	turns_per_move = 3
 	butcher_results = list(/obj/item/weapon/reagent_containers/food/snacks/meat = 2)
@@ -233,12 +233,12 @@ var/global/chicken_count = 0
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/wheat)) //feedin' dem chickens
 		user.SetNextMove(CLICK_CD_INTERACT)
 		if(stat == CONSCIOUS && eggsleft < 8)
-			user.visible_message("<span class='notice'>[user] feeds [O] to [name]! It clucks happily.</span>","<span class='notice'>You feed [O] to [name]! It clucks happily.</span>")
+			user.visible_message("<span class='notice'>[user] кормит [O] [name]! [name] радостно кудахчет.</span>","<span class='notice'>Ты кормишь [name] спомощью [O]! [name] радостно кудахчет.</span>")
 			qdel(O)
 			eggsleft += rand(1, 4)
 			//world << eggsleft
 		else
-			to_chat(user, "<span class='notice'>[name] doesn't seem hungry!</span>")
+			to_chat(user, "<span class='notice'>[name] не выглядит голодным.</span>")
 	else
 		..()
 
@@ -247,7 +247,7 @@ var/global/chicken_count = 0
 	if(!.)
 		return
 	if(stat == CONSCIOUS && prob(3) && eggsleft > 0)
-		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
+		visible_message("[src] [pick("откладывает яйцо.","садится на корточки и кудахчет.","поднимает огромный шум.","начинает хрипло кудахтать.")]")
 		eggsleft--
 		var/obj/item/weapon/reagent_containers/food/snacks/egg/E = new(get_turf(src))
 		E.pixel_x = rand(-6,6)
@@ -270,7 +270,7 @@ var/global/chicken_count = 0
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
-			visible_message("[src] hatches with a quiet cracking sound.")
+			visible_message("[src] раскрываются с тихим треском.")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			STOP_PROCESSING(SSobj, src)
 			qdel(src)
@@ -279,13 +279,13 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/pig
 	name = "pig"
-	desc = "Oink oink."
+	desc = "Хрю-хрю."
 	icon_state = "pig"
 	icon_living = "pig"
 	icon_dead = "pig_dead"
-	speak = list("oink?","oink","OINK")
+	speak = list("Хрю?","Хрю","ХРЮ")
 	speak_emote = list("oinks")
-	emote_see = list("rolls around")
+	emote_see = list("катается по полу")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -309,13 +309,13 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/turkey
 	name = "turkey"
-	desc = "Benjamin Franklin would be proud."
+	desc = "Бенджамин Франклин гордился бы."
 	icon_state = "turkey"
 	icon_living = "turkey"
 	icon_dead = "turkey_dead"
-	speak = list("gobble?","gobble","GOBBLE")
+	speak = list("Кулюк?","Кулюк","КУЛЮК")
 	speak_emote = list("gobble")
-	emote_see = list("struts around")
+	emote_see = list("расхаживает с важным видом")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -327,13 +327,13 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/goose
 	name = "goose"
-	desc = "A pretty goose. Would make a nice comforter."
+	desc = "Симпатичный гусь. Получится хорошее одеяло."
 	icon_state = "goose"
 	icon_living = "goose"
 	icon_dead = "goose_dead"
-	speak = list("quack?","quack","QUACK")
+	speak = list("Кря?","Кря","КРЯ")
 	speak_emote = list("quacks")
-	emote_see = list("flaps it's wings")
+	emote_see = list("машет крыльями")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -345,13 +345,13 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/seal
 	name = "seal"
-	desc = "A beautiful white seal."
+	desc = "Красивый белый тюлень."
 	icon_state = "seal"
 	icon_living = "seal"
 	icon_dead = "seal_dead"
-	speak = list("Urk?","urk","URK")
+	speak = list("Урь?","Урь","УРЬ")
 	speak_emote = list("urks")
-	emote_see = list("flops around")
+	emote_see = list("шлёпает по животу")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -363,13 +363,13 @@ var/global/chicken_count = 0
 
 /mob/living/simple_animal/walrus
 	name = "walrus"
-	desc = "A big brown walrus."
+	desc = "Большой бурый морж."
 	icon_state = "walrus"
 	icon_living = "walrus"
 	icon_dead = "walrus_dead"
-	speak = list("Urk?","urk","URK")
+	speak = list("Урь?","Урь","УРЬ")
 	speak_emote = list("urks")
-	emote_see = list("flops around")
+	emote_see = list("шлёпает по животу")
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -383,7 +383,7 @@ var/global/chicken_count = 0
 	icon_state = "walrus-syndi"
 	icon_living = "walrus-syndi"
 	icon_dead = "walrus-syndi_dead"
-	speak = list("Urk?","urk","URK","Furk NT")
+	speak = list("Урь?","Урь","УРЬ","Урьить НТ")
 	health = 80
 
 #undef FEEDER_DISTANT

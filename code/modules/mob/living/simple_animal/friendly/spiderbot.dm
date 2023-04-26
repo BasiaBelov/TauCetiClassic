@@ -14,7 +14,7 @@
 	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
 
 	name = "Spider-bot"
-	desc = "A skittering robotic friend!"
+	desc = "Бегающий рободруг!"
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "spiderbot-chassis"
 	icon_living = "spiderbot-chassis"

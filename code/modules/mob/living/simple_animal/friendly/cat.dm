@@ -5,8 +5,8 @@
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
-	speak = list("Мяу!","Мурр","ХСССС!")
-	speak_emote = list("мурлычет", "мяукает")
+	speak = list("Мяу!","Мурр","ХСССС!","Мря")
+	speak_emote = list("purrs", "meows")
 	emote_hear = list("мяукает")
 	emote_see = list("виляет хвостом", "облизывается")
 	speak_chance = 1
@@ -140,7 +140,7 @@
 ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/cat/dusty, chief_animal_list)
 /mob/living/simple_animal/cat/dusty
 	name = "Dusty"
-	desc = "Его мех на вид и ощупь напоминает бархат."
+	desc = "Милое существо. Понятно почему доктор взял его."
 
 /mob/living/simple_animal/cat/Syndi
 	name = "SyndiCat"

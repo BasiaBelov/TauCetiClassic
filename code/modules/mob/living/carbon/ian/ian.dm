@@ -16,7 +16,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/carbon/ian, chief_animal_list)
 	var/response_disarm = "bops"
 	var/response_harm   = "kicks"
 
-	var/list/speak = list("Вуф!", "Гав!", "Тяф!", "АУУУУ!")
+	var/list/speak = list("Вуф!", "Гав!", "Ауф!", "АУУУУ!")
 	speak_emote = list("barks", "woofs")
 	var/list/emote_hear = list("лает", "воет", "тявкает")
 	var/list/emote_see = list("облизывается", "виляет хвостом")

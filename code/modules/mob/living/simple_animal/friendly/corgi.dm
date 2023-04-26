@@ -6,10 +6,10 @@
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
+	speak = list("Гав!", "Вуууу!", "АУУУУУ")
 	speak_emote = list("barks", "woofs")
-	emote_hear = list("barks", "woofs", "yaps","pants")
-	emote_see = list("shakes its head", "shivers")
+	emote_hear = list("гает", "воет", "тяфкает")
+	emote_see = list("шатает головой", "облизывается")
 	speak_chance = 1
 	turns_per_move = 10
 	butcher_results = list(/obj/item/weapon/reagent_containers/food/snacks/meat/corgi = 3)
@@ -26,7 +26,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
-	desc = "Tastes like... well you know..."
+	desc = "На вкус как... ну ты знаешь..."
 
 /mob/living/simple_animal/corgi/regenerate_icons()
 	cut_overlays()
@@ -51,7 +51,7 @@
 /mob/living/simple_animal/corgi/puppy
 	name = "corgi puppy"
 	real_name = "corgi"
-	desc = "It's a corgi puppy."
+	desc = "Это щенок корги."
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
@@ -62,7 +62,7 @@
 	name = "Lisa"
 	real_name = "Lisa"
 	gender = FEMALE
-	desc = "It's a corgi with a cute pink bow."
+	desc = "Это корги с милым розовым бантиком."
 	icon_state = "lisa"
 	icon_living = "lisa"
 	icon_dead = "lisa_dead"
@@ -105,13 +105,13 @@
 
 
 		if(prob(1))
-			emote("dance")
+			emote("танцует")
 
 ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/corgi/borgi, chief_animal_list)
 /mob/living/simple_animal/corgi/borgi
 	name = "E-N"
 	real_name = "E-N"	//Intended to hold the name without altering it.
-	desc = "It's a borgi."
+	desc = "это борги."
 	icon_state = "borgi"
 	icon_living = "borgi"
 	icon_dead = "borgi_dead"
@@ -128,7 +128,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/corgi/borgi, chief_animal_list)
 	return FALSE
 
 /mob/living/simple_animal/corgi/borgi/proc/explode()
-	visible_message("<span class='warning'>[src] makes an odd whining noise.</span>")
+	visible_message("<span class='warning'>[src] издает странный скулящий звук.</span>")
 	sleep(10)
 	explosion(get_turf(src), 0, 1, 4, 7)
 	Die()
@@ -166,7 +166,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/corgi/borgi, chief_animal_list)
 		s.start()
 
 /mob/living/simple_animal/corgi/borgi/proc/Die()
-	visible_message("<b>[src]</b> blows apart!")
+	visible_message("<b>[src]</b> разрывает на части!")
 	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(3, 1, src)

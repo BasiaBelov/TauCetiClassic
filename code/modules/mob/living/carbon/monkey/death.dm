@@ -15,7 +15,7 @@
 	stat = DEAD
 
 	if(!gibbed)
-		visible_message("<b>The [name]</b> lets out a faint chimper as it collapses and stops moving...")
+		visible_message("<b>The [name]</b> издает тихий, когда он падает и перестает двигаться...")
 
 	update_canmove()
 
