@@ -51,7 +51,7 @@
 /mob/living/simple_animal/construct/death()
 	..()
 	new /obj/item/weapon/reagent_containers/food/snacks/ectoplasm(src.loc)
-	visible_message("<span class='red'>[src] collapses in a shattered heap.</span>")
+	visible_message("<span class='red'>[src] падает бесформенной кучей.</span>")
 	ghostize(bancheck = TRUE)
 	qdel(src)
 
@@ -88,7 +88,7 @@
 /mob/living/simple_animal/construct/armoured
 	name = "Juggernaut"
 	real_name = "Juggernaut"
-	desc = "A possessed suit of armour driven by the will of the restless dead."
+	desc = "Одержимый доспех, движимый волей неупокоенных мертвецов."
 	icon_state = "juggernaut"
 	icon_living = "juggernaut"
 	maxHealth = 200
@@ -138,7 +138,7 @@
 /mob/living/simple_animal/construct/wraith
 	name = "Wraith"
 	real_name = "Wraith"
-	desc = "A wicked bladed shell contraption piloted by a bound spirit."
+	desc = "Зловещее приспособление с острым лезвием, управляемое связанным духом."
 	icon_state = "wraith"
 	icon_living = "wraith"
 	maxHealth = 75
@@ -159,7 +159,7 @@
 /mob/living/simple_animal/construct/builder
 	name = "Artificer"
 	real_name = "Artificer"
-	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies."
+	desc = "Луковичная конструкция, предназначенная для создания и поддержания культа армий Нар-Си."
 	icon_state = "artificer"
 	icon_living = "artificer"
 	maxHealth = 50
@@ -188,7 +188,7 @@
 /mob/living/simple_animal/construct/behemoth
 	name = "Behemoth"
 	real_name = "Behemoth"
-	desc = "The pinnacle of occult technology, Behemoths are the ultimate weapon in the Cult of Nar-Sie's arsenal."
+	desc = "Являясь вершиной оккультных технологий, Бегемоты являются непревзойденным оружием в арсенале Культа Нар-Си.."
 	icon_state = "juggernaut"
 	icon_living = "juggernaut"
 	maxHealth = 10
@@ -215,7 +215,7 @@
 /mob/living/simple_animal/construct/harvester
 	name = "Harvester"
 	real_name = "Harvester"
-	desc = "A harbinger of Nar-Sie's enlightenment. It'll be all over soon."
+	desc = "Предвестник просветления Нар-Си. Скоро всё закончится..."
 	icon_state = "harvester"
 	icon_living = "harvester"
 	maxHealth = 60
@@ -276,7 +276,7 @@
 /mob/living/simple_animal/construct/proteon
 	name = "Proteon"
 	real_name = "Proteon"
-	desc = "A weaker construct meant to scour ruins for objects of Nar'Sie's affection. Those barbed claws are no joke."
+	desc = "Более слабая конструкция, предназначенная для прочесывания руин в поисках объектов привязанности Нар'Си. Эти когти - не шутка."
 	icon_state = "proteon"
 	icon_living = "proteon"
 	maxHealth = 30
@@ -296,7 +296,7 @@
 /mob/living/simple_animal/hostile/pylon
 	name = "charged pylon"
 	real_name = "charged pylon"
-	desc = "A floating crystal that hums with an unearthly energy."
+	desc = "Плавающий кристалл, который излучает неземную энергию."
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "pylon_glow"
 	icon_living = "pylon"

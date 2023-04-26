@@ -27,7 +27,7 @@
 
 /mob/living/simple_animal/parrot
 	name = "Parrot"
-	desc = "The parrot squaks, \"It's a Parrot! BAWWK!\""
+	desc = "Попугай кричит, \"Это Попугай! РАААА!\""
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
@@ -683,7 +683,7 @@
 ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/parrot/Poly, chief_animal_list)
 /mob/living/simple_animal/parrot/Poly
 	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
+	desc = "Попугай Поли. Эксперт по теории квантовых разломов."
 	speak = list(
 		":e Поли хочет кррекер!",
 		":e Прроверьте сингулярность, лоботррясы!",
@@ -781,7 +781,7 @@ ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/parrot/Poly, chief_animal_list)
 
 /mob/living/simple_animal/parrot/Poly/ghost
 	name = "The Ghost of Poly"
-	desc = "Doomed to squawk the earth."
+	desc = "Обреченный кричать на землю."
 	color = "#FFFFFF77"
 	speak_chance = 20
 	status_flags = GODMODE
