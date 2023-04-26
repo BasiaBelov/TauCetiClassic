@@ -711,16 +711,16 @@ ADD_TO_GLOBAL_LIST(/mob/living/simple_animal/parrot/Poly, chief_animal_list)
 	Read_Memory()
 	if(rounds_survived == longest_survival)
 		speak += pick("...[longest_survival].", "Чего я только не видал!", "Я прожил так много жизней!", "Что ты предо мной?")
-		desc += " Old as sin, and just as loud. Claimed to be [rounds_survived]."
+		desc += " Старый как грех, и такой же громкий. Утверждал, что выжил [rounds_survived] смены."
 		speak_chance = 20 //His hubris has made him more annoying/easier to justify killing
 		color = "#eeee22"
 	else if(rounds_survived == longest_deathstreak)
 		speak += pick("Чего же ты ждёшь!?", "Насилие поррождает насилие!", "Крровь! Кровь!", "Убей меня, если посмеешь!")
-		desc += " The squawks of [-rounds_survived] dead parrots ring out in your ears..."
+		desc += " В ушах звенят крики [-rounds_survived] мертвых попугаев..."
 		color = "#bb7777"
 	else if(rounds_survived > 0)
 		speak += pick("...снова?", "Нет, всё было кончено!", "Выпустите меня!", "Это никогда не закончится!")
-		desc += " Over [rounds_survived] shifts without a \"terrible\" \"accident\"!"
+		desc += " Более [rounds_survived] смен без \"ужасных\" \"инцидентов\"!"
 	else
 		speak += pick("...я жив?", "Это не птичий ррай!", "Я живу, умирраю, и снова живу!", "Пустота исчезает!")
 	. = ..()
