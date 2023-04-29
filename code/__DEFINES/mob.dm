@@ -199,6 +199,11 @@
 #define IAN_LICK     1
 #define IAN_SNIFF    2
 
+//Dusty can lick or sniff
+#define DUSTY_STANDARD 0
+#define DUSTY_LICK     1
+#define DUSTY_SNIFF    2
+
 // CLicks Cooldowns
 #define CLICK_CD_MELEE 8
 #define CLICK_CD_INTERACT 4

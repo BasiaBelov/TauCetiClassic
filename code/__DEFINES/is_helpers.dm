@@ -50,6 +50,8 @@
 
 #define isIAN(A) (istype(A, /mob/living/carbon/ian))
 
+#define isIAN(A) (istype(A, /mob/living/carbon/dusty))
+
 #define iscarbon(A) (istype(A, /mob/living/carbon))
 
 // SILICON

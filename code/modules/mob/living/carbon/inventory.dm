@@ -108,6 +108,17 @@
 		if(SLOT_BACK)
 			return back
 
+/mob/living/carbon/dusty/get_slot_ref(slot)
+	switch(slot)
+		if(SLOT_HEAD)
+			return head
+		if(SLOT_MOUTH)
+			return mouth
+		if(SLOT_NECK)
+			return neck
+		if(SLOT_BACK)
+			return back
+
 /mob/living/carbon/human/get_slot_ref(slot)
 	. = ..()
 	if(.)
