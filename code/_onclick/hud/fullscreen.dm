@@ -143,6 +143,11 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 
+/atom/movable/screen/fullscreen/flash_ani
+	icon = 'icons/hud/screen1_full.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "flash_ani"
+
 /atom/movable/screen/fullscreen/flash/noise
 	icon = 'icons/hud/screen1.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
