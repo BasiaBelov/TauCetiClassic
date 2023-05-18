@@ -10,6 +10,7 @@
 	internal_damage_threshold = 35
 	deflect_chance = 15
 	step_energy_drain = 6
+	mecha_type = "odysseus"
 
 /obj/mecha/medical/odysseus/moved_inside(mob/living/carbon/human/H)
 	. = ..()

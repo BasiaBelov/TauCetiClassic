@@ -24,6 +24,7 @@
 	infra_luminosity = 15 //byond implementation is bugged.
 	hud_possible = list(DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD)
 	w_class = SIZE_MASSIVE
+	var/mecha_type = "mecha"
 	var/initial_icon = null //Mech type for resetting icon. Only used for reskinning kits (see custom items)
 	var/can_move = 1
 	var/mob/living/carbon/occupant = null
@@ -935,7 +936,7 @@
 		playsound(src, 'sound/machines/windowdoor.ogg', VOL_EFFECTS_MASTER)
 		GrantActions(H, human_occupant = 1)
 		if(!hasInternalDamage())
-			occupant.playsound_local(null, 'sound/mecha/nominal.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+			occupant.playsound_local(null, sound("sound/mecha/[mecha_type]/nominal1.ogg"), VOL_EFFECTS_MASTER, null, FALSE)
 		return 1
 	else
 		return 0
@@ -988,7 +989,7 @@
 		log_message("[mmi_as_oc] moved in as pilot.")
 		log_admin("[key_name(mmi_as_oc)] has moved in [src.type] with name [src.name] as MMI brain by [key_name(user)]")
 		if(!hasInternalDamage())
-			occupant.playsound_local(null, 'sound/mecha/nominal.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+			occupant.playsound_local(null, sound("sound/mecha/[mecha_type]/nominal.ogg"), VOL_EFFECTS_MASTER, null, FALSE)
 		return 1
 	else
 		return 0

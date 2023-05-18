@@ -14,6 +14,7 @@
 	var/defence = FALSE
 	var/defence_deflect = 35
 	wreckage = /obj/effect/decal/mecha_wreckage/durand
+	mecha_type = "durand"
 
 	var/datum/action/innate/mecha/mech_defence_mode/defence_action = new
 
