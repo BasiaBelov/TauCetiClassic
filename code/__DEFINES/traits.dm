@@ -179,6 +179,8 @@
 #define TRAIT_BLUESPACE_MOVING    "bluespace_moving"
 #define TRAIT_STEEL_NERVES        "steel_nerves"
 #define TRAIT_ARIBORN             "ariborn"
+#define TRAIT_NO_CRAWL            "nocrawl"
+#define TRAIT_HIDDEN_TRASH_GUN    "hidden_trash_gun"
 
 /*
  * Used for movables that need to be updated, via COMSIG_ENTER_AREA and COMSIG_EXIT_AREA, when transitioning areas.

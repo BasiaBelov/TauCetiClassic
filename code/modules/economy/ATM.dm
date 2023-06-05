@@ -37,6 +37,7 @@ log transactions
 	var/datum/effect/effect/system/spark_spread/spark_system
 	var/money_stock = 15000
 	var/money_stock_max = 25000
+	var/pin_visible_until = 0
 
 /obj/machinery/atm/atom_init()
 	. = ..()
@@ -231,7 +232,7 @@ log transactions
 							dat += "<input type='hidden' name='src' value='\ref[src]'>"
 							dat += "<input type='hidden' name='choice' value='change_max_insurance_payment'>"
 							dat += "<input type='text' name='new_max_insurance_payment' value='[authenticated_account.owner_max_insurance_payment]' style='width:150px; background-color:white;'><input type='submit' value='Change max insurance payment'>"
-							dat += "</form><br><br>"	
+							dat += "</form><br><br>"
 
 
 							var/time_addition = round((SSeconomy.endtime - world.timeofday) / 600) * 10
@@ -443,6 +444,7 @@ log transactions
 						authenticated_account.transaction_log.Add(T)
 
 						to_chat(usr, "<span class='notice'>[bicon(src)] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
+						pin_visible_until = world.time + 2 SECONDS
 
 					previous_account_number = tried_account_num
 			if("withdrawal")
@@ -503,7 +505,7 @@ log transactions
 
 			if("change_preferred_insurance")
 				if(!authenticated_account)
-					return		
+					return
 
 				var/insurance_type = href_list["insurance_type"]
 				var/insurance_price = text2num(href_list["insurance_price"])
@@ -511,7 +513,7 @@ log transactions
 					tgui_alert(usr, "Price of this insurance was changed. Press \"Refresh\" and try again.")
 					return
 
-				authenticated_account.owner_preferred_insurance_type = insurance_type			
+				authenticated_account.owner_preferred_insurance_type = insurance_type
 				authenticated_account.owner_max_insurance_payment = max(insurance_price, authenticated_account.owner_max_insurance_payment)
 
 			if("change_max_insurance_payment")
@@ -703,3 +705,20 @@ log transactions
 	else
 		money_stock -= sum
 		spawn_money(sum, src.loc)
+
+/obj/machinery/atm/examine(mob/user)
+	..()
+	if(!held_card)
+		return
+
+	var/datum/money_account/MA = get_account(held_card.associated_account_number)
+	if(!in_range(src, user))
+		return
+	if(user.mind.get_key_memory(MEM_ACCOUNT_PIN) == MA.remote_access_pin)
+		return
+	if(pin_visible_until < world.time)
+		return
+	if(held_card && prob(50))
+		to_chat(user, "Вам удаётся подглядеть пин-код: <span class='notice'>[MA.remote_access_pin]</span>.")
+
+	pin_visible_until = 0
