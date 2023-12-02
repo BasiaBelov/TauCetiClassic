@@ -8,6 +8,7 @@
 	var/icobase = 'icons/mob/human_races/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/r_def_human.dmi' // Mutated icon set.
 	var/damage_mask = TRUE
+	var/eyes_icon = 'icons/mob/human_face.dmi'
 	var/eyes = "eyes"                                    // Icon for eyes.
 	var/eyes_glowing = FALSE                             // To make those eyes gloooow.
 	var/gender_tail_icons = FALSE
@@ -371,15 +372,24 @@
 
 	skeleton_type = SKELETON_UNATHI
 
+	sprite_sheets = list(
+		SPRITE_SHEET_HEAD     = 'icons/mob/species/unathi/helmet.dmi',
+		SPRITE_SHEET_SUIT     = 'icons/mob/species/unathi/suit.dmi',
+		SPRITE_SHEET_SUIT_FAT = 'icons/mob/species/unathi/suit_fat.dmi'
+	)
+
 /datum/species/unathi/call_digest_proc(mob/living/M, datum/reagent/R)
 	return R.on_unathi_digest(M)
 
 /datum/species/unathi/call_species_equip_proc(mob/living/carbon/human/H, datum/outfit/O)
 	return O.unathi_equip(H)
 
-/datum/species/unathi/on_gain(mob/living/M)
+/datum/species/unathi/on_gain(mob/living/carbon/human/M)
 	..()
 	M.verbs += /mob/living/carbon/human/proc/air_sample
+	M.r_belly = HEX_VAL_RED(base_color)
+	M.g_belly = HEX_VAL_GREEN(base_color)
+	M.b_belly = HEX_VAL_BLUE(base_color)
 
 /datum/species/unathi/on_loose(mob/living/M, new_species)
 	M.verbs -= /mob/living/carbon/human/proc/air_sample
@@ -441,6 +451,12 @@
 
 	skeleton_type = SKELETON_TAJARAN
 
+	sprite_sheets = list(
+		SPRITE_SHEET_HEAD     = 'icons/mob/species/tajaran/helmet.dmi',
+		SPRITE_SHEET_SUIT     = 'icons/mob/species/tajaran/suit.dmi',
+		SPRITE_SHEET_SUIT_FAT = 'icons/mob/species/tajaran/suit_fat.dmi'
+	)
+
 /datum/species/tajaran/on_gain(mob/living/M)
 	..()
 	ADD_TRAIT(M, TRAIT_NATURAL_AGILITY, GENERIC_TRAIT)
@@ -501,6 +517,11 @@
 	is_common = TRUE
 
 	skeleton_type = SKELETON_SKRELL
+
+	sprite_sheets = list(
+		SPRITE_SHEET_HEAD = 'icons/mob/species/skrell/helmet.dmi',
+		SPRITE_SHEET_SUIT = 'icons/mob/species/skrell/suit.dmi'
+	)
 
 /datum/species/skrell/call_digest_proc(mob/living/M, datum/reagent/R)
 	return R.on_skrell_digest(M)
@@ -1130,10 +1151,7 @@
 		,BP_R_LEG  = /obj/item/organ/external/r_leg/skeleton
 		)
 
-	has_organ = list(
-		 O_BRAIN   = /obj/item/organ/internal/brain
-		,O_EYES    = /obj/item/organ/internal/eyes
-		)
+	has_organ = list()
 
 	min_age = 1
 	max_age = 1000

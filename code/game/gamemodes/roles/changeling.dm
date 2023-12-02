@@ -25,7 +25,6 @@
 	var/changelingID = "Changeling" // flavor ID like Theta/Tau/etc.
 	var/unique_changeling_marker // unique ID like DNA but secret
 	var/geneticdamage = 0
-	var/isabsorbing = 0
 	var/geneticpoints = 5
 	var/list/purchasedpowers = list()
 	var/mimicing = ""
@@ -200,7 +199,7 @@
 	changeling.real_name = changeling.name
 	geneticpoints += 6
 
-	notify_ghosts("\A [changelingID], changeling as a new abomination, at [get_area(src)]!", source = src, action = NOTIFY_ORBIT, header = "Abomination")
+	notify_ghosts("\A [changelingID], changeling as a new abomination, at [get_area(changeling)]!", source = changeling, action = NOTIFY_ORBIT, header = "Abomination")
 	for(var/mob/M in player_list)
 		if(!isnewplayer(M))
 			to_chat(M, "<font size='7' color='red'><b>A terrible roar is coming from somewhere around the station.</b></font>")
