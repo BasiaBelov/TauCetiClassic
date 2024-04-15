@@ -8,6 +8,13 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dough
 
+/datum/recipe/microwave/blin
+	reagents = list("flour" = 5, "milk" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/blin
+
 /datum/recipe/microwave/boiledegg
 	reagents = list("water" = 5)
 	items = list(
@@ -95,7 +102,6 @@
 		/obj/item/weapon/reagent_containers/food/snacks/donut/choco
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/donut/chaos
-
 /datum/recipe/microwave/human/burger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human,
@@ -248,6 +254,13 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/corn
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/popcorn
+
+/datum/recipe/microwave/cornflakesbox
+	reagents = list("honey" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/grown/corn
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/cornflakesbox
 
 /datum/recipe/microwave/spacylibertyduff
 	reagents = list("water" = 5, "vodka" = 5)
