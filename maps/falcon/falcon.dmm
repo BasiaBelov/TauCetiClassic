@@ -470,7 +470,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "Medical_Surgery1";
 	name = "Surgery Shutters";
@@ -2521,7 +2520,7 @@
 /area/station/aisat/ai_chamber)
 "aei" = (
 /obj/item/weapon/aiModule/oxygen,
-/obj/item/weapon/aiModule/oneHuman,
+/obj/item/weapon/aiModule/onentemploye,
 /obj/machinery/door/window{
 	dir = 4;
 	name = "High-Risk Modules";
@@ -3751,6 +3750,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
 	id = "Security_private";
 	opacity = 0
@@ -6315,11 +6315,13 @@
 /turf/simulated/floor/plating,
 /area/station/maintenance/escape)
 "alM" = (
-/obj/structure/mineral_door/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/mineral_door/wood{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -12565,6 +12567,7 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
 	id = "HoP_private";
 	opacity = 0
@@ -15419,7 +15422,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "chapel";
 	name = "Privacy Shutters";
@@ -17528,7 +17530,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "RD-shutters";
 	name = "Privacy Shutters";
@@ -19888,7 +19889,6 @@
 	icon_state = "gr_window_reinforced"
 	},
 /obj/machinery/door/poddoor/shutters{
-	dir = 8;
 	id = "Captain_private"
 	},
 /obj/machinery/door/firedoor{
@@ -22025,7 +22025,6 @@
 	icon_state = "gr_window_reinforced"
 	},
 /obj/machinery/door/poddoor/shutters{
-	dir = 8;
 	id = "Captain_private"
 	},
 /obj/machinery/door/firedoor{
@@ -24612,6 +24611,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
 	id = "HoP_private";
 	opacity = 0
@@ -26940,7 +26940,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "chapel";
 	name = "Privacy Shutters";
@@ -27434,6 +27433,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
 	id = "Security_private";
 	opacity = 0
@@ -28740,7 +28740,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "RD-shutters";
 	name = "Privacy Shutters";
@@ -31344,7 +31343,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
-	dir = 4;
 	icon_state = "shutter0";
 	id = "RD-shutters";
 	name = "Privacy Shutters";
@@ -32743,6 +32741,7 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
 	id = "HoP_private";
 	opacity = 0
@@ -34313,9 +34312,7 @@
 	},
 /area/station/hallway/secondary/exit)
 "xFt" = (
-/obj/machinery/computer/cargo{
-	req_access = list()
-	},
+/obj/machinery/computer/cargo/qm,
 /obj/machinery/light/smart{
 	dir = 1
 	},
