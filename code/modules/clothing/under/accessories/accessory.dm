@@ -52,6 +52,7 @@
 
 /obj/item/clothing/accessory/tie
 	layer_priority = 0.1
+	slot_flags = SLOT_FLAGS_NECK | SLOT_FLAGS_TIE
 
 /obj/item/clothing/accessory/tie/blue
 	name = "blue tie"
@@ -74,6 +75,7 @@
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
 	icon_state = "waistcoat"
+	slot_flags = SLOT_FLAGS_TIE
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
@@ -159,11 +161,13 @@
 	name = "bronze cross"
 	desc = "That's a little bronze cross for wearing under the clothes."
 	icon_state = "bronze_cross"
+	slot_flags = SLOT_FLAGS_NECK | SLOT_FLAGS_TIE
 
 /obj/item/clothing/accessory/metal_cross
 	name = "metal cross"
 	desc = "That's a little metal cross for wearing under the clothes."
 	icon_state = "metal_cross"
+	slot_flags = SLOT_FLAGS_NECK | SLOT_FLAGS_TIE
 
 //Medals
 /datum/medal
@@ -221,8 +225,8 @@
 		var/input
 		var/awarded_name
 		if(!commended && user != H)
-			awarded_name = sanitize(input(user, "Name of awarded person?", "Name", H.name) as null|text)
-			input = sanitize(input(user, "Reason for this commendation? Describe their accomplishments", "Commendation") as null|text)
+			awarded_name = sanitize(input(user, "Name of awarded person?", "Name", H.name) as null|text, MAX_LNAME_LEN)
+			input = sanitize(input(user, "Reason for this commendation? Describe their accomplishments", "Commendation") as null|text, MAX_MEDAL_REASON_LEN)
 		if(do_after(user, delay, target = H))
 			C.attach_accessory(src, user)
 			if(user != H)
@@ -234,9 +238,10 @@
 					log_game("<b>[key_name(H)]</b> was given the following commendation by <b>[key_name(user)]</b>: [input]")
 					message_admins("<b>[key_name_admin(H)]</b> was given the following commendation by <b>[key_name_admin(user)]</b>: [input]")
 					if(awarded_name)
-						var/datum/medal/medal = new(H.key, awarded_name, name, user.name, input, image(icon, icon_state))
+						var/parent_name = sanitize(user.name)
+						var/datum/medal/medal = new(H.key, awarded_name, name, parent_name, input, image(icon, icon_state))
 						SSticker.medal_list.Add(medal)
-						SSStatistics.add_medal(H.key, awarded_name, name, user.name, input)
+						SSStatistics.add_medal(H.key, awarded_name, name, parent_name, input)
 		return
 
 	..()
@@ -338,7 +343,7 @@
 
 /obj/item/clothing/accessory/holobadge/cord
 	icon_state = "holobadge-cord"
-	slot_flags = SLOT_FLAGS_MASK | SLOT_FLAGS_TIE
+	slot_flags = SLOT_FLAGS_NECK | SLOT_FLAGS_TIE
 
 /obj/item/clothing/accessory/holobadge/attack_self(mob/user)
 	if(!stored_name)
