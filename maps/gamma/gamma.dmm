@@ -9982,7 +9982,7 @@
 	dir = 4
 	},
 /obj/item/weapon/reagent_containers/food/snacks/soap/deluxe,
-/obj/item/weapon/bikehorn/rubberducky,
+/obj/item/weapon/bikehorn/rubberducky/cap,
 /obj/structure/drain{
 	drainage = 2
 	},
@@ -81637,7 +81637,7 @@
 /turf/simulated/floor,
 /area/station/civilian/locker)
 "pnC" = (
-/obj/structure/sign/departments/medbay/lifestar{
+/obj/structure/sign/departments/medbay{
 	pixel_x = 16
 	},
 /turf/simulated/wall,
