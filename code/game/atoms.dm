@@ -77,6 +77,16 @@
 	var/can_block_air = FALSE // shared flag between /turf/s and /movable/s, you should use it only for movables
 	                          // if you want to set it true for object then remember to create CanPass or c_airblock methods or it will do nothing (pls refactor it)
 
+	var/list/particles_by_quality = list(
+											QUALITY_CUTTING = /particles/tool/cut,
+											QUALITY_PRYING = null,
+											QUALITY_WRENCHING = /particles/tool/wrench,
+											QUALITY_SCREWING = /particles/tool/screw,
+											QUALITY_WELDING = null,
+											QUALITY_PULSING = null,
+											QUALITY_SIGNALLING = null,
+										)
+
 /atom/New(loc, ...)
 	if(use_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
@@ -422,8 +432,8 @@
 		//First, make sure their DNA makes sense.
 		var/mob/living/carbon/human/H = M
 
-		if(H.species.flags[NO_FINGERPRINT]) // They don't leave readable fingerprints, but admins gotta know.
-			fingerprintshidden += "(Specie has no fingerprints) Real name: [H.real_name], Key: [H.key]"
+		if(!HAS_TRAIT(H, TRAIT_NO_FINGERPRINT)) // They don't leave readable fingerprints, but admins gotta know.
+			fingerprintshidden += "(Mob has no fingerprints) Real name: [H.real_name], Key: [H.key]"
 			fingerprintslast = H.key
 			return 0
 
@@ -539,7 +549,7 @@
 	if (!istype(M))
 		return FALSE
 
-	if(M.species.flags[NO_BLOOD_TRAILS])
+	if(HAS_TRAIT(M, TRAIT_NO_BLOOD))
 		return FALSE
 
 	if(M.reagents.has_reagent("metatrombine"))
@@ -551,7 +561,7 @@
 	M.check_dna()
 	if(!blood_DNA || !istype(blood_DNA, /list))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
 		blood_DNA = list()
-	add_dirt_cover(M.species.blood_datum, FALSE) // FALSE - dont call update_inv_slot in add_dirt_cover as it will be handled in human/add_blood or it will be double call and runtime
+	add_dirt_cover(M.get_blood_datum(), FALSE) // FALSE - dont call update_inv_slot in add_dirt_cover as it will be handled in human/add_blood or it will be double call and runtime
 
 /atom/proc/add_dirt_cover(dirt_datum)
 	SHOULD_CALL_PARENT(TRUE)

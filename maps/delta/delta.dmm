@@ -8780,7 +8780,7 @@
 /area/station/security/prison)
 "aoH" = (
 /obj/structure/table,
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin/full,
 /turf/simulated/floor{
 	icon_state = "greenbluefull"
 	},
@@ -13618,8 +13618,8 @@
 /area/station/engineering/monitoring)
 "awq" = (
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 32;
-	pixel_y = -1
+	pixel_x = 28;
+	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/red,
 /area/station/security/detectives_office)
@@ -16726,6 +16726,27 @@
 	},
 /turf/simulated/floor/plating/airless/catwalk,
 /area/station/solar/port)
+"aCj" = (
+/obj/structure/table/reinforced,
+/obj/machinery/alarm{
+	pixel_y = -32
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/weapon/folder/red,
+/obj/item/weapon/pen,
+/turf/simulated/floor{
+	dir = 9;
+	icon_state = "redchoco"
+	},
+/area/station/security/checkpoint/medbay)
 "aCD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
@@ -17710,7 +17731,6 @@
 /area/station/civilian/library)
 "aPM" = (
 /obj/structure/table,
-/obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/item/weapon/grenade/chem_grenade/cleaner,
 /obj/item/weapon/grenade/chem_grenade/cleaner,
 /obj/item/weapon/grenade/chem_grenade/cleaner,
@@ -20087,10 +20107,13 @@
 /area/station/hallway/primary/fore)
 "bra" = (
 /obj/structure/table/reinforced,
-/obj/item/device/assembly/timer,
 /obj/machinery/light/smart{
 	dir = 8
 	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/device/assembly/timer,
 /turf/simulated/floor{
 	icon_state = "graychoco"
 	},
@@ -29937,7 +29960,7 @@
 /area/station/storage/tech)
 "dGo" = (
 /obj/structure/table,
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin/full,
 /obj/machinery/light/smart{
 	dir = 8
 	},
@@ -30136,8 +30159,8 @@
 "dIJ" = (
 /obj/item/weapon/flora/random,
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 32;
-	pixel_y = -1
+	pixel_x = 28;
+	pixel_y = 5
 	},
 /turf/simulated/floor{
 	icon_state = "grimy"
@@ -31773,7 +31796,7 @@
 /area/station/rnd/chargebay)
 "eel" = (
 /obj/structure/table,
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin/full,
 /obj/effect/decal/turf_decal/blue{
 	dir = 4;
 	icon_state = "siding_line"
@@ -34666,17 +34689,24 @@
 /turf/simulated/floor,
 /area/station/maintenance/science)
 "ePL" = (
-/obj/structure/table/reinforced,
-/obj/machinery/alarm{
-	pixel_y = -32
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
-/obj/item/weapon/folder/red,
-/obj/item/weapon/pen,
+/obj/structure/table/woodentable,
+/obj/machinery/door/poddoor/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "bar_reva_shuttes";
+	name = "Bar Shutters";
+	opacity = 0
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
 /turf/simulated/floor{
-	dir = 9;
-	icon_state = "redchoco"
+	icon_state = "blackchoco"
 	},
-/area/station/security/checkpoint/medbay)
+/area/station/hallway/primary/fore)
 "ePN" = (
 /obj/item/device/radio/beacon,
 /obj/structure/cable{
@@ -45769,6 +45799,7 @@
 /area/station/hallway/secondary/entry)
 "hwF" = (
 /obj/structure/table/woodentable/poker,
+/obj/item/station_map/delta,
 /turf/simulated/floor/carpet/green,
 /area/station/hallway/primary/fore)
 "hwM" = (
@@ -52332,8 +52363,8 @@
 /area/station/maintenance/dormitory)
 "iXe" = (
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 39;
-	pixel_y = 1
+	pixel_x = 28;
+	pixel_y = 5
 	},
 /turf/simulated/floor{
 	icon_state = "blackchoco"
@@ -53105,7 +53136,6 @@
 /area/station/hallway/secondary/entry)
 "jhj" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -53116,6 +53146,19 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -60901,6 +60944,15 @@
 	pixel_x = 29;
 	pixel_y = -6
 	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
 /turf/simulated/floor{
 	dir = 4;
 	icon_state = "red"
@@ -65667,6 +65719,15 @@
 /obj/structure/table/reinforced,
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = 32
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
 	},
 /turf/simulated/floor{
 	dir = 9;
@@ -74542,7 +74603,8 @@
 /area/station/medical/sleeper)
 "olc" = (
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = -24
+	pixel_x = -28;
+	pixel_y = 5
 	},
 /turf/simulated/floor{
 	dir = 8;
@@ -78306,7 +78368,8 @@
 	icon_state = "1-4"
 	},
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = -24
+	pixel_x = -28;
+	pixel_y = 5
 	},
 /turf/simulated/floor{
 	dir = 8;
@@ -78397,14 +78460,29 @@
 /area/station/civilian/hydroponics)
 "plZ" = (
 /obj/structure/table/woodentable,
-/obj/item/device/tagger/shop,
-/obj/item/weapon/packageWrap,
 /obj/effect/decal/turf_decal/wood/dark{
 	icon_state = "siding_wood_line"
 	},
 /obj/structure/sign/poster/official/love_ian{
 	pixel_x = 32
 	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/station_map/delta{
+	pixel_y = 6
+	},
+/obj/item/device/tagger/shop,
+/obj/item/weapon/packageWrap,
 /turf/simulated/floor/wood,
 /area/station/bridge/hop_office)
 "pmc" = (
@@ -83443,8 +83521,7 @@
 /obj/item/weapon/clipboard,
 /obj/item/weapon/mining_voucher,
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 5;
-	pixel_y = 28
+	pixel_y = 32
 	},
 /turf/simulated/floor{
 	icon_state = "blackchoco"
@@ -96711,13 +96788,13 @@
 	},
 /area/station/bridge)
 "tKX" = (
-/obj/item/weapon/storage/secure/safe{
-	pixel_x = 32;
-	pixel_y = -1
-	},
 /obj/structure/table/woodentable,
 /obj/item/weapon/book/manual/wiki/possible_threats,
 /obj/item/weapon/paper/cmf_manual,
+/obj/item/weapon/storage/secure/safe{
+	pixel_x = 28;
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood,
 /area/station/bridge/hop_office)
 "tKY" = (
@@ -105006,8 +105083,8 @@
 	pixel_y = 9
 	},
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 32;
-	pixel_y = -1
+	pixel_x = 28;
+	pixel_y = 5
 	},
 /turf/simulated/floor{
 	icon_state = "dark"
@@ -108225,8 +108302,7 @@
 	icon_state = "bot_old"
 	},
 /obj/item/weapon/storage/secure/safe{
-	pixel_x = 5;
-	pixel_y = 28
+	pixel_y = 32
 	},
 /turf/simulated/floor{
 	icon_state = "blackchoco"
@@ -108309,12 +108385,12 @@
 	},
 /obj/structure/rack,
 /obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo/small,
+/obj/item/weapon/rcd_ammo/small,
+/obj/item/weapon/rcd_ammo/small,
+/obj/item/weapon/rcd_ammo/small,
+/obj/item/weapon/rcd_ammo/small,
+/obj/item/weapon/rcd_ammo/small,
 /obj/effect/decal/turf_decal/alpha/yellow{
 	icon_state = "bot_old"
 	},
@@ -151611,7 +151687,7 @@ bnx
 rSY
 bnx
 mye
-bnx
+ePL
 tJq
 eEt
 tJq
@@ -152973,7 +153049,7 @@ rSa
 elV
 rIb
 kQf
-ePL
+aCj
 rSa
 btc
 oqm
