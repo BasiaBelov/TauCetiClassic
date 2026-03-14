@@ -863,22 +863,28 @@
 	SEND_SIGNAL(user, COMSIG_HUMAN_HARMED_OTHER, M)
 
 	add_fingerprint(user)
-	if(M != user)
-		visible_message("<span class='warning'>[M] has been stabbed in the eye with [src] by [user].</span>", ignored_mobs = list(user, M))
-		to_chat(M, "<span class='warning'>[user] stabs you in the eye with [src]!</span>")
-		to_chat(user, "<span class='warning'>You stab [M] in the eye with [src]!</span>")
-	else
-		user.visible_message( \
-			"<span class='warning'>[user] has stabbed themself with [src]!</span>", \
-			"<span class='warning'>You stab yourself in the eyes with [src]!</span>" \
-		)
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/IO = H.organs_by_name[O_EYES]
+		if(!IO)
+			visible_message("<span class='warning'>[user] tried to stab [M] in the eyes with [src].</span>", ignored_mobs = list(user, M))
+			to_chat(M, "<span class='warning'>[user] tries to stab you in the eye with [src]!</span>")
+			to_chat(user, "<span class='warning'>You try to stab [M] in the eye with [src]!</span>")
+			return
 		IO.damage += rand(force * 0.5, force)
+		if(M != user)
+			visible_message("<span class='warning'>[M] has been stabbed in the eye with [src] by [user].</span>", ignored_mobs = list(user, M))
+			to_chat(M, "<span class='warning'>[user] stabs you in the eye with [src]!</span>")
+			to_chat(user, "<span class='warning'>You stab [M] in the eye with [src]!</span>")
+		else
+			user.visible_message( \
+				"<span class='warning'>[user] has stabbed themself with [src]!</span>", \
+				"<span class='warning'>You stab yourself in the eyes with [src]!</span>" \
+			)
 		if(IO.damage >= IO.min_bruised_damage)
 			if(H.stat != DEAD)
-				if(IO.robotic <= 1) //robot eyes bleeding might be a bit silly
+				if(!IO.is_robotic()) //robot eyes bleeding might be a bit silly
 					to_chat(H, "<span class='warning'>Your eyes start to bleed profusely!</span>")
 			if(prob(10 * force))
 				if(H.stat != DEAD)
@@ -1085,3 +1091,18 @@
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	SEND_SIGNAL(H, COMSIG_CLICK_CTRL_SHIFT, src)
+
+/obj/item/try_wrap_up(texture_name = "cardboard", details_name = null)
+	var/size = round(w_class)
+	if(size < SIZE_MINUSCULE || size > SIZE_BIG)
+		return null
+
+	var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(get_turf(loc))	//Aaannd wrap it up!
+	P.w_class = w_class
+	P.icon_state = "deliverycrate[size]"
+
+	P.add_texture(texture_name, details_name)
+
+	forceMove(P)
+
+	return P
