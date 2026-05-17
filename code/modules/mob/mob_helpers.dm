@@ -334,9 +334,23 @@ var/global/list/cursed_words = list("МРАЧНЫЕ ВРЕМЕНА", "ТЬМА",
 		time_spent += time
 
 	animate(pixel_x=oldx, pixel_y=oldy, time=3)
+	addtimer(CALLBACK(C, TYPE_PROC_REF(/client, restore_default_pixel_values)), 0.4 SECONDS)
 
 #undef TILES_PER_SECOND
 
+#define DIRECTIONAL_RECOIL_POWER_MULTIPLIER 4
+
+/proc/directional_recoil(mob/M, strength=1, angle = 0)
+	if(!M || !M.client)
+		return
+	var/client/C = M.client
+	var/recoil_x = -sin(angle) * DIRECTIONAL_RECOIL_POWER_MULTIPLIER * strength + rand(-strength, strength)
+	var/recoil_y = -cos(angle) * DIRECTIONAL_RECOIL_POWER_MULTIPLIER * strength + rand(-strength, strength)
+	animate(C, pixel_x=recoil_x, pixel_y=recoil_y, time=0.1 SECONDS, easing=SINE_EASING|EASE_OUT, flags=ANIMATION_PARALLEL|ANIMATION_RELATIVE)
+	animate(pixel_x=0, pixel_y=0, time=0.3 SECONDS, easing=SINE_EASING|EASE_IN)
+	addtimer(CALLBACK(C, TYPE_PROC_REF(/client, restore_default_pixel_values)), 0.4 SECONDS)
+
+#undef DIRECTIONAL_RECOIL_POWER_MULTIPLIER
 
 /proc/findname(msg)
 	for(var/mob/M as anything in mob_list)
@@ -547,7 +561,8 @@ var/global/list/intents = list(INTENT_HELP, INTENT_PUSH, INTENT_GRAB, INTENT_HAR
 			playsound(ghost, ghost_sound, VOL_EFFECTS_MASTER, notify_volume)
 		if(!source)
 			continue
-		var/atom/movable/screen/alert/notify_action/alert = ghost.throw_alert("[REF(source)]_notify_action", /atom/movable/screen/alert/notify_action, new_master=source)
+		// Don't pass new_master when we have a custom overlay — throw_alert would add source as overlay (showing its icon, e.g. blue X for landmarks)
+		var/atom/movable/screen/alert/notify_action/alert = ghost.throw_alert("[REF(source)]_notify_action", /atom/movable/screen/alert/notify_action, new_master = alert_overlay ? null : source)
 		if(!alert)
 			continue
 		if (header)

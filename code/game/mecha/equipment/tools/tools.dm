@@ -30,6 +30,7 @@
 		var/obj/O = target
 		if(!O.anchored)
 			if(cargo_holder.cargo.len < cargo_holder.cargo_capacity)
+				playsound(target, 'sound/mecha/hydraulic.ogg', VOL_EFFECTS_MASTER)
 				occupant_message("You lift [target] and start to load it into cargo compartment.")
 				chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
 				set_ready_state(0)
@@ -67,6 +68,7 @@
 			var/obj/structure/droppod/Drop = target
 			if(Drop.stat_flags & STATE_DROPING || Drop.intruder || Drop.second_intruder)
 				return
+			playsound(target, 'sound/mecha/hydraulic.ogg', VOL_EFFECTS_MASTER)
 			var/T = chassis.loc
 			if(do_after_cooldown(Drop) && T == chassis.loc && src == chassis.selected\
 			&& !Drop.intruder && !Drop.second_intruder && !(Drop.stat_flags & STATE_DROPING) && !(Drop.stat_flags & STATE_AIMING))
@@ -126,6 +128,7 @@
 
 	if(do_after_cooldown(target))
 		if(T == chassis.loc && src == chassis.selected)
+			playsound(target, 'sound/mecha/mechdrill.ogg', VOL_EFFECTS_MASTER)
 			if(istype(target, /turf/simulated/wall/r_wall))
 				occupant_message("<font color='red'>[target] is too durable to drill through.</font>")
 			else if(istype(target, /turf/simulated/mineral) || istype(target, /obj/structure/flora/mine_rocks))
@@ -196,6 +199,7 @@
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
 		if(T == chassis.loc && src == chassis.selected)
+			playsound(target, 'sound/mecha/mechdrill.ogg', VOL_EFFECTS_MASTER)
 			if(istype(target, /turf/simulated/wall/r_wall))
 				if(do_after_cooldown(target))//To slow down how fast mechs can drill through the station
 					log_message("Drilled through [target]")
@@ -377,16 +381,15 @@
 					chassis.use_power(energy_drain*2)
 		if(2)
 			if(isfloorturf(target))
-				occupant_message("Building Airlock...")
+				occupant_message("Building Airlock Assembly...")
 				set_ready_state(0)
 				if(do_after_cooldown(target))
 					if(disabled) return
 					chassis.spark_system.start()
-					var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock(target)
-					T.autoclose = 1
-					playsound(target, 'sound/items/Deconstruct.ogg', VOL_EFFECTS_MASTER)
-					playsound(target, 'sound/effects/sparks2.ogg', VOL_EFFECTS_MASTER)
-					chassis.use_power(energy_drain*2)
+					var/obj/structure/door_assembly/DA = new /obj/structure/door_assembly(target)
+					DA.anchored = TRUE
+					DA.state = ASSEMBLY_WIRED
+					DA.update_state()
 	return
 
 
